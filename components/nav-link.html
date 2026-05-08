@@ -1,0 +1,49 @@
+<!--
+  Nav Link — RezusCloud Design System
+  Active: pill background (paper/next-light)
+  Inactive: muted text with hover background
+-->
+<nav class="ds-nav-demo">
+	<a href="#features" class="ds-nav-active">Features</a>
+	<a href="#architecture" class="ds-nav">Architecture</a>
+</nav>
+
+<style>
+.ds-nav-active {
+	padding: 0.5rem 0.75rem;
+	background: oklch(99.5% 0.004 85);
+	color: oklch(14% 0.008 65);
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-weight: 700;
+	font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	border-radius: 0;
+	text-decoration: none;
+}
+.dark .ds-nav-active {
+	background: oklch(58% 0.006 270);
+	color: oklch(6% 0.005 270);
+}
+.ds-nav {
+	padding: 0.5rem 0.75rem;
+	color: oklch(30% 0.008 65);
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-weight: 700;
+	font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	border-radius: 0;
+	text-decoration: none;
+	transition: background 0.15s, color 0.15s;
+}
+.ds-nav:hover {
+	background: oklch(95.5% 0.004 85);
+}
+.dark .ds-nav {
+	color: oklch(72% 0.012 85);
+}
+.dark .ds-nav:hover {
+	background: oklch(34% 0.006 270);
+}
+</style>

@@ -1,0 +1,15 @@
+{
+  "easings": {
+    "standard": "cubic-bezier(0.25, 1, 0.5, 1)",
+    "color": "150ms"
+  },
+  "animations": {
+    "crt-flicker": { "timing": "step-end 60ms", "purpose": "Theme toggle white overlay flash" },
+    "blink-cursor": { "timing": "1s step-end infinite", "purpose": "Terminal cursor blink" },
+    "crt-scroll": { "timing": "8s linear infinite", "purpose": "Scanline vertical scroll" },
+    "typewriter": { "timing": "220ms per line", "purpose": "Terminal line reveal delay" },
+    "fade-in-up": { "duration": "0.3s", "easing": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Staggered page-load entrance" },
+    "reveal-stagger": { "delays": ["0s", "0.1s", "0.2s", "0.3s", "0.4s", "0.5s", "0.6s", "0.7s", "0.8s"] },
+    "phosphor-afterglow": { "duration": "2.5s", "easing": "ease-out", "purpose": "NeXT terminal text glow fade" }
+  }
+}

@@ -1,0 +1,80 @@
+<!--
+  Terminal Window — RezusCloud Design System
+  Mac: dark container with 1px border, animated stripe title bar, dot indicators
+  NeXT: sunken bevel, teal prompts, phosphor afterglow
+-->
+<div class="ds-terminal">
+	<div class="ds-terminal-bar">
+		<span class="ds-terminal-dot" style="background:oklch(55% 0.15 25)"></span>
+		<span class="ds-terminal-dot" style="background:oklch(75% 0.15 90)"></span>
+		<span class="ds-terminal-dot" style="background:oklch(55% 0.15 150)"></span>
+		<span class="ds-terminal-title">rezusctl</span>
+	</div>
+	<div class="ds-terminal-body">
+		<p class="ds-terminal-line"><span class="ds-terminal-prompt">$</span> rezusctl init</p>
+		<p class="ds-terminal-line">Cluster ready. 2 nodes. 30s.</p>
+		<p class="ds-terminal-line"><span class="ds-terminal-prompt">$</span> <span class="ds-terminal-cursor">_</span></p>
+	</div>
+</div>
+
+<style>
+.ds-terminal {
+	background: oklch(6% 0.005 270);
+	border: 1px solid oklch(14% 0.008 65);
+	border-radius: 0;
+	overflow: hidden;
+	box-shadow: 1px 1px 0 oklch(14% 0.008 65);
+}
+.dark .ds-terminal {
+	border: 2px solid;
+	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
+	box-shadow: none;
+}
+.ds-terminal-bar {
+	display: flex;
+	align-items: center;
+	gap: 0.375rem;
+	padding: 0.5rem 0.75rem;
+	border-bottom: 1px solid oklch(14% 0.008 65);
+	background: repeating-linear-gradient(to bottom, #000 0px, #000 1px, #fff 1px, #fff 2px);
+}
+.dark .ds-terminal-bar {
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	background: oklch(34% 0.006 270);
+}
+.ds-terminal-dot {
+	width: 0.625rem;
+	height: 0.625rem;
+	border: 1px solid oklch(30% 0.008 65);
+	border-radius: 0;
+}
+.ds-terminal-title {
+	margin-left: 0.5rem;
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 10px;
+	color: oklch(30% 0.008 65);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+.dark .ds-terminal-title { color: oklch(72% 0.012 85); }
+.dark .ds-terminal-dot { display: none; }
+.ds-terminal-body { padding: 1rem; }
+.ds-terminal-line {
+	font-family: "VT323", "Courier New", monospace;
+	font-size: 0.75rem;
+	color: oklch(30% 0.008 65);
+	margin: 0.25rem 0;
+}
+.dark .ds-terminal-line { color: oklch(72% 0.012 85); }
+.ds-terminal-prompt { color: oklch(78% 0.16 75); }
+.dark .ds-terminal-prompt { color: oklch(60% 0.08 170); }
+.ds-terminal-cursor {
+	color: oklch(14% 0.008 65);
+	animation: ds-blink 1s step-end infinite;
+}
+.dark .ds-terminal-cursor { color: oklch(88% 0.004 270); }
+@keyframes ds-blink {
+	0%, 49% { opacity: 1; }
+	50%, 100% { opacity: 0; }
+}
+</style>

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "mac": {
+    "paper":          { "$value": "oklch(99.5% 0.004 85)",  "$type": "color", "role": "primary-background" },
+    "surface":        { "$value": "oklch(95.5% 0.004 85)",  "$type": "color", "role": "alternating-background" },
+    "surface-strong": { "$value": "oklch(88.5% 0.006 85)",  "$type": "color", "role": "chrome-surface" },
+    "ink":            { "$value": "oklch(14% 0.008 65)",    "$type": "color", "role": "primary-text" },
+    "ink-muted":      { "$value": "oklch(30% 0.008 65)",    "$type": "color", "role": "secondary-text" },
+    "rule":           { "$value": "oklch(72% 0.005 85)",    "$type": "color", "role": "border-divider" },
+    "accent-gold":    { "$value": "oklch(78% 0.16 75)",     "$type": "color", "role": "accent" },
+    "accent-gold-dark": { "$value": "oklch(65% 0.14 75)",   "$type": "color", "role": "accent-hover" }
+  },
+  "next": {
+    "black":    { "$value": "oklch(6% 0.005 270)",   "$type": "color", "role": "primary-background" },
+    "dark":     { "$value": "oklch(20% 0.006 270)",   "$type": "color", "role": "alternating-background" },
+    "mid":      { "$value": "oklch(34% 0.006 270)",   "$type": "color", "role": "hover-background" },
+    "light":    { "$value": "oklch(58% 0.006 270)",   "$type": "color", "role": "chrome-active" },
+    "white":    { "$value": "oklch(88% 0.004 270)",   "$type": "color", "role": "primary-text" },
+    "subtle":   { "$value": "oklch(72% 0.012 85)",    "$type": "color", "role": "secondary-text" },
+    "bevel-hi": { "$value": "oklch(55% 0.006 270)",   "$type": "color", "role": "bevel-highlight" },
+    "bevel-lo": { "$value": "oklch(2% 0.004 270)",    "$type": "color", "role": "bevel-shadow" },
+    "teal":     { "$value": "oklch(60% 0.08 170)",    "$type": "color", "role": "accent-text" },
+    "teal-hi":  { "$value": "oklch(70% 0.07 170)",    "$type": "color", "role": "accent-background" }
+  },
+  "semantic": {
+    "positive":      { "$value": "oklch(55% 0.12 150)", "$type": "color", "role": "success-light" },
+    "positive-next": { "$value": "oklch(75% 0.14 150)", "$type": "color", "role": "success-dark" },
+    "negative":      { "$value": "oklch(50% 0.12 25)",  "$type": "color", "role": "error-light" },
+    "negative-next": { "$value": "oklch(65% 0.14 25)",  "$type": "color", "role": "error-dark" }
+  }
+}

@@ -1,0 +1,47 @@
+<!--
+  Tech Badge — RezusCloud Design System
+  Technology tag in the Built With strip.
+  Mac: surface-strong bg, 1px rule border
+  NeXT: black bg, 2px raised bevel
+-->
+<span class="ds-badge">
+	<span class="ds-badge-dot"></span>
+	Kubernetes
+</span>
+
+<style>
+.ds-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.375rem;
+	padding: 0.5rem 0.75rem;
+	background: oklch(88.5% 0.006 85);
+	border: 1px solid oklch(72% 0.005 85);
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.75rem;
+	color: oklch(14% 0.008 65);
+	border-radius: 0;
+	transition: border-color 0.15s;
+}
+.ds-badge:hover {
+	border-color: oklch(78% 0.16 75);
+}
+.ds-badge-dot {
+	width: 0.25rem;
+	height: 0.25rem;
+	background: oklch(78% 0.16 75);
+	border-radius: 0;
+}
+.dark .ds-badge {
+	background: oklch(6% 0.005 270);
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	color: oklch(88% 0.004 270);
+}
+.dark .ds-badge:hover {
+	border-color: oklch(72% 0.012 85) oklch(6% 0.005 270) oklch(6% 0.005 270) oklch(72% 0.012 85);
+}
+.dark .ds-badge-dot {
+	background: oklch(70% 0.07 170);
+}
+</style>

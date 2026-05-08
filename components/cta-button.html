@@ -1,0 +1,47 @@
+<!--
+  CTA Button — RezusCloud Design System
+  Mac: inky black bg, paper text, 1px border
+  NeXT: teal bg, black text, 2px raised bevel
+-->
+<a href="#" class="ds-cta">
+	<span>See Why It Matters</span>
+	<svg class="ds-cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+		<path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+	</svg>
+</a>
+
+<style>
+.ds-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.75rem 1.5rem;
+	background: oklch(14% 0.008 65);
+	color: oklch(99.5% 0.004 85);
+	font-weight: 700;
+	font-family: "Silkscreen", system-ui, sans-serif;
+	border: 1px solid oklch(14% 0.008 65);
+	transition: background 0.15s, color 0.15s;
+	cursor: pointer;
+	border-radius: 0;
+	text-decoration: none;
+}
+.ds-cta:hover {
+	background: oklch(78% 0.16 75);
+	color: oklch(14% 0.008 65);
+}
+.ds-cta-icon {
+	width: 1rem;
+	height: 1rem;
+}
+.dark .ds-cta {
+	background: oklch(70% 0.07 170);
+	color: oklch(6% 0.005 270);
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+}
+.dark .ds-cta:hover {
+	background: oklch(34% 0.006 270);
+	color: oklch(6% 0.005 270);
+}
+</style>

@@ -1,0 +1,306 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	/*
+	 * Color strategy: Committed (brand register).
+	 * Mac mode: warm-tinted neutrals (amber hue 85) + amber gold accent.
+	 * NeXT mode: cool-tinted neutrals (slate hue 270) + teal accent.
+	 */
+
+	/* Mac mode */
+	--color-paper: oklch(99.5% 0.004 85);
+	--color-surface: oklch(95.5% 0.004 85);
+	--color-surface-strong: oklch(88.5% 0.006 85);
+	--color-ink: oklch(14% 0.008 65);
+	--color-ink-muted: oklch(30% 0.008 65);
+	--color-rule: oklch(72% 0.005 85);
+	--color-accent-gold: oklch(78% 0.16 75);
+	--color-accent-gold-dark: oklch(65% 0.14 75);
+
+	/* NeXT mode */
+	--color-next-black: oklch(6% 0.005 270);
+	--color-next-dark: oklch(20% 0.006 270);
+	--color-next-mid: oklch(34% 0.006 270);
+	--color-next-light: oklch(58% 0.006 270);
+	--color-next-white: oklch(88% 0.004 270);
+	--color-next-subtle: oklch(72% 0.012 85);
+	--color-next-bevel-hi: oklch(55% 0.006 270);
+	--color-next-bevel-lo: oklch(2% 0.004 270);
+	--color-next-teal: oklch(60% 0.08 170);
+	--color-next-teal-hi: oklch(70% 0.07 170);
+
+	/* Semantic */
+	--color-positive: oklch(55% 0.12 150);
+	--color-positive-next: oklch(75% 0.14 150);
+	--color-negative: oklch(50% 0.12 25);
+	--color-negative-next: oklch(65% 0.14 25);
+
+	/* Font families */
+	--font-display: "Silkscreen", system-ui, sans-serif;
+	--font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+	--font-mono: "VT323", "Courier New", monospace;
+}
+
+/* Font face declarations */
+@font-face {
+	font-family: "Silkscreen";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("./fonts/Silkscreen-Regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Silkscreen";
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("./fonts/Silkscreen-Bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "VT323";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("./fonts/VT323-Regular.woff2") format("woff2");
+	unicode-range: U+0020-007F, U+2713;
+}
+
+/* Focus indicators */
+:focus-visible {
+	outline: 2px solid var(--color-accent-gold);
+	outline-offset: 2px;
+}
+
+.dark :focus-visible {
+	outline-color: var(--color-next-light);
+}
+
+/* NeXT bevels */
+@utility next-raised {
+	border: 2px solid;
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+}
+
+@utility next-sunken {
+	border: 2px solid;
+	border-color: var(--color-next-bevel-lo) var(--color-next-bevel-hi) var(--color-next-bevel-hi) var(--color-next-bevel-lo);
+}
+
+/* Mac title bar pattern */
+@utility mac-title-bar {
+	background: repeating-linear-gradient(
+		to bottom,
+		#000000 0px, #000000 1px,
+		#ffffff 1px, #ffffff 2px
+	);
+}
+
+/* Mac window shadow */
+@utility mac-window-shadow {
+	box-shadow: 1px 1px 0 var(--color-ink);
+}
+
+/* Animations */
+@keyframes blink {
+	0%, 49% { opacity: 1; }
+	50%, 100% { opacity: 0; }
+}
+
+@keyframes fade-in-up {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@utility animate-blink {
+	animation: blink 1s step-end infinite;
+}
+
+@utility animate-fade-in-up {
+	animation: fade-in-up 0.4s ease-out forwards;
+}
+
+/* NeXT CRT scanlines */
+@utility next-scanlines {
+	background-image:
+		repeating-linear-gradient(
+			0deg,
+			rgba(255, 255, 255, 0.0) 0px,
+			rgba(255, 255, 255, 0.0) 1px,
+			rgba(255, 255, 255, 0.08) 1px,
+			rgba(255, 255, 255, 0.08) 2px
+		);
+	background-size: 100% 4px;
+	animation: crt-scroll 8s linear infinite;
+}
+
+@keyframes crt-scroll {
+	from { background-position: 0 0; }
+	to { background-position: 0 4px; }
+}
+
+/* Mac dot grid */
+@utility mac-dots {
+	background-image: radial-gradient(circle, var(--color-ink) 0.5px, transparent 0.5px);
+	background-size: 12px 12px;
+	transition: background-position 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Staggered reveal */
+@utility animate-reveal {
+	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+	opacity: 0;
+}
+
+@utility animate-reveal-d1 {
+	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
+	opacity: 0;
+}
+
+@utility animate-reveal-d2 {
+	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+	opacity: 0;
+}
+
+@utility animate-reveal-d3 {
+	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+	opacity: 0;
+}
+
+@utility animate-reveal-d4 {
+	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards;
+	opacity: 0;
+}
+
+@utility animate-reveal-d5 {
+	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards;
+	opacity: 0;
+}
+
+@utility animate-reveal-d6 {
+	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.6s forwards;
+	opacity: 0;
+}
+
+@utility animate-reveal-d7 {
+	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.7s forwards;
+	opacity: 0;
+}
+
+@utility animate-reveal-d8 {
+	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.8s forwards;
+	opacity: 0;
+}
+
+/* Terminal typewriter */
+[data-line] {
+	opacity: 0;
+}
+
+[data-line].typed {
+	opacity: 1;
+}
+
+[data-line].typed {
+	text-shadow: 0 0 6px rgba(200, 200, 200, 0.6), 0 0 12px rgba(200, 200, 200, 0.3);
+	animation: phosphor-fade 2.5s ease-out forwards;
+}
+
+@keyframes phosphor-fade {
+	from {
+		text-shadow: 0 0 6px rgba(200, 200, 200, 0.6), 0 0 12px rgba(200, 200, 200, 0.3);
+	}
+	to {
+		text-shadow: none;
+	}
+}
+
+/* Mac title bar stripes */
+.mac-title-bar-animated {
+	background: repeating-linear-gradient(
+		-45deg,
+		oklch(82% 0.004 85) 0px, oklch(82% 0.004 85) 2px,
+		oklch(92% 0.004 85) 2px, oklch(92% 0.004 85) 4px
+	);
+	background-size: 24px 24px;
+}
+
+/* NeXT bevel hover */
+.next-bevel-hover {
+	transition: border-color 0.15s cubic-bezier(0.25, 1, 0.5, 1),
+				box-shadow 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.next-bevel-hover:hover {
+	border-color: var(--color-next-subtle) var(--color-next-black) var(--color-next-black) var(--color-next-subtle);
+	box-shadow: inset 0 0 0 0;
+}
+
+/* Scroll reveal */
+[data-reveal] {
+	transition: opacity 0.2s cubic-bezier(0.25, 1, 0.5, 1),
+				transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+[data-reveal]:not(.revealed) {
+	opacity: 0;
+	transform: translateY(4px);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	[data-line] {
+		opacity: 1 !important;
+		text-shadow: none !important;
+	}
+	[data-reveal] {
+		opacity: 1 !important;
+		transform: none !important;
+		transition: none !important;
+	}
+	.animate-reveal,
+	.animate-reveal-d1,
+	.animate-reveal-d2,
+	.animate-reveal-d3,
+	.animate-reveal-d4,
+	.animate-reveal-d5,
+	.animate-reveal-d6,
+	.animate-reveal-d7,
+	.animate-reveal-d8 {
+		animation: none !important;
+		opacity: 1 !important;
+	}
+	.animate-blink {
+		animation: none !important;
+	}
+	.next-scanlines {
+		animation: none !important;
+	}
+	.mac-title-bar-animated {
+		animation: none !important;
+	}
+	.mac-dots {
+		transition: none !important;
+	}
+}
+
+/* Print */
+@media print {
+	*,
+	*::before,
+	*::after {
+		background: white !important;
+		color: black !important;
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+}

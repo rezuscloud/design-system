@@ -1,0 +1,18 @@
+{
+  "section": {
+    "sm": "3.5rem 4rem",
+    "md": "5rem 7rem"
+  },
+  "nav": {
+    "px": "0.75rem",
+    "py": "0.5rem"
+  },
+  "button": {
+    "px": "1.5rem",
+    "py": "0.75rem"
+  },
+  "icon-square": {
+    "primary": "3rem",
+    "secondary": "2.5rem"
+  }
+}

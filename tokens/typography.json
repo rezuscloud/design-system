@@ -1,0 +1,15 @@
+{
+  "families": {
+    "display": { "fontFamily": "Silkscreen, system-ui, sans-serif", "fontWeight": 700 },
+    "body":    { "fontFamily": "system-ui, -apple-system, Segoe UI, sans-serif", "fontWeight": 400 },
+    "mono":    { "fontFamily": "VT323, Courier New, monospace", "fontWeight": 400 }
+  },
+  "scale": {
+    "display": { "size": "text-8xl", "weight": 700, "lineHeight": "leading-none", "purpose": "Hero headline only" },
+    "headline": { "size": "text-2xl to text-3xl", "weight": 700, "lineHeight": "leading-snug to leading-tight", "purpose": "Section headings" },
+    "title": { "size": "text-lg to text-xl", "weight": 700, "lineHeight": "leading-snug", "purpose": "Sub-section headings, card titles" },
+    "body": { "size": "text-sm to text-lg", "weight": 400, "lineHeight": "leading-relaxed", "maxLineLength": "65-75ch", "purpose": "Paragraph copy" },
+    "label": { "size": "text-xs", "weight": 700, "tracking": "tracking-widest", "transform": "uppercase", "purpose": "Nav links, badges, tech tags" },
+    "mono": { "size": "text-sm to text-base", "weight": 400, "purpose": "Terminal output, code" }
+  }
+}
