@@ -1,0 +1,84 @@
+<!--
+  Pagination — RezusCloud Design System
+  Mac: surface-strong bg, 1px rule border, ink active, paper active bg
+  NeXT: next-dark bg, 2px raised bevel, teal active
+-->
+<nav class="ds-pagination" aria-label="Pagination">
+	<button class="ds-pagination-btn ds-pagination-btn--disabled" disabled aria-label="Previous">
+		<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+			<path d="M8 2L4 6l4 4" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>
+	</button>
+	<button class="ds-pagination-btn ds-pagination-btn--active" aria-current="page">1</button>
+	<button class="ds-pagination-btn">2</button>
+	<button class="ds-pagination-btn">3</button>
+	<span class="ds-pagination-ellipsis">&#8230;</span>
+	<button class="ds-pagination-btn">12</button>
+	<button class="ds-pagination-btn" aria-label="Next">
+		<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+			<path d="M4 2l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>
+	</button>
+</nav>
+
+<style>
+.ds-pagination {
+	display: flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+.ds-pagination-btn {
+	width: 2rem;
+	height: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: oklch(88.5% 0.006 85);
+	border: 1px solid oklch(72% 0.005 85);
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	color: oklch(14% 0.008 65);
+	cursor: pointer;
+	border-radius: 0;
+	transition: background 0.15s, border-color 0.15s;
+}
+.ds-pagination-btn:hover:not(:disabled):not(.ds-pagination-btn--active) {
+	border-color: oklch(78% 0.16 75);
+}
+.ds-pagination-btn--active {
+	background: oklch(14% 0.008 65);
+	color: oklch(99.5% 0.004 85);
+	border-color: oklch(14% 0.008 65);
+}
+.ds-pagination-btn--disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+.ds-pagination-btn svg {
+	width: 0.625rem;
+	height: 0.625rem;
+}
+.dark .ds-pagination-btn {
+	background: oklch(20% 0.006 270);
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	color: oklch(88% 0.004 270);
+}
+.dark .ds-pagination-btn:hover:not(:disabled):not(.ds-pagination-btn--active) {
+	border-color: oklch(72% 0.012 85) oklch(6% 0.005 270) oklch(6% 0.005 270) oklch(72% 0.012 85);
+}
+.dark .ds-pagination-btn--active {
+	background: oklch(70% 0.07 170);
+	color: oklch(6% 0.005 270);
+}
+.ds-pagination-ellipsis {
+	font-family: "VT323", "Courier New", monospace;
+	font-size: 0.875rem;
+	color: oklch(72% 0.005 85);
+	padding: 0 0.25rem;
+}
+.dark .ds-pagination-ellipsis {
+	color: oklch(58% 0.006 270);
+}
+</style>

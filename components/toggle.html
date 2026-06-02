@@ -1,0 +1,98 @@
+<!--
+  Toggle — RezusCloud Design System
+  NeXTSTEP-style two-position switch.
+  Mac: ink track when on, rule track when off. Square thumb.
+  NeXT: teal track when on, next-mid track when off. Raised bevel thumb.
+-->
+<label class="ds-toggle">
+	<input type="checkbox" class="ds-toggle-input" checked />
+	<span class="ds-toggle-track">
+		<span class="ds-toggle-thumb"></span>
+	</span>
+	<span class="ds-toggle-label">Dark Mode</span>
+</label>
+
+<label class="ds-toggle">
+	<input type="checkbox" class="ds-toggle-input" />
+	<span class="ds-toggle-track">
+		<span class="ds-toggle-thumb"></span>
+	</span>
+	<span class="ds-toggle-label">GPU Scheduling</span>
+</label>
+
+<style>
+.ds-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	cursor: pointer;
+	user-select: none;
+}
+.ds-toggle-input {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+.ds-toggle-track {
+	width: 2.5rem;
+	height: 1.25rem;
+	display: flex;
+	align-items: center;
+	padding: 0.125rem;
+	background: oklch(72% 0.005 85);
+	border: 1px solid oklch(72% 0.005 85);
+	border-radius: 0;
+	transition: background 0.15s, border-color 0.15s;
+}
+.ds-toggle-thumb {
+	width: 1rem;
+	height: 1rem;
+	background: oklch(99.5% 0.004 85);
+	border: 1px solid oklch(72% 0.005 85);
+	border-radius: 0;
+	transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.ds-toggle-input:checked + .ds-toggle-track {
+	background: oklch(14% 0.008 65);
+	border-color: oklch(14% 0.008 65);
+}
+.ds-toggle-input:checked + .ds-toggle-track .ds-toggle-thumb {
+	transform: translateX(1.25rem);
+	border-color: oklch(14% 0.008 65);
+}
+.ds-toggle-input:focus-visible + .ds-toggle-track {
+	outline: 2px solid oklch(78% 0.16 75);
+	outline-offset: 2px;
+}
+.dark .ds-toggle-track {
+	background: oklch(34% 0.006 270);
+	border: 2px solid;
+	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
+}
+.dark .ds-toggle-thumb {
+	width: 0.875rem;
+	height: 0.875rem;
+	background: oklch(88% 0.004 270);
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+}
+.dark .ds-toggle-input:checked + .ds-toggle-track {
+	background: oklch(60% 0.08 170);
+	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
+}
+.dark .ds-toggle-input:checked + .ds-toggle-track .ds-toggle-thumb {
+	transform: translateX(1.25rem);
+}
+.dark .ds-toggle-input:focus-visible + .ds-toggle-track {
+	outline-color: oklch(58% 0.006 270);
+}
+.ds-toggle-label {
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	font-size: 0.875rem;
+	color: oklch(14% 0.008 65);
+}
+.dark .ds-toggle-label {
+	color: oklch(88% 0.004 270);
+}
+</style>

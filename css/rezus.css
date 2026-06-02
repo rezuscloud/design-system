@@ -293,6 +293,32 @@
 	}
 }
 
+/* Focus ring utilities */
+@utility focus-mac {
+	outline: 2px solid var(--color-accent-gold);
+	outline-offset: 2px;
+}
+
+@utility focus-next {
+	outline: 2px solid var(--color-next-light);
+	outline-offset: 2px;
+}
+
+/* NeXT sunken bevel (for inputs and inset fields) */
+@utility next-sunken {
+	border: 2px solid;
+	border-color: var(--color-next-bevel-lo) var(--color-next-bevel-hi) var(--color-next-bevel-hi) var(--color-next-bevel-lo);
+}
+
+/* Z-index layers (see tokens/z-index.json) */
+@utility z-dropdown { z-index: 100; }
+@utility z-sticky { z-index: 200; }
+@utility z-overlay { z-index: 300; }
+@utility z-modal { z-index: 400; }
+@utility z-toast { z-index: 500; }
+@utility z-tooltip { z-index: 600; }
+@utility z-max { z-index: 9999; }
+
 /* Print */
 @media print {
 	*,

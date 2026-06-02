@@ -1,0 +1,48 @@
+<!--
+  Status Dot — RezusCloud Design System
+  Small colored square indicating resource status.
+  Uses semantic colors: positive (green), negative (red), neutral (muted).
+-->
+<div style="display: flex; gap: 0.75rem; align-items: center;">
+	<span class="ds-status-dot ds-status-dot--positive" aria-label="Healthy"></span>
+	<span class="ds-status-dot ds-status-dot--negative" aria-label="Error"></span>
+	<span class="ds-status-dot ds-status-dot--neutral" aria-label="Unknown"></span>
+</div>
+
+<style>
+.ds-status-dot {
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 0;
+	flex-shrink: 0;
+	display: inline-block;
+}
+.ds-status-dot--positive {
+	background: oklch(55% 0.12 150);
+}
+.ds-status-dot--negative {
+	background: oklch(50% 0.12 25);
+	animation: ds-status-blink 2s step-end infinite;
+}
+.ds-status-dot--neutral {
+	background: oklch(72% 0.005 85);
+}
+.dark .ds-status-dot--positive {
+	background: oklch(75% 0.14 150);
+}
+.dark .ds-status-dot--negative {
+	background: oklch(65% 0.14 25);
+}
+.dark .ds-status-dot--neutral {
+	background: oklch(58% 0.006 270);
+}
+@keyframes ds-status-blink {
+	0%, 70% { opacity: 1; }
+	71%, 100% { opacity: 0.3; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.ds-status-dot--negative {
+		animation: none;
+	}
+}
+</style>

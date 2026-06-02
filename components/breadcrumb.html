@@ -1,0 +1,77 @@
+<!--
+  Breadcrumb — RezusCloud Design System
+  Mac: ink text, muted separators, rule-colored dividers
+  NeXT: next-white text, next-teal active, muted separators
+-->
+<nav class="ds-breadcrumb" aria-label="Breadcrumb">
+	<ol class="ds-breadcrumb-list">
+		<li class="ds-breadcrumb-item">
+			<a href="#" class="ds-breadcrumb-link">Clusters</a>
+		</li>
+		<li class="ds-breadcrumb-item">
+			<a href="#" class="ds-breadcrumb-link">production-eu</a>
+		</li>
+		<li class="ds-breadcrumb-item">
+			<a href="#" class="ds-breadcrumb-link">Namespaces</a>
+		</li>
+		<li class="ds-breadcrumb-item">
+			<span class="ds-breadcrumb-current" aria-current="page">monitoring</span>
+		</li>
+	</ol>
+</nav>
+
+<style>
+.ds-breadcrumb-list {
+	display: flex;
+	align-items: center;
+	gap: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.ds-breadcrumb-item {
+	display: flex;
+	align-items: center;
+}
+.ds-breadcrumb-item + .ds-breadcrumb-item::before {
+	content: "/";
+	display: inline-block;
+	margin: 0 0.375rem;
+	font-family: "VT323", "Courier New", monospace;
+	color: oklch(72% 0.005 85);
+}
+.dark .ds-breadcrumb-item + .ds-breadcrumb-item::before {
+	color: oklch(58% 0.006 270);
+}
+.ds-breadcrumb-link {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	color: oklch(30% 0.008 65);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	text-decoration: none;
+	border-radius: 0;
+	transition: color 0.15s;
+}
+.ds-breadcrumb-link:hover {
+	color: oklch(14% 0.008 65);
+}
+.dark .ds-breadcrumb-link {
+	color: oklch(72% 0.012 85);
+}
+.dark .ds-breadcrumb-link:hover {
+	color: oklch(88% 0.004 270);
+}
+.ds-breadcrumb-current {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	color: oklch(14% 0.008 65);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-breadcrumb-current {
+	color: oklch(60% 0.08 170);
+}
+</style>

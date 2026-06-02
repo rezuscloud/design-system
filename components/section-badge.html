@@ -1,0 +1,38 @@
+<!--
+  Section Badge — RezusCloud Design System
+  Label badge for section headings. Silkscreen label, uppercase, tracking-widest.
+  Mac: ink text, accent-gold dot separator
+  NeXT: next-white text, next-teal dot separator
+-->
+<span class="ds-section-badge">
+	<span class="ds-section-badge-part">The Machine Room</span>
+	<span class="ds-section-badge-sep">//</span>
+	<span class="ds-section-badge-part">Build Your Cloud</span>
+</span>
+
+<style>
+.ds-section-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	color: oklch(14% 0.008 65);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-section-badge {
+	color: oklch(88% 0.004 270);
+}
+.ds-section-badge-sep {
+	color: oklch(78% 0.16 75);
+	margin: 0 0.125rem;
+}
+.dark .ds-section-badge-sep {
+	color: oklch(60% 0.08 170);
+}
+.ds-section-badge-part {
+	display: inline;
+}
+</style>

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "input": {
+    "height": { "$value": "2.25rem", "$type": "dimension", "role": "standard-input-height" },
+    "padding-x": { "$value": "0.75rem", "$type": "dimension", "role": "horizontal-padding" },
+    "padding-y": { "$value": "0.5rem", "$type": "dimension", "role": "vertical-padding" },
+    "border-mac": { "$value": "1px solid", "$type": "border", "role": "mac-mode-input-border" },
+    "border-next": { "$value": "2px solid", "$type": "border", "role": "next-mode-input-bevel" },
+    "focus-ring-mac": { "$value": "oklch(14% 0.008 65)", "$type": "color", "role": "focus-border-color" },
+    "focus-ring-next": { "$value": "oklch(60% 0.08 170)", "$type": "color", "role": "focus-bezel-color" },
+    "font-size": { "$value": "0.875rem", "$type": "dimension", "role": "input-text-size" },
+    "label-size": { "$value": "0.75rem", "$type": "dimension", "role": "label-text-size" },
+    "help-size": { "$value": "0.75rem", "$type": "dimension", "role": "help-text-size" }
+  },
+  "checkbox": {
+    "size": { "$value": "1rem", "$type": "dimension", "role": "checkbox-box-size" },
+    "icon-size": { "$value": "0.75rem", "$type": "dimension", "role": "checkmark-icon-size" }
+  },
+  "radio": {
+    "size": { "$value": "1rem", "$type": "dimension", "role": "radio-box-size" },
+    "dot-size": { "$value": "0.5rem", "$type": "dimension", "role": "selected-dot-size" }
+  },
+  "toggle": {
+    "width": { "$value": "2.5rem", "$type": "dimension", "role": "toggle-track-width" },
+    "height": { "$value": "1.25rem", "$type": "dimension", "role": "toggle-track-height" },
+    "thumb-size": { "$value": "1rem", "$type": "dimension", "role": "toggle-thumb-size" }
+  },
+  "select": {
+    "padding-right": { "$value": "2rem", "$type": "dimension", "role": "space-for-chevron" }
+  },
+  "textarea": {
+    "min-rows": { "$value": 3, "$type": "number", "role": "minimum-visible-lines" }
+  }
+}

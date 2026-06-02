@@ -1,0 +1,113 @@
+<!--
+  Empty State — RezusCloud Design System
+  Centered placeholder for views with no data.
+  Mac: surface bg, accent-gold icon, ink text
+  NeXT: next-dark bg, teal icon, next-white text
+-->
+<div class="ds-empty">
+	<div class="ds-empty-icon">
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path>
+		</svg>
+	</div>
+	<span class="ds-empty-title">No Deployments Yet</span>
+	<p class="ds-empty-text">Push your first workload to get started. Use the CLI or connect your Git repository for automatic deployments.</p>
+	<button class="ds-empty-action">
+		<span>Deploy Your First Workload</span>
+		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+		</svg>
+	</button>
+</div>
+
+<style>
+.ds-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 3rem 1.5rem;
+	max-width: 24rem;
+	margin: 0 auto;
+}
+.ds-empty-icon {
+	width: 3rem;
+	height: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: oklch(78% 0.16 75);
+	border: 1px solid oklch(14% 0.008 65);
+	border-radius: 0;
+	margin-bottom: 1rem;
+}
+.ds-empty-icon svg {
+	width: 1.25rem;
+	height: 1.25rem;
+	color: oklch(14% 0.008 65);
+}
+.dark .ds-empty-icon {
+	background: oklch(70% 0.07 170);
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+}
+.dark .ds-empty-icon svg {
+	color: oklch(6% 0.005 270);
+}
+.ds-empty-title {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: oklch(14% 0.008 65);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-bottom: 0.5rem;
+}
+.dark .ds-empty-title {
+	color: oklch(88% 0.004 270);
+}
+.ds-empty-text {
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	font-size: 0.8125rem;
+	color: oklch(30% 0.008 65);
+	line-height: 1.6;
+	margin: 0 0 1rem 0;
+	max-width: 40ch;
+}
+.dark .ds-empty-text {
+	color: oklch(72% 0.012 85);
+}
+.ds-empty-action {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.75rem 1.5rem;
+	background: oklch(14% 0.008 65);
+	color: oklch(99.5% 0.004 85);
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-weight: 700;
+	font-size: 0.75rem;
+	border: 1px solid oklch(14% 0.008 65);
+	cursor: pointer;
+	border-radius: 0;
+	transition: background 0.15s, color 0.15s;
+}
+.ds-empty-action:hover {
+	background: oklch(78% 0.16 75);
+	color: oklch(14% 0.008 65);
+}
+.ds-empty-action svg {
+	width: 0.875rem;
+	height: 0.875rem;
+}
+.dark .ds-empty-action {
+	background: oklch(70% 0.07 170);
+	color: oklch(6% 0.005 270);
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+}
+.dark .ds-empty-action:hover {
+	background: oklch(34% 0.006 270);
+	color: oklch(88% 0.004 270);
+}
+</style>

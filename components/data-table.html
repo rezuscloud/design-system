@@ -1,0 +1,126 @@
+<!--
+  Data Table — RezusCloud Design System
+  Mac: 1px rule borders, alternating paper/surface rows
+  NeXT: minimal borders, alternating next-black/next-dark rows
+-->
+<div class="ds-table-wrapper">
+	<table class="ds-table">
+		<thead>
+			<tr>
+				<th class="ds-table-th">Node</th>
+				<th class="ds-table-th">Status</th>
+				<th class="ds-table-th">CPU</th>
+				<th class="ds-table-th">Memory</th>
+				<th class="ds-table-th">Region</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="ds-table-row">
+				<td class="ds-table-td"><span class="ds-table-mono">control-01</span></td>
+				<td class="ds-table-td"><span class="ds-table-status ds-table-status--positive">Ready</span></td>
+				<td class="ds-table-td">12%</td>
+				<td class="ds-table-td">2.1 GB</td>
+				<td class="ds-table-td">eu-west</td>
+			</tr>
+			<tr class="ds-table-row">
+				<td class="ds-table-td"><span class="ds-table-mono">worker-01</span></td>
+				<td class="ds-table-td"><span class="ds-table-status ds-table-status--positive">Ready</span></td>
+				<td class="ds-table-td">67%</td>
+				<td class="ds-table-td">14.3 GB</td>
+				<td class="ds-table-td">eu-west</td>
+			</tr>
+			<tr class="ds-table-row">
+				<td class="ds-table-td"><span class="ds-table-mono">worker-02</span></td>
+				<td class="ds-table-td"><span class="ds-table-status ds-table-status--negative">Pressure</span></td>
+				<td class="ds-table-td">94%</td>
+				<td class="ds-table-td">28.7 GB</td>
+				<td class="ds-table-td">eu-west</td>
+			</tr>
+			<tr class="ds-table-row">
+				<td class="ds-table-td"><span class="ds-table-mono">worker-03</span></td>
+				<td class="ds-table-td"><span class="ds-table-status ds-table-status--positive">Ready</span></td>
+				<td class="ds-table-td">23%</td>
+				<td class="ds-table-td">5.8 GB</td>
+				<td class="ds-table-td">eu-central</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<style>
+.ds-table-wrapper {
+	overflow-x: auto;
+	border: 1px solid oklch(72% 0.005 85);
+}
+.dark .ds-table-wrapper {
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+}
+.ds-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.ds-table-th {
+	padding: 0.5rem 0.75rem;
+	background: oklch(88.5% 0.006 85);
+	border-bottom: 1px solid oklch(72% 0.005 85);
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.625rem;
+	font-weight: 700;
+	color: oklch(14% 0.008 65);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	text-align: left;
+}
+.dark .ds-table-th {
+	background: oklch(34% 0.006 270);
+	border-bottom: 2px solid oklch(55% 0.006 270);
+	color: oklch(60% 0.08 170);
+}
+.ds-table-row:nth-child(even) {
+	background: oklch(95.5% 0.004 85);
+}
+.dark .ds-table-row:nth-child(even) {
+	background: oklch(20% 0.006 270);
+}
+.ds-table-row:hover {
+	background: oklch(95.5% 0.004 85);
+}
+.dark .ds-table-row:hover {
+	background: oklch(34% 0.006 270);
+}
+.ds-table-td {
+	padding: 0.5rem 0.75rem;
+	border-bottom: 1px solid oklch(72% 0.005 85);
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	font-size: 0.8125rem;
+	color: oklch(14% 0.008 65);
+}
+.dark .ds-table-td {
+	border-bottom: 1px solid oklch(55% 0.006 270);
+	color: oklch(88% 0.004 270);
+}
+.ds-table-mono {
+	font-family: "VT323", "Courier New", monospace;
+	font-size: 0.875rem;
+}
+.ds-table-status {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.ds-table-status--positive {
+	color: oklch(55% 0.12 150);
+}
+.ds-table-status--negative {
+	color: oklch(50% 0.12 25);
+}
+.dark .ds-table-status--positive {
+	color: oklch(75% 0.14 150);
+}
+.dark .ds-table-status--negative {
+	color: oklch(65% 0.14 25);
+}
+</style>

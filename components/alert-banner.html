@@ -1,0 +1,98 @@
+<!--
+  Alert Banner — RezusCloud Design System
+  System-level notification banners.
+  Mac: 1px ink border, accent-colored left marker, surface bg
+  NeXT: 2px raised bevel, accent-colored left marker, next-dark bg
+-->
+<div class="ds-alert ds-alert--info">
+	<span class="ds-alert-icon">
+		<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm-.75 3.5h1.5v1.5h-1.5V4.5zm0 3h1.5v4h-1.5v-4z"></path></svg>
+	</span>
+	<div class="ds-alert-content">
+		<span class="ds-alert-title">Scheduled Maintenance</span>
+		<p class="ds-alert-text">Control plane upgrades begin at 02:00 UTC. Expected downtime: 5 minutes.</p>
+	</div>
+</div>
+
+<div class="ds-alert ds-alert--positive">
+	<span class="ds-alert-icon">
+		<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.03 5.53l-3.75 3.75a.75.75 0 01-1.06 0l-1.5-1.5 1.06-1.06.97.97 3.22-3.22 1.06 1.06z"></path></svg>
+	</span>
+	<div class="ds-alert-content">
+		<span class="ds-alert-title">Cluster Healthy</span>
+		<p class="ds-alert-text">All 12 nodes reporting. 48 pods running across 3 namespaces.</p>
+	</div>
+</div>
+
+<div class="ds-alert ds-alert--negative">
+	<span class="ds-alert-icon">
+		<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm.75 9.5h-1.5v-1.5h1.5v1.5zm0-3h-1.5v-4h1.5v4z"></path></svg>
+	</span>
+	<div class="ds-alert-content">
+		<span class="ds-alert-title">Node Pressure</span>
+		<p class="ds-alert-text">Worker-03 disk usage at 92%. Consider scaling storage.</p>
+	</div>
+</div>
+
+<style>
+.ds-alert {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	padding: 0.75rem 1rem;
+	background: oklch(95.5% 0.004 85);
+	border: 1px solid oklch(72% 0.005 85);
+	border-radius: 0;
+}
+.dark .ds-alert {
+	background: oklch(20% 0.006 270);
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+}
+.ds-alert-icon {
+	width: 1.25rem;
+	height: 1.25rem;
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 0.0625rem;
+}
+.ds-alert-icon svg {
+	width: 1rem;
+	height: 1rem;
+}
+.ds-alert--info .ds-alert-icon { color: oklch(14% 0.008 65); }
+.ds-alert--positive .ds-alert-icon { color: oklch(55% 0.12 150); }
+.ds-alert--negative .ds-alert-icon { color: oklch(50% 0.12 25); }
+.dark .ds-alert--info .ds-alert-icon { color: oklch(88% 0.004 270); }
+.dark .ds-alert--positive .ds-alert-icon { color: oklch(75% 0.14 150); }
+.dark .ds-alert--negative .ds-alert-icon { color: oklch(65% 0.14 25); }
+.ds-alert-content {
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+	min-width: 0;
+}
+.ds-alert-title {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: oklch(14% 0.008 65);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-alert-title {
+	color: oklch(88% 0.004 270);
+}
+.ds-alert-text {
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	font-size: 0.8125rem;
+	color: oklch(30% 0.008 65);
+	margin: 0;
+	line-height: 1.5;
+}
+.dark .ds-alert-text {
+	color: oklch(72% 0.012 85);
+}
+</style>

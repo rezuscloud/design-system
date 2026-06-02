@@ -1,0 +1,53 @@
+<!--
+  Skeleton — RezusCloud Design System
+  Placeholder layout for loading content.
+  Mac: surface bg with subtle shimmer
+  NeXT: next-dark bg with subtle shimmer
+-->
+<div class="ds-skeleton-group">
+	<div class="ds-skeleton ds-skeleton--heading" style="width: 40%;"></div>
+	<div class="ds-skeleton" style="width: 100%;"></div>
+	<div class="ds-skeleton" style="width: 85%;"></div>
+	<div class="ds-skeleton" style="width: 60%;"></div>
+	<div style="height: 0.75rem;"></div>
+	<div class="ds-skeleton ds-skeleton--heading" style="width: 30%;"></div>
+	<div class="ds-skeleton" style="width: 100%;"></div>
+	<div class="ds-skeleton" style="width: 75%;"></div>
+</div>
+
+<style>
+.ds-skeleton-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+.ds-skeleton {
+	height: 0.875rem;
+	background: oklch(95.5% 0.004 85);
+	border: 1px solid oklch(95.5% 0.004 85);
+	border-radius: 0;
+	animation: ds-skeleton-pulse 1.5s ease-in-out infinite;
+}
+.ds-skeleton--heading {
+	height: 1.125rem;
+	background: oklch(88.5% 0.006 85);
+	border-color: oklch(88.5% 0.006 85);
+}
+.dark .ds-skeleton {
+	background: oklch(34% 0.006 270);
+	border-color: oklch(34% 0.006 270);
+}
+.dark .ds-skeleton--heading {
+	background: oklch(20% 0.006 270);
+	border-color: oklch(20% 0.006 270);
+}
+@keyframes ds-skeleton-pulse {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.5; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.ds-skeleton {
+		animation: none;
+	}
+}
+</style>

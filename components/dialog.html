@@ -1,0 +1,167 @@
+<!--
+  Dialog — RezusCloud Design System
+  Mac: paper bg, 1px ink border, mac-window-shadow, title bar with close
+  NeXT: next-dark bg, 2px raised bevel frame, title bar with bevel
+-->
+<div class="ds-dialog-backdrop">
+	<div class="ds-dialog" role="dialog" aria-modal="true" aria-labelledby="ds-dialog-title">
+		<div class="ds-dialog-bar">
+			<span class="ds-dialog-title" id="ds-dialog-title">Confirm Deployment</span>
+			<button class="ds-dialog-close" aria-label="Close">
+				<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="M2 2l8 8M10 2l-8 8" stroke-linecap="round"></path>
+				</svg>
+			</button>
+		</div>
+		<div class="ds-dialog-body">
+			<p class="ds-dialog-text">You are about to deploy <strong>3 pods</strong> to the <strong>production</strong> namespace. This action will trigger a rolling update with zero-downtime strategy.</p>
+		</div>
+		<div class="ds-dialog-actions">
+			<button class="ds-dialog-btn ds-dialog-btn--secondary">Cancel</button>
+			<button class="ds-dialog-btn ds-dialog-btn--primary">Deploy</button>
+		</div>
+	</div>
+</div>
+
+<style>
+.ds-dialog-backdrop {
+	background: oklch(14% 0.008 65 / 0.3);
+	padding: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.dark .ds-dialog-backdrop {
+	background: oklch(6% 0.005 270 / 0.6);
+}
+.ds-dialog {
+	background: oklch(99.5% 0.004 85);
+	border: 1px solid oklch(14% 0.008 65);
+	border-radius: 0;
+	box-shadow: 1px 1px 0 oklch(14% 0.008 65);
+	max-width: 28rem;
+	width: 100%;
+}
+.dark .ds-dialog {
+	background: oklch(20% 0.006 270);
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	box-shadow: none;
+}
+.ds-dialog-bar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem 0.75rem;
+	border-bottom: 1px solid oklch(72% 0.005 85);
+	background: oklch(95.5% 0.004 85);
+}
+.dark .ds-dialog-bar {
+	border-bottom: 2px solid oklch(55% 0.006 270);
+	background: oklch(34% 0.006 270);
+}
+.ds-dialog-title {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.6875rem;
+	font-weight: 700;
+	color: oklch(14% 0.008 65);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+.dark .ds-dialog-title {
+	color: oklch(88% 0.004 270);
+}
+.ds-dialog-close {
+	width: 1.25rem;
+	height: 1.25rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: none;
+	border: 1px solid oklch(72% 0.005 85);
+	cursor: pointer;
+	color: oklch(30% 0.008 65);
+	padding: 0;
+	border-radius: 0;
+	transition: background 0.15s, color 0.15s;
+}
+.ds-dialog-close:hover {
+	background: oklch(14% 0.008 65);
+	color: oklch(99.5% 0.004 85);
+}
+.dark .ds-dialog-close {
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	color: oklch(72% 0.012 85);
+}
+.dark .ds-dialog-close:hover {
+	background: oklch(60% 0.08 170);
+	color: oklch(6% 0.005 270);
+}
+.ds-dialog-close svg {
+	width: 0.625rem;
+	height: 0.625rem;
+}
+.ds-dialog-body {
+	padding: 1rem 0.75rem;
+}
+.ds-dialog-text {
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	font-size: 0.875rem;
+	color: oklch(14% 0.008 65);
+	line-height: 1.6;
+	margin: 0;
+}
+.dark .ds-dialog-text {
+	color: oklch(88% 0.004 270);
+}
+.ds-dialog-text strong {
+	font-weight: 600;
+}
+.ds-dialog-actions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.5rem;
+	padding: 0.75rem;
+	border-top: 1px solid oklch(72% 0.005 85);
+}
+.dark .ds-dialog-actions {
+	border-top: 2px solid oklch(55% 0.006 270);
+}
+.ds-dialog-btn {
+	padding: 0.5rem 1rem;
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	border-radius: 0;
+	cursor: pointer;
+	transition: background 0.15s, color 0.15s;
+	border: 1px solid oklch(72% 0.005 85);
+	background: oklch(95.5% 0.004 85);
+	color: oklch(14% 0.008 65);
+}
+.ds-dialog-btn--primary {
+	background: oklch(14% 0.008 65);
+	color: oklch(99.5% 0.004 85);
+	border-color: oklch(14% 0.008 65);
+}
+.ds-dialog-btn--primary:hover {
+	background: oklch(78% 0.16 75);
+	color: oklch(14% 0.008 65);
+}
+.dark .ds-dialog-btn {
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	background: oklch(34% 0.006 270);
+	color: oklch(88% 0.004 270);
+}
+.dark .ds-dialog-btn--primary {
+	background: oklch(70% 0.07 170);
+	color: oklch(6% 0.005 270);
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+}
+.dark .ds-dialog-btn--primary:hover {
+	background: oklch(34% 0.006 270);
+	color: oklch(88% 0.004 270);
+}
+</style>

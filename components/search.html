@@ -1,0 +1,79 @@
+<!--
+  Search Input — RezusCloud Design System
+  Full-width search with icon. For navigating resources.
+  Mac: paper bg, 1px rule border, ink icon
+  NeXT: next-black bg, sunken bevel, next-light icon
+-->
+<div class="ds-search">
+	<svg class="ds-search-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+		<circle cx="6.5" cy="6.5" r="4.5"></circle>
+		<path d="M10 10l4 4" stroke-linecap="round"></path>
+	</svg>
+	<input type="search" class="ds-search-input" placeholder="Search resources..." aria-label="Search" />
+	<span class="ds-search-hint">/</span>
+</div>
+
+<style>
+.ds-search {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.ds-search-icon {
+	position: absolute;
+	left: 0.75rem;
+	width: 0.875rem;
+	height: 0.875rem;
+	color: oklch(72% 0.005 85);
+	pointer-events: none;
+}
+.dark .ds-search-icon {
+	color: oklch(58% 0.006 270);
+}
+.ds-search-input {
+	width: 100%;
+	padding: 0.5rem 2rem 0.5rem 2rem;
+	background: oklch(99.5% 0.004 85);
+	border: 1px solid oklch(72% 0.005 85);
+	color: oklch(14% 0.008 65);
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	border-radius: 0;
+	outline: none;
+	transition: border-color 0.15s;
+}
+.ds-search-input::placeholder {
+	color: oklch(72% 0.005 85);
+}
+.ds-search-input:focus {
+	border-color: oklch(14% 0.008 65);
+}
+.dark .ds-search-input {
+	background: oklch(6% 0.005 270);
+	border: 2px solid;
+	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
+	color: oklch(88% 0.004 270);
+}
+.dark .ds-search-input::placeholder {
+	color: oklch(58% 0.006 270);
+}
+.dark .ds-search-input:focus {
+	border-color: oklch(60% 0.08 170) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(60% 0.08 170);
+}
+.ds-search-hint {
+	position: absolute;
+	right: 0.75rem;
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	font-weight: 700;
+	color: oklch(72% 0.005 85);
+	border: 1px solid oklch(72% 0.005 85);
+	padding: 0.0625rem 0.25rem;
+	pointer-events: none;
+}
+.dark .ds-search-hint {
+	color: oklch(58% 0.006 270);
+	border-color: oklch(55% 0.006 270);
+}
+</style>

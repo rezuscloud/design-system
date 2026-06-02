@@ -1,18 +1,42 @@
 {
+  "$schema": "https://design-tokens.github.io/community-group/format/",
   "section": {
-    "sm": "3.5rem 4rem",
-    "md": "5rem 7rem"
+    "sm": { "$value": "3.5rem 4rem", "$type": "dimension", "role": "compact-section-padding" },
+    "md": { "$value": "5rem 7rem", "$type": "dimension", "role": "standard-section-padding" }
   },
   "nav": {
-    "px": "0.75rem",
-    "py": "0.5rem"
+    "px": { "$value": "0.75rem", "$type": "dimension", "role": "nav-link-horizontal-padding" },
+    "py": { "$value": "0.5rem", "$type": "dimension", "role": "nav-link-vertical-padding" }
   },
   "button": {
-    "px": "1.5rem",
-    "py": "0.75rem"
+    "px": { "$value": "1.5rem", "$type": "dimension", "role": "button-horizontal-padding" },
+    "py": { "$value": "0.75rem", "$type": "dimension", "role": "button-vertical-padding" }
   },
   "icon-square": {
-    "primary": "3rem",
-    "secondary": "2.5rem"
+    "primary": { "$value": "3rem", "$type": "dimension", "role": "standard-icon-square" },
+    "secondary": { "$value": "2.5rem", "$type": "dimension", "role": "small-icon-square" }
+  },
+  "sidebar": {
+    "width": { "$value": "14rem", "$type": "dimension", "role": "sidebar-navigation-width" },
+    "link-px": { "$value": "0.75rem", "$type": "dimension", "role": "sidebar-link-horizontal-padding" },
+    "link-py": { "$value": "0.5rem", "$type": "dimension", "role": "sidebar-link-vertical-padding" }
+  },
+  "table": {
+    "cell-px": { "$value": "0.75rem", "$type": "dimension", "role": "table-cell-horizontal-padding" },
+    "cell-py": { "$value": "0.5rem", "$type": "dimension", "role": "table-cell-vertical-padding" }
+  },
+  "dialog": {
+    "max-width": { "$value": "28rem", "$type": "dimension", "role": "dialog-maximum-width" },
+    "body-px": { "$value": "0.75rem", "$type": "dimension", "role": "dialog-body-horizontal-padding" },
+    "body-py": { "$value": "1rem", "$type": "dimension", "role": "dialog-body-vertical-padding" }
+  },
+  "alert": {
+    "px": { "$value": "1rem", "$type": "dimension", "role": "alert-horizontal-padding" },
+    "py": { "$value": "0.75rem", "$type": "dimension", "role": "alert-vertical-padding" }
+  },
+  "toast": {
+    "max-width": { "$value": "22rem", "$type": "dimension", "role": "toast-maximum-width" },
+    "px": { "$value": "0.75rem", "$type": "dimension", "role": "toast-horizontal-padding" },
+    "py": { "$value": "0.75rem", "$type": "dimension", "role": "toast-vertical-padding" }
   }
 }

@@ -1,0 +1,49 @@
+<!--
+  Text Area — RezusCloud Design System
+  Mac: 1px ink border, paper bg, resizable
+  NeXT: 2px sunken bevel, next-black bg, resizable
+-->
+<div class="ds-input-group">
+	<label class="ds-input-label" for="ds-textarea-demo">Configuration YAML</label>
+	<textarea id="ds-textarea-demo" class="ds-textarea" rows="5" placeholder="apiVersion: v1&#10;kind: ConfigMap&#10;metadata:&#10;  name: my-config"></textarea>
+	<span class="ds-input-help">Paste your configuration or edit inline.</span>
+</div>
+
+<style>
+.ds-textarea {
+	padding: 0.5rem 0.75rem;
+	background: oklch(99.5% 0.004 85);
+	border: 1px solid oklch(72% 0.005 85);
+	color: oklch(14% 0.008 65);
+	font-family: "VT323", "Courier New", monospace;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	border-radius: 0;
+	outline: none;
+	resize: vertical;
+	transition: border-color 0.15s;
+	width: 100%;
+}
+.ds-textarea::placeholder {
+	color: oklch(72% 0.005 85);
+}
+.ds-textarea:focus {
+	border-color: oklch(14% 0.008 65);
+}
+.dark .ds-textarea {
+	background: oklch(6% 0.005 270);
+	border: 2px solid;
+	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
+	color: oklch(88% 0.004 270);
+}
+.dark .ds-textarea::placeholder {
+	color: oklch(58% 0.006 270);
+}
+.dark .ds-textarea:focus {
+	border-color: oklch(60% 0.08 170) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(60% 0.08 170);
+}
+.ds-textarea:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+</style>

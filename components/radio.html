@@ -1,0 +1,119 @@
+<!--
+  Radio — RezusCloud Design System
+  Mac: 1px ink border, filled dot when selected
+  NeXT: 2px raised bevel, teal dot when selected
+-->
+<fieldset class="ds-radio-group">
+	<legend class="ds-radio-legend">Node Type</legend>
+	<label class="ds-radio">
+		<input type="radio" name="ds-radio-demo" class="ds-radio-input" checked />
+		<span class="ds-radio-box">
+			<span class="ds-radio-dot"></span>
+		</span>
+		<span class="ds-radio-label">Control Plane</span>
+	</label>
+	<label class="ds-radio">
+		<input type="radio" name="ds-radio-demo" class="ds-radio-input" />
+		<span class="ds-radio-box">
+			<span class="ds-radio-dot"></span>
+		</span>
+		<span class="ds-radio-label">Worker</span>
+	</label>
+	<label class="ds-radio">
+		<input type="radio" name="ds-radio-demo" class="ds-radio-input" />
+		<span class="ds-radio-box">
+			<span class="ds-radio-dot"></span>
+		</span>
+		<span class="ds-radio-label">Edge</span>
+	</label>
+</fieldset>
+
+<style>
+.ds-radio-group {
+	border: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+.ds-radio-legend {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: oklch(14% 0.008 65);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-bottom: 0.25rem;
+}
+.dark .ds-radio-legend {
+	color: oklch(88% 0.004 270);
+}
+.ds-radio {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	cursor: pointer;
+	user-select: none;
+}
+.ds-radio-input {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+.ds-radio-box {
+	width: 1rem;
+	height: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	background: oklch(99.5% 0.004 85);
+	border: 1px solid oklch(72% 0.005 85);
+	border-radius: 0;
+	transition: border-color 0.15s;
+}
+.ds-radio-dot {
+	width: 0.5rem;
+	height: 0.5rem;
+	background: oklch(14% 0.008 65);
+	border-radius: 0;
+	opacity: 0;
+	transform: scale(0);
+	transition: opacity 0.15s, transform 0.15s;
+}
+.ds-radio-input:checked + .ds-radio-box {
+	border-color: oklch(14% 0.008 65);
+}
+.ds-radio-input:checked + .ds-radio-box .ds-radio-dot {
+	opacity: 1;
+	transform: scale(1);
+}
+.ds-radio-input:focus-visible + .ds-radio-box {
+	outline: 2px solid oklch(78% 0.16 75);
+	outline-offset: 2px;
+}
+.dark .ds-radio-box {
+	background: oklch(6% 0.005 270);
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+}
+.dark .ds-radio-dot {
+	background: oklch(70% 0.07 170);
+}
+.dark .ds-radio-input:checked + .ds-radio-box {
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+}
+.dark .ds-radio-input:focus-visible + .ds-radio-box {
+	outline-color: oklch(58% 0.006 270);
+}
+.ds-radio-label {
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	font-size: 0.875rem;
+	color: oklch(14% 0.008 65);
+}
+.dark .ds-radio-label {
+	color: oklch(88% 0.004 270);
+}
+</style>

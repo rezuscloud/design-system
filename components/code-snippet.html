@@ -1,0 +1,103 @@
+<!--
+  Code Snippet — RezusCloud Design System
+  Inline code display (distinct from Terminal component).
+  Mac: surface bg, 1px rule border, ink text
+  NeXT: next-dark bg, sunken bevel, next-white text
+-->
+<div class="ds-code">
+	<div class="ds-code-header">
+		<span class="ds-code-filename">values.yaml</span>
+		<button class="ds-code-copy" aria-label="Copy to clipboard">
+			<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+				<rect x="3.5" y="3.5" width="7" height="7" rx="0" stroke-linecap="round" stroke-linejoin="round"></rect>
+				<path d="M1.5 8.5V2a.5.5 0 01.5-.5h6.5" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</button>
+	</div>
+	<pre class="ds-code-pre"><code>cluster:
+  name: production-eu
+  region: eu-west
+  nodes: 12
+  cni: cilium
+
+storage:
+  backend: tikv
+  encryption: true
+  replication: 3</code></pre>
+</div>
+
+<style>
+.ds-code {
+	background: oklch(95.5% 0.004 85);
+	border: 1px solid oklch(72% 0.005 85);
+	border-radius: 0;
+	overflow: hidden;
+}
+.dark .ds-code {
+	background: oklch(6% 0.005 270);
+	border: 2px solid;
+	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
+}
+.ds-code-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.375rem 0.75rem;
+	border-bottom: 1px solid oklch(72% 0.005 85);
+	background: oklch(88.5% 0.006 85);
+}
+.dark .ds-code-header {
+	border-bottom: 1px solid oklch(55% 0.006 270);
+	background: oklch(20% 0.006 270);
+}
+.ds-code-filename {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	font-weight: 700;
+	color: oklch(30% 0.008 65);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+.dark .ds-code-filename {
+	color: oklch(72% 0.012 85);
+}
+.ds-code-copy {
+	width: 1.25rem;
+	height: 1.25rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: oklch(30% 0.008 65);
+	padding: 0;
+	border-radius: 0;
+	transition: color 0.15s;
+}
+.ds-code-copy:hover {
+	color: oklch(14% 0.008 65);
+}
+.dark .ds-code-copy {
+	color: oklch(72% 0.012 85);
+}
+.dark .ds-code-copy:hover {
+	color: oklch(88% 0.004 270);
+}
+.ds-code-copy svg {
+	width: 0.75rem;
+	height: 0.75rem;
+}
+.ds-code-pre {
+	padding: 0.75rem;
+	margin: 0;
+	font-family: "VT323", "Courier New", monospace;
+	font-size: 0.875rem;
+	line-height: 1.6;
+	color: oklch(14% 0.008 65);
+	overflow-x: auto;
+}
+.dark .ds-code-pre {
+	color: oklch(88% 0.004 270);
+}
+</style>

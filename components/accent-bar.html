@@ -1,0 +1,26 @@
+<!--
+  Accent Bar — RezusCloud Design System
+  Horizontal underline bar for section headings.
+  Mac: accent-gold
+  NeXT: next-teal-hi
+  Sizes: sm (w-8 h-0.5), md (w-12 h-1), lg (w-16 h-1)
+-->
+<div style="display: flex; flex-direction: column; gap: 1rem;">
+	<div class="ds-accent-bar ds-accent-bar--sm"></div>
+	<div class="ds-accent-bar ds-accent-bar--md"></div>
+	<div class="ds-accent-bar ds-accent-bar--lg"></div>
+</div>
+
+<style>
+.ds-accent-bar {
+	height: 0.25rem;
+	background: oklch(78% 0.16 75);
+	border-radius: 0;
+}
+.ds-accent-bar--sm { width: 2rem; height: 0.125rem; }
+.ds-accent-bar--md { width: 3rem; height: 0.25rem; }
+.ds-accent-bar--lg { width: 4rem; height: 0.25rem; }
+.dark .ds-accent-bar {
+	background: oklch(70% 0.07 170);
+}
+</style>

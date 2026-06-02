@@ -1,0 +1,13 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "layers": {
+    "base": { "$value": 1, "$type": "number", "role": "default-content-layer" },
+    "dropdown": { "$value": 100, "$type": "number", "role": "dropdown-and-popover" },
+    "sticky": { "$value": 200, "$type": "number", "role": "fixed-nav-and-sidebar" },
+    "overlay": { "$value": 300, "$type": "number", "role": "backdrop-and-overlay" },
+    "modal": { "$value": 400, "$type": "number", "role": "dialog-and-modal" },
+    "toast": { "$value": 500, "$type": "number", "role": "toast-notification" },
+    "tooltip": { "$value": 600, "$type": "number", "role": "tooltip-layer" },
+    "max": { "$value": 9999, "$type": "number", "role": "skip-link-and-debug" }
+  }
+}

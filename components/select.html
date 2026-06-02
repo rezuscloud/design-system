@@ -1,0 +1,58 @@
+<!--
+  Select — RezusCloud Design System
+  Mac: 1px ink border, paper bg, dropdown chevron
+  NeXT: 2px sunken bevel, next-black bg, teal chevron
+-->
+<div class="ds-input-group">
+	<label class="ds-input-label" for="ds-select-demo">Region</label>
+	<select id="ds-select-demo" class="ds-select">
+		<option value="" disabled selected>Select region</option>
+		<option value="eu-west">EU West (Amsterdam)</option>
+		<option value="eu-central">EU Central (Frankfurt)</option>
+		<option value="us-east">US East (Virginia)</option>
+		<option value="ap-south">AP South (Mumbai)</option>
+	</select>
+</div>
+
+<style>
+.ds-select {
+	appearance: none;
+	-webkit-appearance: none;
+	padding: 0.5rem 2rem 0.5rem 0.75rem;
+	background: oklch(99.5% 0.004 85);
+	border: 1px solid oklch(72% 0.005 85);
+	color: oklch(14% 0.008 65);
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	font-size: 0.875rem;
+	line-height: 1.5;
+	border-radius: 0;
+	outline: none;
+	cursor: pointer;
+	transition: border-color 0.15s;
+	width: 100%;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%231a1611' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 0.75rem center;
+}
+.ds-select:focus {
+	border-color: oklch(14% 0.008 65);
+}
+.ds-select:invalid,
+.ds-select option[value=""] {
+	color: oklch(72% 0.005 85);
+}
+.dark .ds-select {
+	background: oklch(6% 0.005 270);
+	border: 2px solid;
+	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
+	color: oklch(88% 0.004 270);
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2378888d' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.dark .ds-select:focus {
+	border-color: oklch(60% 0.08 170) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(60% 0.08 170);
+}
+.ds-select:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+}
+</style>

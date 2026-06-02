@@ -22,7 +22,7 @@ Three font families:
 |------|---------|-------|
 | Silkscreen (700) | Headings, labels, nav | `Silkscreen-Regular.woff2`, `Silkscreen-Bold.woff2` |
 | system-ui | Body copy | System font, no files needed |
-| VT323 | Terminal output | `VT323-Regular.woff2` |
+| VT323 | Terminal output, code | `VT323-Regular.woff2` |
 
 ### Tokens
 
@@ -32,23 +32,59 @@ Machine-readable token files in `tokens/`:
 |------|----------|
 | `colors.json` | 22+ oklch color tokens (Mac + NeXT palettes, semantic) |
 | `typography.json` | Font families, scale, hierarchy |
-| `spacing.json` | Section, nav, button, icon-square spacing |
-| `motion.json` | Easings, durations, stagger delays |
+| `spacing.json` | Section, nav, button, icon-square, sidebar, table, dialog, alert, toast spacing |
+| `motion.json` | Easings, durations, stagger delays, component animations |
 | `breakpoints.json` | sm/md/lg breakpoints |
+| `forms.json` | Input heights, padding, focus rings, toggle/checkbox/radio sizing |
+| `z-index.json` | Layer ordering (base through max) |
 
 ### Components
 
-Self-contained HTML + CSS in `components/`:
+Self-contained HTML + CSS in `components/`. Each file is standalone: copy the HTML and `<style>` block into your project.
+
+#### Brand Components (marketing, landing pages)
 
 | Component | File | Description |
 |-----------|------|-------------|
 | CTA Button | `cta-button.html` | Primary call-to-action |
-| Icon Square | `icon-square.html` | 48x48 accent square with icon |
-| Nav Link | `nav-link.html` | Active and inactive nav states |
-| Tech Badge | `tech-badge.html` | Technology tag strip |
-| Terminal | `terminal.html` | Mac/NeXT terminal container |
+| Accent Bar | `accent-bar.html` | Section heading underline (3 sizes) |
+| Accent Dot | `accent-dot.html` | List bullet, status marker (2 sizes + active pulse) |
+| Section Badge | `section-badge.html` | Section label with `//` separator |
+| Terminal | `terminal.html` | Mac/NeXT terminal container with typewriter |
 
-Each file is standalone: copy the HTML and `<style>` block into your project.
+#### Product Components (dashboard, console, app UI)
+
+| Component | File | Description |
+|-----------|------|-------------|
+| Text Input | `text-input.html` | Label, input, help/error states, disabled |
+| Text Area | `textarea.html` | Multi-line code input (VT323 monospace) |
+| Select | `select.html` | Dropdown with custom chevron |
+| Checkbox | `checkbox.html` | Checked, unchecked, disabled states |
+| Radio | `radio.html` | Single-selection radio group |
+| Toggle | `toggle.html` | On/off switch (NeXTSTEP-style) |
+| Search | `search.html` | Resource search with keyboard hint |
+| Tabs | `tabs.html` | Content tab navigation |
+| Alert Banner | `alert-banner.html` | Info, positive, negative system alerts |
+| Toast | `toast.html` | Ephemeral notification (positive/negative) |
+| Progress Bar | `progress-bar.html` | Determinate progress with danger variant |
+| Accordion | `accordion.html` | Collapsible sections |
+| Dialog | `dialog.html` | Modal with title bar, body, actions |
+| Sidebar | `sidebar.html` | App navigation with icon links |
+| Breadcrumb | `breadcrumb.html` | Hierarchy path navigation |
+| Pagination | `pagination.html` | Page navigation with ellipsis |
+| Data Table | `data-table.html` | Bordered table with status indicators |
+| Code Snippet | `code-snippet.html` | Code block with filename header and copy button |
+| Empty State | `empty-state.html` | Centered placeholder with icon and CTA |
+| Skeleton | `skeleton.html` | Loading placeholder with pulse animation |
+| Status Dot | `status-dot.html` | Colored square for resource health (positive/negative/neutral) |
+
+#### Shared Components (both registers)
+
+| Component | File | Description |
+|-----------|------|-------------|
+| Nav Link | `nav-link.html` | Active and inactive nav states |
+| Icon Square | `icon-square.html` | 48x48 accent square with icon |
+| Tech Badge | `tech-badge.html` | Technology tag strip |
 
 ## Design Rules
 
@@ -67,6 +103,7 @@ Full documentation: [DESIGN.md](DESIGN.md), [PRODUCT.md](PRODUCT.md).
 
 - [platform-website](https://github.com/rezuscloud/platform-website) — source of truth
 - [LocalAI](https://github.com/rezuscloud/LocalAI) — AI inference landing page
+- [rezuscloud/web-ui](https://github.com/rezuscloud/web-ui) — platform console (in development)
 
 ## License
 

@@ -1,0 +1,63 @@
+<!--
+  Tabs — RezusCloud Design System
+  Mac: 1px ink border bottom on active, rule divider
+  NeXT: Raised bevel active tab, inset bevel inactive
+-->
+<div class="ds-tabs">
+	<button class="ds-tab ds-tab--active" role="tab" aria-selected="true">Overview</button>
+	<button class="ds-tab" role="tab" aria-selected="false">Nodes</button>
+	<button class="ds-tab" role="tab" aria-selected="false">Workloads</button>
+	<button class="ds-tab" role="tab" aria-selected="false">Networking</button>
+	<button class="ds-tab ds-tab--disabled" role="tab" aria-selected="false" disabled>Metrics</button>
+</div>
+
+<style>
+.ds-tabs {
+	display: flex;
+	border-bottom: 1px solid oklch(72% 0.005 85);
+}
+.dark .ds-tabs {
+	border-bottom: 2px solid oklch(55% 0.006 270);
+}
+.ds-tab {
+	padding: 0.5rem 1rem;
+	background: none;
+	border: none;
+	border-bottom: 2px solid transparent;
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: oklch(30% 0.008 65);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	cursor: pointer;
+	border-radius: 0;
+	transition: color 0.15s, border-color 0.15s;
+	margin-bottom: -1px;
+}
+.ds-tab:hover {
+	color: oklch(14% 0.008 65);
+}
+.ds-tab--active {
+	color: oklch(14% 0.008 65);
+	border-bottom-color: oklch(14% 0.008 65);
+}
+.ds-tab--disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+.ds-tab--disabled:hover {
+	color: oklch(30% 0.008 65);
+}
+.dark .ds-tab {
+	color: oklch(72% 0.012 85);
+	margin-bottom: -2px;
+}
+.dark .ds-tab:hover {
+	color: oklch(88% 0.004 270);
+}
+.dark .ds-tab--active {
+	color: oklch(60% 0.08 170);
+	border-bottom-color: oklch(60% 0.08 170);
+}
+</style>

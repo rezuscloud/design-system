@@ -255,6 +255,94 @@ Full-width bordered table. 2px border frame (comparison signature moment). Heade
 
 40x40px button. Border + bevel raised (dark). Shows moon icon (light) / sun icon (dark). Alpine.js x-show toggles visibility with x-cloak for no-flash. CRT flicker overlay on toggle (200ms white flash).
 
+### Text Input
+
+Label (Silkscreen uppercase) + input field + help/error text. Mac: paper bg, 1px rule border, ink text. Focus: border-color shifts to ink. NeXT: next-black bg, 2px sunken bevel, next-white text. Focus: top-left border shifts to next-teal. Error state: border-color shifts to negative. Disabled: 50% opacity, cursor not-allowed.
+
+### Text Area
+
+Same as Text Input but multi-line. Uses VT323 monospace font for configuration editing. Resizable vertically.
+
+### Select
+
+Native `<select>` with custom appearance. Mac: 1px rule border, paper bg, SVG chevron. NeXT: 2px sunken bevel, next-black bg, SVG chevron. Focus: same color shift pattern as text-input.
+
+### Checkbox
+
+Hidden native input + styled box + label. Mac: paper bg, 1px rule border. Checked: ink fill, paper checkmark SVG. NeXT: next-black bg, 2px raised bevel. Checked: next-teal-hi fill, black checkmark. Scale animation on check/uncheck. Focus-visible: accent outline.
+
+### Radio
+
+Hidden native input + styled box + dot + label. Mac: paper bg, 1px rule border. Selected: ink dot fills box. NeXT: next-black bg, 2px raised bevel. Selected: next-teal-hi dot. Scale animation on select. Grouped in fieldset with Silkscreen legend.
+
+### Toggle
+
+NeXTSTEP-style two-position switch. Hidden checkbox + track + thumb + label. Mac: rule track when off, ink track when on, paper thumb with ink border. NeXT: next-mid sunken track, raised bevel thumb, next-teal track when on. Transform translateX animation on toggle.
+
+### Search
+
+Full-width search input with magnifying glass icon. Mac: paper bg, 1px rule border, ink icon. NeXT: next-black bg, sunken bevel, next-light icon. Keyboard hint (`/`) displayed at right edge in Silkscreen micro text.
+
+### Tabs
+
+Horizontal tab strip with bottom border. Mac: transparent bg, muted text, active tab with 2px ink bottom border. NeXT: transparent bg, next-subtle text, active tab with next-teal bottom border. Hover: text brightens. Disabled tab at 40% opacity.
+
+### Alert Banner
+
+Full-width horizontal banner with icon + title + description. Three semantic variants: info (neutral), positive (green), negative (red). Mac: surface bg, 1px rule border. NeXT: next-dark bg, 2px raised bevel. Icon color follows semantic variant. Title in Silkscreen uppercase, body in system-ui.
+
+### Toast
+
+Ephemeral notification positioned bottom-right. Icon + label + detail text + dismiss button. Two variants: positive (success), negative (error). Mac: surface-strong bg, 1px ink border, mac-window-shadow. NeXT: next-dark bg, 2px raised bevel. Max-width 22rem. Close button: square with X SVG.
+
+### Progress Bar
+
+Determinate progress indicator with label + track + value text. Mac: surface bg, 1px rule border, accent-gold fill. NeXT: next-black bg, 2px sunken bevel, next-teal fill. Danger variant: negative color fill. Value displayed in VT323 monospace.
+
+### Accordion
+
+Collapsible sections using native `<details>`/`<summary>`. Mac: 1px rule border between items. Title in Silkscreen uppercase, chevron SVG rotates 180deg on open. NeXT: 2px bevel border between items. Body text in system-ui, max-width 65ch.
+
+### Dialog
+
+Modal overlay with title bar + body + action buttons. Mac: paper bg, 1px ink border, mac-window-shadow, surface title bar. Close button: square with X SVG. Primary action: CTA button styling. Secondary action: surface bg, 1px rule border. NeXT: next-dark bg, 2px raised bevel frame, next-mid title bar. Primary: next-teal-hi bg. Secondary: next-mid bg with raised bevel.
+
+### Sidebar Navigation
+
+Fixed-width (14rem) vertical navigation. Mac: surface-strong bg, 1px right border. NeXT: next-dark bg, 2px right bevel border. Header: logo with dual-color treatment. Links: icon SVG + Silkscreen uppercase text. Active link: paper/next-mid bg pill. Footer: VT323 version string.
+
+### Breadcrumb
+
+Horizontal path with `/` separators. Mac: ink-muted links, rule-colored separators, ink current page. NeXT: next-subtle links, next-mid separators, next-teal current page. Links in Silkscreen uppercase micro text.
+
+### Pagination
+
+Button strip for page navigation. Mac: surface-strong bg, 1px rule border, ink text. Active: ink bg, paper text. NeXT: next-dark bg, 2px raised bevel, next-white text. Active: next-teal-hi bg, next-black text. Arrow buttons for prev/next. Ellipsis in VT323.
+
+### Avatar
+
+Square (zero radius) user representation with initials or image. Three sizes: sm (1.75rem), md (2.5rem), lg (3.5rem). Mac: surface-strong bg, 1px rule border. NeXT: next-mid bg, 2px raised bevel. Initials in Silkscreen uppercase, scaled by size.
+
+### Data Table
+
+Bordered table for structured resource data. Mac: 1px rule border wrapper, surface-strong header row, alternating paper/surface rows. NeXT: 2px raised bevel wrapper, next-mid header row, alternating next-black/next-dark rows. Header: Silkscreen micro uppercase in accent color. Mono values in VT323. Status indicators use semantic colors.
+
+### Code Snippet
+
+Code display with filename header and copy button. Mac: surface bg, 1px rule border, surface-strong header. NeXT: next-black bg, sunken bevel, next-dark header. Body: VT323 monospace. Filename: Silkscreen micro uppercase. Copy button: SVG clipboard icon.
+
+### Empty State
+
+Centered placeholder for empty views. Icon square + title + description + CTA button. Max-width 24rem. Mac: accent-gold icon square, ink title. NeXT: next-teal-hi icon square, next-white title. CTA follows CTA button styling.
+
+### Skeleton
+
+Loading placeholder with pulse animation. Mac: surface bg, 1px border. NeXT: next-mid bg, 1px border. Heading variant: taller height, surface-strong/next-dark bg. Pulse: 1.5s ease-in-out infinite, alternating 100% and 50% opacity. Respects prefers-reduced-motion.
+
+### Status Dot
+
+Small colored square indicating resource health. Three variants: positive (green), negative (red with blink), neutral (muted). Mac and NeXT use their respective semantic colors. Negative blink: 2s step-end infinite. Respects prefers-reduced-motion.
+
 ## 6. Do's and Don'ts
 
 ### Do:

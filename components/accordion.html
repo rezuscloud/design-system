@@ -1,0 +1,118 @@
+<!--
+  Accordion — RezusCloud Design System
+  Mac: 1px rule border between items, ink toggle indicator
+  NeXT: Bevel-raised header, sunken content area
+-->
+<div class="ds-accordion">
+	<details class="ds-accordion-item" open>
+		<summary class="ds-accordion-header">
+			<span class="ds-accordion-title">Cluster Configuration</span>
+			<span class="ds-accordion-toggle">
+				<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="M2 4l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>
+			</span>
+		</summary>
+		<div class="ds-accordion-body">
+			<p>3 control plane nodes, 9 workers. Cilium CNI with eBPF kube-proxy replacement. Talos Linux v1.8.</p>
+		</div>
+	</details>
+	<details class="ds-accordion-item">
+		<summary class="ds-accordion-header">
+			<span class="ds-accordion-title">Networking</span>
+			<span class="ds-accordion-toggle">
+				<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="M2 4l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>
+			</span>
+		</summary>
+		<div class="ds-accordion-body">
+			<p>BGP peering with upstream routers. Direct server return load balancing. Wireguard encrypted mesh between sites.</p>
+		</div>
+	</details>
+	<details class="ds-accordion-item">
+		<summary class="ds-accordion-header">
+			<span class="ds-accordion-title">Storage</span>
+			<span class="ds-accordion-toggle">
+				<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="M2 4l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"></path>
+				</svg>
+			</span>
+		</summary>
+		<div class="ds-accordion-body">
+			<p>TiKV distributed storage with JuiceFS mount. 2TB NVMe per node, erasure coded across 3 zones.</p>
+		</div>
+	</details>
+</div>
+
+<style>
+.ds-accordion {
+	display: flex;
+	flex-direction: column;
+}
+.ds-accordion-item {
+	border-bottom: 1px solid oklch(72% 0.005 85);
+}
+.dark .ds-accordion-item {
+	border-bottom: 2px solid oklch(55% 0.006 270);
+}
+.ds-accordion-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.75rem 0;
+	cursor: pointer;
+	list-style: none;
+	user-select: none;
+}
+.ds-accordion-header::-webkit-details-marker {
+	display: none;
+}
+.ds-accordion-header::marker {
+	content: "";
+}
+.ds-accordion-title {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: oklch(14% 0.008 65);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-accordion-title {
+	color: oklch(88% 0.004 270);
+}
+.ds-accordion-toggle {
+	width: 1.25rem;
+	height: 1.25rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: oklch(30% 0.008 65);
+	transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.ds-accordion-toggle svg {
+	width: 0.75rem;
+	height: 0.75rem;
+}
+.ds-accordion-item[open] .ds-accordion-toggle {
+	transform: rotate(180deg);
+}
+.dark .ds-accordion-toggle {
+	color: oklch(72% 0.012 85);
+}
+.ds-accordion-body {
+	padding: 0 0 0.75rem 0;
+}
+.ds-accordion-body p {
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	font-size: 0.875rem;
+	color: oklch(30% 0.008 65);
+	line-height: 1.6;
+	margin: 0;
+	max-width: 65ch;
+}
+.dark .ds-accordion-body p {
+	color: oklch(72% 0.012 85);
+}
+</style>
