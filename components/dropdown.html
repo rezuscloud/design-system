@@ -1,0 +1,162 @@
+<!--
+  Dropdown / Popover — RezusCloud Design System
+  Floating menu triggered by click or context.
+  Mac: paper bg, 1px ink border, mac-window-shadow
+  NeXT: next-dark bg, 2px raised bevel frame
+-->
+<div class="ds-dropdown-wrapper" style="position:relative; display:inline-block;">
+	<button class="ds-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+		<span>Actions</span>
+		<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" class="ds-dropdown-chevron">
+			<path d="M3 5l3 3 3-3" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>
+	</button>
+
+	<div class="ds-dropdown" role="menu" aria-label="Actions menu">
+		<div class="ds-dropdown-group">
+			<button class="ds-dropdown-item" role="menuitem">
+				<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" class="ds-dropdown-item-icon"><path d="M4 8h8M8 4v8" stroke-linecap="round"></path></svg>
+				<span>New Workload</span>
+			</button>
+			<button class="ds-dropdown-item" role="menuitem">
+				<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" class="ds-dropdown-item-icon"><path d="M2 8h12M12 4l4 4-4 4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+				<span>Scale Nodes</span>
+			</button>
+			<button class="ds-dropdown-item" role="menuitem">
+				<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" class="ds-dropdown-item-icon"><path d="M2 3h12M2 8h12M2 13h12" stroke-linecap="round"></path></svg>
+				<span>View Logs</span>
+			</button>
+		</div>
+		<div class="ds-dropdown-separator"></div>
+		<div class="ds-dropdown-group">
+			<button class="ds-dropdown-item ds-dropdown-item--danger" role="menuitem">
+				<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" class="ds-dropdown-item-icon"><path d="M2 4h12M5.333 4V2.667a1.333 1.333 0 011.334-1.334h2.666a1.333 1.333 0 011.334 1.334V4m2 0v9.333a1.333 1.333 0 01-1.334 1.334H4.667a1.333 1.333 0 01-1.334-1.334V4h9.334z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+				<span>Delete Cluster</span>
+			</button>
+		</div>
+	</div>
+</div>
+
+<style>
+.ds-dropdown-trigger {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 0.75rem;
+	background: oklch(99.5% 0.004 85);
+	border: 1px solid oklch(72% 0.005 85);
+	color: oklch(14% 0.008 65);
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	cursor: pointer;
+	border-radius: 0;
+	transition: background 0.15s, border-color 0.15s;
+}
+.ds-dropdown-trigger:hover {
+	background: oklch(95.5% 0.004 85);
+	border-color: oklch(14% 0.008 65);
+}
+.ds-dropdown-trigger:active {
+	background: oklch(88.5% 0.006 85);
+}
+.ds-dropdown-chevron {
+	width: 0.625rem;
+	height: 0.625rem;
+}
+.dark .ds-dropdown-trigger {
+	background: oklch(20% 0.006 270);
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	color: oklch(88% 0.004 270);
+}
+.dark .ds-dropdown-trigger:hover {
+	background: oklch(34% 0.006 270);
+}
+
+.ds-dropdown {
+	position: absolute;
+	top: calc(100% + 0.25rem);
+	left: 0;
+	min-width: 12rem;
+	background: oklch(99.5% 0.004 85);
+	border: 1px solid oklch(14% 0.008 65);
+	border-radius: 0;
+	box-shadow: 1px 1px 0 oklch(14% 0.008 65);
+	padding: 0.25rem 0;
+	z-index: 100;
+}
+.dark .ds-dropdown {
+	background: oklch(20% 0.006 270);
+	border: 2px solid;
+	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	box-shadow: none;
+}
+
+.ds-dropdown-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.ds-dropdown-item {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 0.75rem;
+	background: none;
+	border: none;
+	color: oklch(14% 0.008 65);
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	font-size: 0.8125rem;
+	cursor: pointer;
+	text-align: left;
+	width: 100%;
+	border-radius: 0;
+	transition: background 0.15s;
+}
+.ds-dropdown-item:hover {
+	background: oklch(95.5% 0.004 85);
+}
+.ds-dropdown-item:active {
+	background: oklch(88.5% 0.006 85);
+}
+.ds-dropdown-item--danger {
+	color: oklch(50% 0.12 25);
+}
+.ds-dropdown-item--danger:hover {
+	background: oklch(50% 0.12 25 / 0.08);
+}
+.dark .ds-dropdown-item {
+	color: oklch(88% 0.004 270);
+}
+.dark .ds-dropdown-item:hover {
+	background: oklch(34% 0.006 270);
+}
+.dark .ds-dropdown-item--danger {
+	color: oklch(65% 0.14 25);
+}
+.dark .ds-dropdown-item--danger:hover {
+	background: oklch(65% 0.14 25 / 0.12);
+}
+
+.ds-dropdown-item-icon {
+	width: 0.875rem;
+	height: 0.875rem;
+	flex-shrink: 0;
+	opacity: 0.6;
+}
+.ds-dropdown-item:hover .ds-dropdown-item-icon {
+	opacity: 1;
+}
+
+.ds-dropdown-separator {
+	height: 1px;
+	background: oklch(72% 0.005 85);
+	margin: 0.25rem 0;
+}
+.dark .ds-dropdown-separator {
+	background: oklch(55% 0.006 270);
+}
+</style>

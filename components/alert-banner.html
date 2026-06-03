@@ -34,6 +34,16 @@
 	</div>
 </div>
 
+<div class="ds-alert ds-alert--warning">
+	<span class="ds-alert-icon">
+		<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zM8 9.5a1.25 1.25 0 100 2.5A1.25 1.25 0 008 9.5z"></path></svg>
+	</span>
+	<div class="ds-alert-content">
+		<span class="ds-alert-title">High Memory Pressure</span>
+		<p class="ds-alert-text">Worker-02 memory at 85%. Pods may be evicted if usage continues rising.</p>
+	</div>
+</div>
+
 <style>
 .ds-alert {
 	display: flex;
@@ -62,12 +72,14 @@
 	width: 1rem;
 	height: 1rem;
 }
-.ds-alert--info .ds-alert-icon { color: oklch(14% 0.008 65); }
+.ds-alert--info .ds-alert-icon { color: oklch(50% 0.08 250); }
 .ds-alert--positive .ds-alert-icon { color: oklch(55% 0.12 150); }
 .ds-alert--negative .ds-alert-icon { color: oklch(50% 0.12 25); }
-.dark .ds-alert--info .ds-alert-icon { color: oklch(88% 0.004 270); }
+.ds-alert--warning .ds-alert-icon { color: oklch(68% 0.14 80); }
+.dark .ds-alert--info .ds-alert-icon { color: oklch(70% 0.08 250); }
 .dark .ds-alert--positive .ds-alert-icon { color: oklch(75% 0.14 150); }
 .dark .ds-alert--negative .ds-alert-icon { color: oklch(65% 0.14 25); }
+.dark .ds-alert--warning .ds-alert-icon { color: oklch(75% 0.12 80); }
 .ds-alert-content {
 	display: flex;
 	flex-direction: column;

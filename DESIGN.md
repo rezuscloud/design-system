@@ -28,6 +28,10 @@ colors:
   positive-next: "oklch(75% 0.14 150)"
   negative: "oklch(50% 0.12 25)"
   negative-next: "oklch(65% 0.14 25)"
+  warning: "oklch(68% 0.14 80)"
+  warning-next: "oklch(75% 0.12 80)"
+  info: "oklch(50% 0.08 250)"
+  info-next: "oklch(70% 0.08 250)"
 typography:
   display:
     fontFamily: "Silkscreen, system-ui, sans-serif"
@@ -151,6 +155,13 @@ Two complete palettes, each with warm-tinted neutrals and one saturated accent. 
 - **Bevel-hi** (oklch(55% 0.006 270)): Top-left border color for raised elements, bottom-right for sunken.
 - **Bevel-lo** (oklch(2% 0.004 270)): Bottom-right border color for raised, top-left for sunken.
 
+### Semantic Colors
+
+- **Warning** (oklch(68% 0.14 80)): Degraded states, high resource pressure, approaching limits. Amber hue to match the Mac mode accent family.
+- **Warning-next** (oklch(75% 0.12 80)): Warning for NeXT mode.
+- **Info** (oklch(50% 0.08 250)): Neutral informational states. Cool blue to complement the NeXT palette.
+- **Info-next** (oklch(70% 0.08 250)): Info for NeXT mode.
+
 ### Named Rules
 
 **The Dual-Accent Rule.** Light mode uses amber gold. Dark mode uses teal. Never mix: amber never appears in dark mode, teal never appears in light mode. Each accent occupies the same structural positions in both modes.
@@ -158,6 +169,8 @@ Two complete palettes, each with warm-tinted neutrals and one saturated accent. 
 **The Alternating Rhythm Rule.** Sections alternate between two background levels. Light: paper and surface. Dark: next-black and next-dark. The challenge section inverts: ink (light) and next-dark (dark). This rhythm never breaks.
 
 **The No-Gray-Accent Rule.** In NeXT mode, next-light is a bright neutral for UI chrome (active nav pills only). It is never used for accent purposes like icon squares, dots, or highlights. That role belongs exclusively to next-teal.
+
+**The Accent-on-Text Rule.** `accent-gold` (oklch 78%) does not pass AA for small text on paper. Use `accent-gold-dark` (oklch 65%) for any text-on-paper use. Reserve `accent-gold` for background fills only.
 
 ## 3. Typography
 
@@ -169,12 +182,25 @@ Two complete palettes, each with warm-tinted neutrals and one saturated accent. 
 
 ### Hierarchy
 
-- **Display** (700 weight, text-8xl, leading-none): Hero headline "YOUR" only. Single most prominent element on the page.
-- **Headline** (700 weight, text-2xl to text-3xl, leading-snug to leading-tight): Section headings. Left-aligned for Architecture and Networking, centered for others.
-- **Title** (700 weight, text-lg to text-xl, leading-snug): Sub-section headings, card titles, feature names.
-- **Body** (400 weight, text-sm to text-lg, leading-relaxed): Paragraph copy, descriptions, feature details. Max line length 65-75ch.
-- **Label** (700 weight, text-xs, tracking-widest, uppercase): Nav links, section badges ("The Mainframe Era // Then vs Now"), feature categories, tech tags.
-- **Mono** (400 weight, text-sm to text-base): Terminal output, code prompts, boot sequence lines, cursor blink.
+- **Display** (step-8: 6rem, 700 weight, leading-none): Hero headline "YOUR" only. Single most prominent element on the page.
+- **Headline** (step-6 to step-7: 1.5rem–2rem, 700 weight, leading-snug): Section headings. Left-aligned for Architecture and Networking, centered for others.
+- **Title** (step-5: 1.25rem, 700 weight, leading-snug): Sub-section headings, card titles, feature names.
+- **Body** (step-2 to step-4: 0.875rem–1.125rem, 400 weight, leading-relaxed): Paragraph copy, descriptions, feature details. Max line length 65-75ch.
+- **Label** (step-1: 0.75rem, 700 weight, tracking-widest, uppercase): Nav links, section badges ("The Mainframe Era // Then vs Now"), feature categories, tech tags.
+- **Mono** (step-2 to step-3: 0.875rem–1rem, 400 weight): Terminal output, code prompts, boot sequence lines, cursor blink.
+
+### Type Scale
+
+| Step | Size | Purpose |
+|------|------|----------|
+| step-1 | 0.75rem (12px) | Labels, captions, micro text |
+| step-2 | 0.875rem (14px) | Body small, table cells |
+| step-3 | 1rem (16px) | Body default |
+| step-4 | 1.125rem (18px) | Body large |
+| step-5 | 1.25rem (20px) | Title |
+| step-6 | 1.5rem (24px) | Headline small |
+| step-7 | 2rem (32px) | Headline |
+| step-8 | 6rem (96px) | Display (hero only) |
 
 ### Named Rules
 
@@ -341,9 +367,36 @@ Loading placeholder with pulse animation. Mac: surface bg, 1px border. NeXT: nex
 
 ### Status Dot
 
-Small colored square indicating resource health. Three variants: positive (green), negative (red with blink), neutral (muted). Mac and NeXT use their respective semantic colors. Negative blink: 2s step-end infinite. Respects prefers-reduced-motion.
+Small colored square indicating resource health. Four variants: positive (green), warning (amber), negative (red with blink), neutral (muted). Mac and NeXT use their respective semantic colors. Negative blink: 2s step-end infinite. Respects prefers-reduced-motion.
 
-## 6. Do's and Don'ts
+### Dropdown / Popover
+
+Floating context menu triggered by click. Paper bg with 1px border in Mac mode; next-dark bg with 2px raised bevel in NeXT mode. Items have hover/active states. Danger variant uses negative text color. Group separator via hairline divider. Keyboard accessible: arrow keys navigate, Enter selects, Escape closes.
+
+### Command Palette
+
+⌘K / Ctrl+K keyboard launcher for quick actions. VT323 search input, Silkscreen result labels, grouped results with category headers. Footer shows keyboard shortcuts. Paper bg with 1px border (Mac); next-dark bg with 2px raised bevel (NeXT). Max-width 32rem. Scrollable results body. Backdrop overlay.
+
+## 6. Spacing Scale
+
+Base spacing scale enforced across all components. Use these steps instead of inventing values.
+
+| Step | Value | Pixels | Usage |
+|------|-------|--------|-------|
+| 1 | 0.25rem | 4px | Tight gaps, icon padding |
+| 2 | 0.5rem | 8px | Standard gap, element spacing |
+| 3 | 0.75rem | 12px | Button padding, cell padding |
+| 4 | 1rem | 16px | Standard padding |
+| 5 | 1.25rem | 20px | Card padding |
+| 6 | 1.5rem | 24px | Section gap |
+| 8 | 2rem | 32px | Large padding |
+| 10 | 2.5rem | 40px | Section padding (compact) |
+| 12 | 3rem | 48px | Section padding |
+| 16 | 4rem | 64px | Section padding (standard) |
+| 20 | 5rem | 80px | Hero spacing |
+| 24 | 6rem | 96px | Major section breathing room |
+
+## 7. Do's and Don'ts
 
 ### Do:
 - **Do** use zero border-radius on every element. Every corner is a right angle. This is non-negotiable.
@@ -356,6 +409,11 @@ Small colored square indicating resource health. Three variants: positive (green
 - **Do** use next-subtle (warm-tinted at hue 85) for dark mode secondary text. The two-color text system (cool white + warm beige) mirrors light mode (black + brown).
 - **Do** vary section padding for rhythm. py-12 to py-32 depending on section importance.
 - **Do** reference CONTEXT.md for domain terminology when writing copy.
+- **Do** use the spacing scale (tokens/spacing.json base values) for all padding and gaps. Do not invent values.
+- **Do** use the type scale (tokens/typography.json step values) for all font sizes.
+- **Do** use `accent-gold-dark` for text on paper backgrounds. Reserve `accent-gold` for fills only.
+- **Do** use the four semantic colors (positive, warning, negative, info) for all status indicators.
+- **Do** follow the layout patterns in `references/layout-patterns.md` for console page composition.
 
 ### Don't:
 - **Don't** use rounded corners anywhere. No `rounded-*` classes. No `border-radius` in CSS.

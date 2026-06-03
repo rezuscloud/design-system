@@ -37,6 +37,13 @@
 				<td class="ds-table-td">eu-west</td>
 			</tr>
 			<tr class="ds-table-row">
+				<td class="ds-table-td"><span class="ds-table-mono">worker-04</span></td>
+				<td class="ds-table-td"><span class="ds-table-status ds-table-status--warning">Degraded</span></td>
+				<td class="ds-table-td">78%</td>
+				<td class="ds-table-td">18.2 GB</td>
+				<td class="ds-table-td">us-east</td>
+			</tr>
+			<tr class="ds-table-row">
 				<td class="ds-table-td"><span class="ds-table-mono">worker-03</span></td>
 				<td class="ds-table-td"><span class="ds-table-status ds-table-status--positive">Ready</span></td>
 				<td class="ds-table-td">23%</td>
@@ -117,10 +124,16 @@
 .ds-table-status--negative {
 	color: oklch(50% 0.12 25);
 }
+.ds-table-status--warning {
+	color: oklch(68% 0.14 80);
+}
 .dark .ds-table-status--positive {
 	color: oklch(75% 0.14 150);
 }
 .dark .ds-table-status--negative {
 	color: oklch(65% 0.14 25);
+}
+.dark .ds-table-status--warning {
+	color: oklch(75% 0.12 80);
 }
 </style>

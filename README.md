@@ -85,6 +85,17 @@ Self-contained HTML + CSS in `components/`. Each file is standalone: copy the HT
 | Nav Link | `nav-link.html` | Active and inactive nav states |
 | Icon Square | `icon-square.html` | 48x48 accent square with icon |
 | Tech Badge | `tech-badge.html` | Technology tag strip |
+| Dropdown | `dropdown.html` | Floating context menu with danger variant |
+| Command Palette | `command-palette.html` | ⌘K keyboard launcher |
+
+### References
+
+| File | Contents |
+|------|----------|
+| `references/layout-patterns.md` | Console page composition patterns (page shell, resource list, detail view, form, terminal) |
+| `references/responsive.md` | Breakpoint rules and mobile adaptations per component |
+| `references/interactive-states.md` | Complete state matrix (default, hover, active, focus, disabled, loading, selected, error) |
+| `references/contrast-audit.md` | WCAG AA contrast ratios for all foreground/background pairs |
 
 ## Design Rules
 
@@ -96,6 +107,10 @@ Self-contained HTML + CSS in `components/`. Each file is standalone: copy the HT
 6. **No `#000` or `#fff`**: all neutrals are brand-hue tinted (amber 85 for Mac, slate 270 for NeXT).
 7. **Alternating backgrounds**: sections alternate paper/surface (Mac), next-black/next-dark (NeXT).
 8. **Respect `prefers-reduced-motion`**: all animations have static fallbacks.
+9. **Use the spacing scale**: base values in `tokens/spacing.json`, CSS variables in `css/theme.css`.
+10. **Use the type scale**: steps 1–8 in `tokens/typography.json`.
+11. **Four semantic colors**: positive, warning, negative, info. Each has a Mac and NeXT variant.
+12. **Use accent-gold-dark for text**: accent-gold is too light for text on paper (fails AA).
 
 Full documentation: [DESIGN.md](DESIGN.md), [PRODUCT.md](PRODUCT.md).
 

@@ -5,7 +5,9 @@
   "files": [
     "css/",
     "fonts/",
-    "tokens/"
+    "tokens/",
+    "components/",
+    "references/"
   ],
   "license": "UNLICENSED",
   "private": false,

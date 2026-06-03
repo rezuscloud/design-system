@@ -26,6 +26,10 @@
     "positive":      { "$value": "oklch(55% 0.12 150)", "$type": "color", "role": "success-light" },
     "positive-next": { "$value": "oklch(75% 0.14 150)", "$type": "color", "role": "success-dark" },
     "negative":      { "$value": "oklch(50% 0.12 25)",  "$type": "color", "role": "error-light" },
-    "negative-next": { "$value": "oklch(65% 0.14 25)",  "$type": "color", "role": "error-dark" }
+    "negative-next": { "$value": "oklch(65% 0.14 25)",  "$type": "color", "role": "error-dark" },
+    "warning":       { "$value": "oklch(68% 0.14 80)",  "$type": "color", "role": "warning-light" },
+    "warning-next":  { "$value": "oklch(75% 0.12 80)",  "$type": "color", "role": "warning-dark" },
+    "info":          { "$value": "oklch(50% 0.08 250)",  "$type": "color", "role": "info-light" },
+    "info-next":     { "$value": "oklch(70% 0.08 250)",  "$type": "color", "role": "info-dark" }
   }
 }

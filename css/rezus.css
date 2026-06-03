@@ -113,51 +113,28 @@
 	transition: background-position 0.15s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Staggered reveal */
+/* Staggered reveal — uses CSS custom property for delay */
 @utility animate-reveal {
 	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+	animation-delay: var(--reveal-delay, 0s);
 	opacity: 0;
 }
 
-@utility animate-reveal-d1 {
-	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.1s forwards;
-	opacity: 0;
+/* Set reveal delay via data attribute: data-reveal-delay="3" → 0.3s */
+[data-reveal-delay] {
+	--reveal-step: 0.1s;
+	--reveal-delay: calc(var(--reveal-step) * attr(data-reveal-delay type(<number>)));
 }
 
-@utility animate-reveal-d2 {
-	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
-	opacity: 0;
-}
-
-@utility animate-reveal-d3 {
-	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
-	opacity: 0;
-}
-
-@utility animate-reveal-d4 {
-	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.4s forwards;
-	opacity: 0;
-}
-
-@utility animate-reveal-d5 {
-	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards;
-	opacity: 0;
-}
-
-@utility animate-reveal-d6 {
-	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.6s forwards;
-	opacity: 0;
-}
-
-@utility animate-reveal-d7 {
-	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.7s forwards;
-	opacity: 0;
-}
-
-@utility animate-reveal-d8 {
-	animation: fade-in-up 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0.8s forwards;
-	opacity: 0;
-}
+/* Fallback: numbered delay classes for cases where data attributes are inconvenient */
+@utility animate-reveal-d1 { animation-delay: 0.1s; }
+@utility animate-reveal-d2 { animation-delay: 0.2s; }
+@utility animate-reveal-d3 { animation-delay: 0.3s; }
+@utility animate-reveal-d4 { animation-delay: 0.4s; }
+@utility animate-reveal-d5 { animation-delay: 0.5s; }
+@utility animate-reveal-d6 { animation-delay: 0.6s; }
+@utility animate-reveal-d7 { animation-delay: 0.7s; }
+@utility animate-reveal-d8 { animation-delay: 0.8s; }
 
 /* Terminal typewriter */
 [data-line] {
@@ -260,12 +237,6 @@
 @utility focus-next {
 	outline: 2px solid var(--color-next-light);
 	outline-offset: 2px;
-}
-
-/* NeXT sunken bevel (for inputs and inset fields) */
-@utility next-sunken {
-	border: 2px solid;
-	border-color: var(--color-next-bevel-lo) var(--color-next-bevel-hi) var(--color-next-bevel-hi) var(--color-next-bevel-lo);
 }
 
 /* Z-index layers (see tokens/z-index.json) */

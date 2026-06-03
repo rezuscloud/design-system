@@ -1,5 +1,20 @@
 {
   "$schema": "https://design-tokens.github.io/community-group/format/",
+  "base": {
+    "0":  { "$value": "0",     "$type": "dimension", "role": "zero" },
+    "1":  { "$value": "0.25rem",  "$type": "dimension", "role": "step-1 — 4px" },
+    "2":  { "$value": "0.5rem",   "$type": "dimension", "role": "step-2 — 8px" },
+    "3":  { "$value": "0.75rem",  "$type": "dimension", "role": "step-3 — 12px" },
+    "4":  { "$value": "1rem",     "$type": "dimension", "role": "step-4 — 16px" },
+    "5":  { "$value": "1.25rem",  "$type": "dimension", "role": "step-5 — 20px" },
+    "6":  { "$value": "1.5rem",   "$type": "dimension", "role": "step-6 — 24px" },
+    "8":  { "$value": "2rem",     "$type": "dimension", "role": "step-8 — 32px" },
+    "10": { "$value": "2.5rem",   "$type": "dimension", "role": "step-10 — 40px" },
+    "12": { "$value": "3rem",     "$type": "dimension", "role": "step-12 — 48px" },
+    "16": { "$value": "4rem",     "$type": "dimension", "role": "step-16 — 64px" },
+    "20": { "$value": "5rem",     "$type": "dimension", "role": "step-20 — 80px" },
+    "24": { "$value": "6rem",     "$type": "dimension", "role": "step-24 — 96px" }
+  },
   "section": {
     "sm": { "$value": "3.5rem 4rem", "$type": "dimension", "role": "compact-section-padding" },
     "md": { "$value": "5rem 7rem", "$type": "dimension", "role": "standard-section-padding" }

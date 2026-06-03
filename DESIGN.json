@@ -20,7 +20,11 @@
       "next-teal": { "role": "primary", "displayName": "NeXT Teal", "canonical": "oklch(60% 0.08 170)", "tonalRamp": ["oklch(20% 0.06 170)", "oklch(30% 0.07 170)", "oklch(40% 0.08 170)", "oklch(50% 0.08 170)", "oklch(60% 0.08 170)", "oklch(70% 0.07 170)", "oklch(80% 0.05 170)", "oklch(90% 0.03 170)"] },
       "next-teal-hi": { "role": "primary-bg", "displayName": "NeXT Teal Hi", "canonical": "oklch(70% 0.07 170)" },
       "positive": { "role": "semantic-positive", "displayName": "Positive", "canonical": "oklch(55% 0.12 150)" },
-      "negative": { "role": "semantic-negative", "displayName": "Negative", "canonical": "oklch(50% 0.12 25)" }
+      "negative": { "role": "semantic-negative", "displayName": "Negative", "canonical": "oklch(50% 0.12 25)" },
+      "warning": { "role": "semantic-warning", "displayName": "Warning", "canonical": "oklch(68% 0.14 80)" },
+      "warning-next": { "role": "semantic-warning-dark", "displayName": "Warning NeXT", "canonical": "oklch(75% 0.12 80)" },
+      "info": { "role": "semantic-info", "displayName": "Info", "canonical": "oklch(50% 0.08 250)" },
+      "info-next": { "role": "semantic-info-dark", "displayName": "Info NeXT", "canonical": "oklch(70% 0.08 250)" }
     },
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "Hero headline 'YOUR' only. text-8xl Silkscreen 700." },
@@ -288,6 +292,20 @@
       "register": "product",
       "refersTo": "tooltip",
       "description": "Contextual hover tooltip. Mac: paper bg, ink border, window shadow. NeXT: next-dark bg, next-light border."
+    },
+    {
+      "name": "Dropdown",
+      "kind": "overlay",
+      "register": "product",
+      "refersTo": "dropdown",
+      "description": "Floating context menu with grouped items. Danger variant. Mac: paper bg, 1px border. NeXT: next-dark bg, raised bevel."
+    },
+    {
+      "name": "Command Palette",
+      "kind": "overlay",
+      "register": "product",
+      "refersTo": "command-palette",
+      "description": "⌘K keyboard launcher with VT323 search input, grouped results, keyboard navigation. Mac: paper bg, 1px border. NeXT: next-dark bg, raised bevel."
     }
   ],
   "narrative": {

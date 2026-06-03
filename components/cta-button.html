@@ -2,13 +2,23 @@
   CTA Button — RezusCloud Design System
   Mac: inky black bg, paper text, 1px border
   NeXT: teal bg, black text, 2px raised bevel
+  States: default, hover, active/pressed, disabled
 -->
-<a href="#" class="ds-cta">
-	<span>See Why It Matters</span>
-	<svg class="ds-cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-		<path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-	</svg>
-</a>
+<div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+	<a href="#" class="ds-cta">
+		<span>Deploy Now</span>
+		<svg class="ds-cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+		</svg>
+	</a>
+
+	<a href="#" class="ds-cta ds-cta--disabled" aria-disabled="true" tabindex="-1">
+		<span>Deploy Now</span>
+		<svg class="ds-cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+		</svg>
+	</a>
+</div>
 
 <style>
 .ds-cta {
@@ -21,7 +31,7 @@
 	font-weight: 700;
 	font-family: "Silkscreen", system-ui, sans-serif;
 	border: 1px solid oklch(14% 0.008 65);
-	transition: background 0.15s, color 0.15s;
+	transition: background 0.15s, color 0.15s, transform 0.1s;
 	cursor: pointer;
 	border-radius: 0;
 	text-decoration: none;
@@ -29,6 +39,16 @@
 .ds-cta:hover {
 	background: oklch(78% 0.16 75);
 	color: oklch(14% 0.008 65);
+}
+.ds-cta:active {
+	transform: translateY(1px);
+}
+/* Disabled state */
+.ds-cta--disabled,
+.ds-cta[aria-disabled="true"] {
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
 }
 .ds-cta-icon {
 	width: 1rem;
@@ -39,9 +59,20 @@
 	color: oklch(6% 0.005 270);
 	border: 2px solid;
 	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
 }
 .dark .ds-cta:hover {
 	background: oklch(34% 0.006 270);
-	color: oklch(6% 0.005 270);
+	color: oklch(88% 0.004 270);
+}
+.dark .ds-cta:active {
+	transform: translateY(1px);
+	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
+}
+.dark .ds-cta--disabled,
+.dark .ds-cta[aria-disabled="true"] {
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
 }
 </style>

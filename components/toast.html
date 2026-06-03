@@ -33,6 +33,19 @@
 				<path d="M2 2l8 8M10 2l-8 8" stroke-linecap="round"></path>
 			</svg>
 		</button>
+	<div class="ds-toast ds-toast--warning">
+		<span class="ds-toast-icon">
+			<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zM8 9.5a1.25 1.25 0 100 2.5A1.25 1.25 0 008 9.5z"></path></svg>
+		</span>
+		<div class="ds-toast-content">
+			<span class="ds-toast-label">Memory Warning</span>
+			<span class="ds-toast-detail">Worker-02 at 85% memory.</span>
+		</div>
+		<button class="ds-toast-close" aria-label="Dismiss">
+			<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+				<path d="M2 2l8 8M10 2l-8 8" stroke-linecap="round"></path>
+			</svg>
+		</button>
 	</div>
 </div>
 
@@ -67,8 +80,10 @@
 }
 .ds-toast--positive .ds-toast-icon { color: oklch(55% 0.12 150); }
 .ds-toast--negative .ds-toast-icon { color: oklch(50% 0.12 25); }
+.ds-toast--warning .ds-toast-icon { color: oklch(68% 0.14 80); }
 .dark .ds-toast--positive .ds-toast-icon { color: oklch(75% 0.14 150); }
 .dark .ds-toast--negative .ds-toast-icon { color: oklch(65% 0.14 25); }
+.dark .ds-toast--warning .ds-toast-icon { color: oklch(75% 0.12 80); }
 .ds-toast-content {
 	display: flex;
 	flex-direction: column;
