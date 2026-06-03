@@ -1,47 +1,5 @@
 @import "tailwindcss";
-
-@custom-variant dark (&:where(.dark, .dark *));
-
-@theme {
-	/*
-	 * Color strategy: Committed (brand register).
-	 * Mac mode: warm-tinted neutrals (amber hue 85) + amber gold accent.
-	 * NeXT mode: cool-tinted neutrals (slate hue 270) + teal accent.
-	 */
-
-	/* Mac mode */
-	--color-paper: oklch(99.5% 0.004 85);
-	--color-surface: oklch(95.5% 0.004 85);
-	--color-surface-strong: oklch(88.5% 0.006 85);
-	--color-ink: oklch(14% 0.008 65);
-	--color-ink-muted: oklch(30% 0.008 65);
-	--color-rule: oklch(72% 0.005 85);
-	--color-accent-gold: oklch(78% 0.16 75);
-	--color-accent-gold-dark: oklch(65% 0.14 75);
-
-	/* NeXT mode */
-	--color-next-black: oklch(6% 0.005 270);
-	--color-next-dark: oklch(20% 0.006 270);
-	--color-next-mid: oklch(34% 0.006 270);
-	--color-next-light: oklch(58% 0.006 270);
-	--color-next-white: oklch(88% 0.004 270);
-	--color-next-subtle: oklch(72% 0.012 85);
-	--color-next-bevel-hi: oklch(55% 0.006 270);
-	--color-next-bevel-lo: oklch(2% 0.004 270);
-	--color-next-teal: oklch(60% 0.08 170);
-	--color-next-teal-hi: oklch(70% 0.07 170);
-
-	/* Semantic */
-	--color-positive: oklch(55% 0.12 150);
-	--color-positive-next: oklch(75% 0.14 150);
-	--color-negative: oklch(50% 0.12 25);
-	--color-negative-next: oklch(65% 0.14 25);
-
-	/* Font families */
-	--font-display: "Silkscreen", system-ui, sans-serif;
-	--font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
-	--font-mono: "VT323", "Courier New", monospace;
-}
+@import "./theme.css";
 
 /* Font face declarations */
 @font-face {
