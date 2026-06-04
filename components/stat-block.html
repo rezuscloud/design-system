@@ -12,13 +12,13 @@
 <style>
 .ds-stat-block {
 	padding: 0.75rem 1rem;
-	background: oklch(99.5% 0.004 85);
-	border: 1px solid oklch(72% 0.005 85);
+	background: var(--color-paper);
+	border: 1px solid var(--color-rule);
 }
 .dark .ds-stat-block {
-	background: oklch(6% 0.005 270);
+	background: var(--color-next-black);
 	border: 2px solid;
-	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
+	border-color: var(--color-next-bevel-lo) var(--color-next-bevel-hi) var(--color-next-bevel-hi) var(--color-next-bevel-lo);
 }
 .ds-stat-label {
 	font-family: "Silkscreen", system-ui, sans-serif;
@@ -26,20 +26,20 @@
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	margin-bottom: 0.25rem;
 }
 .dark .ds-stat-label {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 .ds-stat-value {
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 1.75rem;
 	font-weight: 700;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	line-height: 1;
 }
 .dark .ds-stat-value {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 </style>
