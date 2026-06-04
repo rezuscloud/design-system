@@ -4,7 +4,7 @@
   Mac: 1px ink border, accent-colored left marker, surface bg
   NeXT: 2px raised bevel, accent-colored left marker, next-dark bg
 -->
-<div class="ds-alert ds-alert--info">
+<div class="ds-alert ds-alert--info" role="alert">
 	<span class="ds-alert-icon">
 		<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm-.75 3.5h1.5v1.5h-1.5V4.5zm0 3h1.5v4h-1.5v-4z"></path></svg>
 	</span>
@@ -14,7 +14,7 @@
 	</div>
 </div>
 
-<div class="ds-alert ds-alert--positive">
+<div class="ds-alert ds-alert--positive" role="status">
 	<span class="ds-alert-icon">
 		<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.03 5.53l-3.75 3.75a.75.75 0 01-1.06 0l-1.5-1.5 1.06-1.06.97.97 3.22-3.22 1.06 1.06z"></path></svg>
 	</span>
@@ -24,7 +24,7 @@
 	</div>
 </div>
 
-<div class="ds-alert ds-alert--negative">
+<div class="ds-alert ds-alert--negative" role="alert">
 	<span class="ds-alert-icon">
 		<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm.75 9.5h-1.5v-1.5h1.5v1.5zm0-3h-1.5v-4h1.5v4z"></path></svg>
 	</span>
@@ -34,7 +34,7 @@
 	</div>
 </div>
 
-<div class="ds-alert ds-alert--warning">
+<div class="ds-alert ds-alert--warning" role="alert">
 	<span class="ds-alert-icon">
 		<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zM8 9.5a1.25 1.25 0 100 2.5A1.25 1.25 0 008 9.5z"></path></svg>
 	</span>
@@ -50,14 +50,14 @@
 	align-items: flex-start;
 	gap: 0.75rem;
 	padding: 0.75rem 1rem;
-	background: oklch(95.5% 0.004 85);
-	border: 1px solid oklch(72% 0.005 85);
+	background: var(--color-surface);
+	border: 1px solid var(--color-rule);
 	border-radius: 0;
 }
 .dark .ds-alert {
-	background: oklch(20% 0.006 270);
+	background: var(--color-next-dark);
 	border: 2px solid;
-	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
 }
 .ds-alert-icon {
 	width: 1.25rem;
@@ -72,14 +72,14 @@
 	width: 1rem;
 	height: 1rem;
 }
-.ds-alert--info .ds-alert-icon { color: oklch(50% 0.08 250); }
-.ds-alert--positive .ds-alert-icon { color: oklch(55% 0.12 150); }
-.ds-alert--negative .ds-alert-icon { color: oklch(50% 0.12 25); }
-.ds-alert--warning .ds-alert-icon { color: oklch(68% 0.14 80); }
-.dark .ds-alert--info .ds-alert-icon { color: oklch(70% 0.08 250); }
-.dark .ds-alert--positive .ds-alert-icon { color: oklch(75% 0.14 150); }
-.dark .ds-alert--negative .ds-alert-icon { color: oklch(65% 0.14 25); }
-.dark .ds-alert--warning .ds-alert-icon { color: oklch(75% 0.12 80); }
+.ds-alert--info .ds-alert-icon { color: var(--color-info); }
+.ds-alert--positive .ds-alert-icon { color: var(--color-positive); }
+.ds-alert--negative .ds-alert-icon { color: var(--color-negative); }
+.ds-alert--warning .ds-alert-icon { color: var(--color-warning); }
+.dark .ds-alert--info .ds-alert-icon { color: var(--color-info-next); }
+.dark .ds-alert--positive .ds-alert-icon { color: var(--color-positive-next); }
+.dark .ds-alert--negative .ds-alert-icon { color: var(--color-negative-next); }
+.dark .ds-alert--warning .ds-alert-icon { color: var(--color-warning-next); }
 .ds-alert-content {
 	display: flex;
 	flex-direction: column;
@@ -90,21 +90,21 @@
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.75rem;
 	font-weight: 700;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 }
 .dark .ds-alert-title {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .ds-alert-text {
 	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 	font-size: 0.8125rem;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	margin: 0;
 	line-height: 1.5;
 }
 .dark .ds-alert-text {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 </style>

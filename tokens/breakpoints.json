@@ -1,5 +1,6 @@
 {
-  "sm": "640px",
-  "md": "768px",
-  "lg": "1024px"
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "sm": { "$value": "640px", "$type": "dimension", "role": "mobile-landscape / small-tablet" },
+  "md": { "$value": "768px", "$type": "dimension", "role": "tablet-portrait" },
+  "lg": { "$value": "1024px", "$type": "dimension", "role": "tablet-landscape / desktop" }
 }

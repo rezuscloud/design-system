@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "components/status-dot.html",
+  "entry": "components/status-dot.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-06-03T12:08:32.221Z",
+  "updatedAt": "2026-06-03T12:08:32.221Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

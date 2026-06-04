@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "components/dropdown.html",
+  "entry": "components/dropdown.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-06-03T12:06:12.872Z",
+  "updatedAt": "2026-06-03T12:06:12.872Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

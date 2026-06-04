@@ -1,22 +1,23 @@
 {
+  "$schema": "https://design-tokens.github.io/community-group/format/",
   "easings": {
     "standard": { "$value": "cubic-bezier(0.25, 1, 0.5, 1)", "$type": "cubic-bezier", "role": "default-easing" },
     "color": { "$value": "150ms", "$type": "duration", "role": "color-transition-duration" },
     "transform": { "$value": "0.15s cubic-bezier(0.25, 1, 0.5, 1)", "$type": "composite", "role": "transform-transition" }
   },
   "animations": {
-    "crt-flicker": { "timing": "step-end 60ms", "purpose": "Theme toggle white overlay flash" },
-    "blink-cursor": { "timing": "1s step-end infinite", "purpose": "Terminal cursor blink" },
-    "crt-scroll": { "timing": "8s linear infinite", "purpose": "Scanline vertical scroll" },
-    "typewriter": { "timing": "220ms per line", "purpose": "Terminal line reveal delay between each typed line" },
-    "fade-in-up": { "duration": "0.3s", "easing": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Staggered page-load entrance" },
-    "reveal-stagger": { "delays": ["0s", "0.1s", "0.2s", "0.3s", "0.4s", "0.5s", "0.6s", "0.7s", "0.8s"] },
-    "phosphor-afterglow": { "duration": "2.5s", "easing": "ease-out", "purpose": "NeXT terminal text glow fade" },
-    "accordion-rotate": { "duration": "0.15s", "easing": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Accordion chevron rotation" },
-    "toast-enter": { "duration": "0.3s", "easing": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Toast slide-in from bottom-right" },
-    "toast-exit": { "duration": "0.2s", "easing": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Toast fade-out and slide" },
-    "skeleton-pulse": { "duration": "1.5s", "easing": "ease-in-out", "iteration": "infinite", "purpose": "Skeleton loading placeholder pulse" },
-    "status-blink": { "duration": "2s", "easing": "step-end", "iteration": "infinite", "purpose": "Error status dot blink" },
-    "dot-pulse": { "duration": "2s", "easing": "ease-out", "iteration": "infinite", "purpose": "Active accent dot pulse" }
+    "crt-flicker": { "$value": "step-end 60ms", "$type": "animation", "purpose": "Theme toggle white overlay flash" },
+    "blink-cursor": { "$value": "1s step-end infinite", "$type": "animation", "purpose": "Terminal cursor blink" },
+    "crt-scroll": { "$value": "8s linear infinite", "$type": "animation", "purpose": "Scanline vertical scroll" },
+    "typewriter": { "$value": "220ms per line", "$type": "duration", "purpose": "Terminal line reveal delay between each typed line" },
+    "fade-in-up": { "$value": "0.3s cubic-bezier(0.25, 1, 0.5, 1)", "$type": "animation", "purpose": "Staggered page-load entrance" },
+    "reveal-stagger": { "$value": "0s, 0.1s, 0.2s, 0.3s, 0.4s, 0.5s, 0.6s, 0.7s, 0.8s", "$type": "duration-list", "purpose": "Stagger delays for sequential elements" },
+    "phosphor-afterglow": { "$value": "2.5s ease-out", "$type": "animation", "purpose": "NeXT terminal text glow fade" },
+    "accordion-rotate": { "$value": "0.15s cubic-bezier(0.25, 1, 0.5, 1)", "$type": "animation", "purpose": "Accordion chevron rotation" },
+    "toast-enter": { "$value": "0.3s cubic-bezier(0.25, 1, 0.5, 1)", "$type": "animation", "purpose": "Toast slide-in from bottom-right" },
+    "toast-exit": { "$value": "0.2s cubic-bezier(0.25, 1, 0.5, 1)", "$type": "animation", "purpose": "Toast fade-out and slide" },
+    "skeleton-pulse": { "$value": "1.5s ease-in-out infinite", "$type": "animation", "purpose": "Skeleton loading placeholder pulse" },
+    "status-blink": { "$value": "2s step-end infinite", "$type": "animation", "purpose": "Error status dot blink" },
+    "dot-pulse": { "$value": "2s ease-out infinite", "$type": "animation", "purpose": "Active accent dot pulse" }
   }
 }

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "components/alert-banner.html",
+  "entry": "components/alert-banner.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-06-03T12:07:33.767Z",
+  "updatedAt": "2026-06-03T12:07:33.767Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

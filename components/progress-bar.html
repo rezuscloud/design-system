@@ -37,51 +37,56 @@
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.6875rem;
 	font-weight: 700;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 }
 .dark .ds-progress-label {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 .ds-progress {
 	height: 0.75rem;
-	background: oklch(95.5% 0.004 85);
-	border: 1px solid oklch(72% 0.005 85);
+	background: var(--color-surface);
+	border: 1px solid var(--color-rule);
 	border-radius: 0;
 	overflow: hidden;
 }
 .dark .ds-progress {
-	background: oklch(6% 0.005 270);
+	background: var(--color-next-black);
 	border: 2px solid;
-	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
+	border-color: var(--color-next-bevel-lo) var(--color-next-bevel-hi) var(--color-next-bevel-hi) var(--color-next-bevel-lo);
 }
 .ds-progress-fill {
 	height: 100%;
-	background: oklch(78% 0.16 75);
+	background: var(--color-accent-gold);
 	transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .dark .ds-progress-fill {
-	background: oklch(60% 0.08 170);
+	background: var(--color-next-teal);
 }
 .ds-progress-fill--danger {
-	background: oklch(50% 0.12 25);
+	background: var(--color-negative);
 }
 .dark .ds-progress-fill--danger {
-	background: oklch(65% 0.14 25);
+	background: var(--color-negative-next);
 }
 .ds-progress-value {
 	font-family: "VT323", "Courier New", monospace;
 	font-size: 0.8125rem;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 }
 .dark .ds-progress-value {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .ds-progress-value--danger {
-	color: oklch(50% 0.12 25);
+	color: var(--color-negative);
 }
 .dark .ds-progress-value--danger {
-	color: oklch(65% 0.14 25);
+	color: var(--color-negative-next);
+}
+@media (prefers-reduced-motion: reduce) {
+	.ds-progress-fill {
+		transition: none;
+	}
 }
 </style>

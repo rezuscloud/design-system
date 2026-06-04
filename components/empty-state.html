@@ -4,7 +4,7 @@
   Mac: surface bg, accent-gold icon, ink text
   NeXT: next-dark bg, teal icon, next-white text
 -->
-<div class="ds-empty">
+<div class="ds-empty" role="region" aria-label="No deployments">
 	<div class="ds-empty-icon">
 		<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
 			<path stroke-linecap="round" stroke-linejoin="round" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"></path>
@@ -36,78 +36,78 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: oklch(78% 0.16 75);
-	border: 1px solid oklch(14% 0.008 65);
+	background: var(--color-accent-gold);
+	border: 1px solid var(--color-ink);
 	border-radius: 0;
 	margin-bottom: 1rem;
 }
 .ds-empty-icon svg {
 	width: 1.25rem;
 	height: 1.25rem;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 }
 .dark .ds-empty-icon {
-	background: oklch(70% 0.07 170);
+	background: var(--color-next-teal-hi);
 	border: 2px solid;
-	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
 }
 .dark .ds-empty-icon svg {
-	color: oklch(6% 0.005 270);
+	color: var(--color-next-black);
 }
 .ds-empty-title {
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.75rem;
 	font-weight: 700;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	margin-bottom: 0.5rem;
 }
 .dark .ds-empty-title {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .ds-empty-text {
 	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 	font-size: 0.8125rem;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	line-height: 1.6;
 	margin: 0 0 1rem 0;
 	max-width: 40ch;
 }
 .dark .ds-empty-text {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 .ds-empty-action {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.5rem;
 	padding: 0.75rem 1.5rem;
-	background: oklch(14% 0.008 65);
-	color: oklch(99.5% 0.004 85);
+	background: var(--color-ink);
+	color: var(--color-paper);
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-weight: 700;
 	font-size: 0.75rem;
-	border: 1px solid oklch(14% 0.008 65);
+	border: 1px solid var(--color-ink);
 	cursor: pointer;
 	border-radius: 0;
 	transition: background 0.15s, color 0.15s;
 }
 .ds-empty-action:hover {
-	background: oklch(78% 0.16 75);
-	color: oklch(14% 0.008 65);
+	background: var(--color-accent-gold);
+	color: var(--color-ink);
 }
 .ds-empty-action svg {
 	width: 0.875rem;
 	height: 0.875rem;
 }
 .dark .ds-empty-action {
-	background: oklch(70% 0.07 170);
-	color: oklch(6% 0.005 270);
+	background: var(--color-next-teal-hi);
+	color: var(--color-next-black);
 	border: 2px solid;
-	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
 }
 .dark .ds-empty-action:hover {
-	background: oklch(34% 0.006 270);
-	color: oklch(88% 0.004 270);
+	background: var(--color-next-mid);
+	color: var(--color-next-white);
 }
 </style>

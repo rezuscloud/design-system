@@ -7,7 +7,7 @@
 <div class="ds-code">
 	<div class="ds-code-header">
 		<span class="ds-code-filename">values.yaml</span>
-		<button class="ds-code-copy" aria-label="Copy to clipboard">
+		<button class="ds-code-copy" aria-label="Copy values.yaml to clipboard">
 			<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
 				<rect x="3.5" y="3.5" width="7" height="7" rx="0" stroke-linecap="round" stroke-linejoin="round"></rect>
 				<path d="M1.5 8.5V2a.5.5 0 01.5-.5h6.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -28,38 +28,38 @@ storage:
 
 <style>
 .ds-code {
-	background: oklch(95.5% 0.004 85);
-	border: 1px solid oklch(72% 0.005 85);
+	background: var(--color-surface);
+	border: 1px solid var(--color-rule);
 	border-radius: 0;
 	overflow: hidden;
 }
 .dark .ds-code {
-	background: oklch(6% 0.005 270);
+	background: var(--color-next-black);
 	border: 2px solid;
-	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
+	border-color: var(--color-next-bevel-lo) var(--color-next-bevel-hi) var(--color-next-bevel-hi) var(--color-next-bevel-lo);
 }
 .ds-code-header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 0.375rem 0.75rem;
-	border-bottom: 1px solid oklch(72% 0.005 85);
-	background: oklch(88.5% 0.006 85);
+	border-bottom: 1px solid var(--color-rule);
+	background: var(--color-surface-strong);
 }
 .dark .ds-code-header {
-	border-bottom: 1px solid oklch(55% 0.006 270);
-	background: oklch(20% 0.006 270);
+	border-bottom: 1px solid var(--color-next-bevel-hi);
+	background: var(--color-next-dark);
 }
 .ds-code-filename {
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.5625rem;
 	font-weight: 700;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 }
 .dark .ds-code-filename {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 .ds-code-copy {
 	width: 1.25rem;
@@ -70,19 +70,19 @@ storage:
 	background: none;
 	border: none;
 	cursor: pointer;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	padding: 0;
 	border-radius: 0;
 	transition: color 0.15s;
 }
 .ds-code-copy:hover {
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 }
 .dark .ds-code-copy {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 .dark .ds-code-copy:hover {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .ds-code-copy svg {
 	width: 0.75rem;
@@ -94,10 +94,10 @@ storage:
 	font-family: "VT323", "Courier New", monospace;
 	font-size: 0.875rem;
 	line-height: 1.6;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	overflow-x: auto;
 }
 .dark .ds-code-pre {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 </style>

@@ -5,7 +5,7 @@
 -->
 <div class="ds-accordion">
 	<details class="ds-accordion-item" open>
-		<summary class="ds-accordion-header">
+		<summary class="ds-accordion-header" aria-expanded="true">
 			<span class="ds-accordion-title">Cluster Configuration</span>
 			<span class="ds-accordion-toggle">
 				<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
@@ -18,7 +18,7 @@
 		</div>
 	</details>
 	<details class="ds-accordion-item">
-		<summary class="ds-accordion-header">
+		<summary class="ds-accordion-header" aria-expanded="false">
 			<span class="ds-accordion-title">Networking</span>
 			<span class="ds-accordion-toggle">
 				<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
@@ -31,7 +31,7 @@
 		</div>
 	</details>
 	<details class="ds-accordion-item">
-		<summary class="ds-accordion-header">
+		<summary class="ds-accordion-header" aria-expanded="false">
 			<span class="ds-accordion-title">Storage</span>
 			<span class="ds-accordion-toggle">
 				<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
@@ -51,10 +51,10 @@
 	flex-direction: column;
 }
 .ds-accordion-item {
-	border-bottom: 1px solid oklch(72% 0.005 85);
+	border-bottom: 1px solid var(--color-rule);
 }
 .dark .ds-accordion-item {
-	border-bottom: 2px solid oklch(55% 0.006 270);
+	border-bottom: 2px solid var(--color-next-bevel-hi);
 }
 .ds-accordion-header {
 	display: flex;
@@ -75,12 +75,12 @@
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.75rem;
 	font-weight: 700;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 }
 .dark .ds-accordion-title {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .ds-accordion-toggle {
 	width: 1.25rem;
@@ -88,7 +88,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .ds-accordion-toggle svg {
@@ -99,7 +99,12 @@
 	transform: rotate(180deg);
 }
 .dark .ds-accordion-toggle {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
+}
+@media (prefers-reduced-motion: reduce) {
+	.ds-accordion-toggle {
+		transition: none;
+	}
 }
 .ds-accordion-body {
 	padding: 0 0 0.75rem 0;
@@ -107,12 +112,12 @@
 .ds-accordion-body p {
 	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 	font-size: 0.875rem;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	line-height: 1.6;
 	margin: 0;
 	max-width: 65ch;
 }
 .dark .ds-accordion-body p {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 </style>

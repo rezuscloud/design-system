@@ -11,8 +11,8 @@
 <style>
 .ds-nav-active {
 	padding: 0.5rem 0.75rem;
-	background: oklch(99.5% 0.004 85);
-	color: oklch(14% 0.008 65);
+	background: var(--color-paper);
+	color: var(--color-ink);
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-weight: 700;
 	font-size: 0.875rem;
@@ -22,12 +22,12 @@
 	text-decoration: none;
 }
 .dark .ds-nav-active {
-	background: oklch(58% 0.006 270);
-	color: oklch(6% 0.005 270);
+	background: var(--color-next-light);
+	color: var(--color-next-black);
 }
 .ds-nav {
 	padding: 0.5rem 0.75rem;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-weight: 700;
 	font-size: 0.875rem;
@@ -38,12 +38,12 @@
 	transition: background 0.15s, color 0.15s;
 }
 .ds-nav:hover {
-	background: oklch(95.5% 0.004 85);
+	background: var(--color-surface);
 }
 .dark .ds-nav {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 .dark .ds-nav:hover {
-	background: oklch(34% 0.006 270);
+	background: var(--color-next-mid);
 }
 </style>

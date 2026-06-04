@@ -38,16 +38,16 @@
 	display: inline-block;
 	margin: 0 0.375rem;
 	font-family: "VT323", "Courier New", monospace;
-	color: oklch(72% 0.005 85);
+	color: var(--color-rule);
 }
 .dark .ds-breadcrumb-item + .ds-breadcrumb-item::before {
-	color: oklch(58% 0.006 270);
+	color: var(--color-next-light);
 }
 .ds-breadcrumb-link {
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.6875rem;
 	font-weight: 700;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	text-decoration: none;
@@ -55,23 +55,23 @@
 	transition: color 0.15s;
 }
 .ds-breadcrumb-link:hover {
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 }
 .dark .ds-breadcrumb-link {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 .dark .ds-breadcrumb-link:hover {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .ds-breadcrumb-current {
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.6875rem;
 	font-weight: 700;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 }
 .dark .ds-breadcrumb-current {
-	color: oklch(60% 0.08 170);
+	color: var(--color-next-teal);
 }
 </style>

@@ -51,6 +51,8 @@ Self-contained HTML + CSS in `components/`. Each file is standalone: copy the HT
 | Accent Dot | `accent-dot.html` | List bullet, status marker (2 sizes + active pulse) |
 | Section Badge | `section-badge.html` | Section label with `//` separator |
 | Terminal | `terminal.html` | Mac/NeXT terminal container with typewriter |
+| Avatar | `avatar.html` | Square user representation with initials (3 sizes) |
+| Tooltip | `tooltip.html` | Contextual hover tooltip |
 
 #### Product Components (dashboard, console, app UI)
 
@@ -84,6 +86,7 @@ Self-contained HTML + CSS in `components/`. Each file is standalone: copy the HT
 
 | Component | File | Description |
 |-----------|------|-------------|
+| Divider | `divider.html` | Horizontal rule separator |
 | Nav Link | `nav-link.html` | Active and inactive nav states |
 | Icon Square | `icon-square.html` | 48x48 accent square with icon |
 | Tech Badge | `tech-badge.html` | Technology tag strip |

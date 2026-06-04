@@ -84,7 +84,7 @@
 
 <style>
 .ds-cmd-backdrop {
-	background: oklch(14% 0.008 65 / 0.3);
+	background: oklch(from var(--color-ink) l c h / 0.3);
 	padding: 2rem;
 	display: flex;
 	align-items: flex-start;
@@ -92,22 +92,22 @@
 	padding-top: 15vh;
 }
 .dark .ds-cmd-backdrop {
-	background: oklch(6% 0.005 270 / 0.6);
+	background: oklch(from var(--color-next-black) l c h / 0.6);
 }
 
 .ds-cmd {
-	background: oklch(99.5% 0.004 85);
-	border: 1px solid oklch(14% 0.008 65);
+	background: var(--color-paper);
+	border: 1px solid var(--color-ink);
 	border-radius: 0;
-	box-shadow: 1px 1px 0 oklch(14% 0.008 65);
+	box-shadow: 1px 1px 0 var(--color-ink);
 	max-width: 32rem;
 	width: 100%;
 	overflow: hidden;
 }
 .dark .ds-cmd {
-	background: oklch(20% 0.006 270);
+	background: var(--color-next-dark);
 	border: 2px solid;
-	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
 	box-shadow: none;
 }
 
@@ -117,19 +117,19 @@
 	align-items: center;
 	gap: 0.5rem;
 	padding: 0.75rem;
-	border-bottom: 1px solid oklch(72% 0.005 85);
+	border-bottom: 1px solid var(--color-rule);
 }
 .dark .ds-cmd-input-wrap {
-	border-bottom: 2px solid oklch(55% 0.006 270);
+	border-bottom: 2px solid var(--color-next-bevel-hi);
 }
 .ds-cmd-search-icon {
 	width: 1rem;
 	height: 1rem;
 	flex-shrink: 0;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 }
 .dark .ds-cmd-search-icon {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 .ds-cmd-input {
 	flex: 1;
@@ -138,33 +138,33 @@
 	outline: none;
 	font-family: "VT323", "Courier New", monospace;
 	font-size: 1rem;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	padding: 0;
 }
 .ds-cmd-input::placeholder {
-	color: oklch(72% 0.005 85);
+	color: var(--color-rule);
 }
 .dark .ds-cmd-input {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .dark .ds-cmd-input::placeholder {
-	color: oklch(58% 0.006 270);
+	color: var(--color-next-light);
 }
 .ds-cmd-kbd {
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.5rem;
 	font-weight: 700;
 	padding: 0.125rem 0.375rem;
-	background: oklch(95.5% 0.004 85);
-	border: 1px solid oklch(72% 0.005 85);
-	color: oklch(30% 0.008 65);
+	background: var(--color-surface);
+	border: 1px solid var(--color-rule);
+	color: var(--color-ink-muted);
 	border-radius: 0;
 	flex-shrink: 0;
 }
 .dark .ds-cmd-kbd {
-	background: oklch(34% 0.006 270);
-	border-color: oklch(55% 0.006 270);
-	color: oklch(72% 0.012 85);
+	background: var(--color-next-mid);
+	border-color: var(--color-next-bevel-hi);
+	color: var(--color-next-subtle);
 }
 
 /* Results body */
@@ -181,11 +181,11 @@
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	padding: 0.5rem 0.75rem 0.25rem;
 }
 .dark .ds-cmd-group-label {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 
 /* Result items */
@@ -196,7 +196,7 @@
 	padding: 0.5rem 0.75rem;
 	background: none;
 	border: none;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	cursor: pointer;
 	width: 100%;
 	text-align: left;
@@ -205,17 +205,17 @@
 }
 .ds-cmd-item:hover,
 .ds-cmd-item.ds-cmd-item--active {
-	background: oklch(95.5% 0.004 85);
+	background: var(--color-surface);
 }
 .ds-cmd-item:active {
-	background: oklch(88.5% 0.006 85);
+	background: var(--color-surface-strong);
 }
 .dark .ds-cmd-item {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .dark .ds-cmd-item:hover,
 .dark .ds-cmd-item.ds-cmd-item--active {
-	background: oklch(34% 0.006 270);
+	background: var(--color-next-mid);
 }
 
 .ds-cmd-item-icon {
@@ -225,10 +225,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 }
 .dark .ds-cmd-item-icon {
-	color: oklch(58% 0.006 270);
+	color: var(--color-next-light);
 }
 .ds-cmd-item-icon svg {
 	width: 0.875rem;
@@ -251,10 +251,10 @@
 .ds-cmd-item-hint {
 	font-family: "VT323", "Courier New", monospace;
 	font-size: 0.75rem;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 }
 .dark .ds-cmd-item-hint {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 
 /* Footer */
@@ -262,19 +262,19 @@
 	display: flex;
 	gap: 0.75rem;
 	padding: 0.5rem 0.75rem;
-	border-top: 1px solid oklch(72% 0.005 85);
+	border-top: 1px solid var(--color-rule);
 }
 .dark .ds-cmd-footer {
-	border-top: 2px solid oklch(55% 0.006 270);
+	border-top: 2px solid var(--color-next-bevel-hi);
 }
 .ds-cmd-footer-hint {
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.5rem;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	letter-spacing: 0.05em;
 }
 .dark .ds-cmd-footer-hint {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 .ds-cmd-footer-hint kbd {
 	font-family: inherit;

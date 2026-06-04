@@ -5,7 +5,7 @@
 -->
 <div class="ds-input-group">
 	<label class="ds-input-label" for="ds-select-demo">Region</label>
-	<select id="ds-select-demo" class="ds-select">
+	<select id="ds-select-demo" class="ds-select" aria-describedby="ds-select-help">
 		<option value="" disabled selected>Select region</option>
 		<option value="eu-west">EU West (Amsterdam)</option>
 		<option value="eu-central">EU Central (Frankfurt)</option>
@@ -19,9 +19,9 @@
 	appearance: none;
 	-webkit-appearance: none;
 	padding: 0.5rem 2rem 0.5rem 0.75rem;
-	background: oklch(99.5% 0.004 85);
-	border: 1px solid oklch(72% 0.005 85);
-	color: oklch(14% 0.008 65);
+	background: var(--color-paper);
+	border: 1px solid var(--color-rule);
+	color: var(--color-ink);
 	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 	font-size: 0.875rem;
 	line-height: 1.5;
@@ -35,21 +35,21 @@
 	background-position: right 0.75rem center;
 }
 .ds-select:focus {
-	border-color: oklch(14% 0.008 65);
+	border-color: var(--color-ink);
 }
 .ds-select:invalid,
 .ds-select option[value=""] {
-	color: oklch(72% 0.005 85);
+	color: var(--color-rule);
 }
 .dark .ds-select {
-	background: oklch(6% 0.005 270);
+	background: var(--color-next-black);
 	border: 2px solid;
-	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
-	color: oklch(88% 0.004 270);
+	border-color: var(--color-next-bevel-lo) var(--color-next-bevel-hi) var(--color-next-bevel-hi) var(--color-next-bevel-lo);
+	color: var(--color-next-white);
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2378888d' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 .dark .ds-select:focus {
-	border-color: oklch(60% 0.08 170) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(60% 0.08 170);
+	border-color: var(--color-next-teal) var(--color-next-bevel-hi) var(--color-next-bevel-hi) var(--color-next-teal);
 }
 .ds-select:disabled {
 	opacity: 0.5;

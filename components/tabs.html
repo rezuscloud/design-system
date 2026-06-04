@@ -3,21 +3,21 @@
   Mac: 1px ink border bottom on active, rule divider
   NeXT: Raised bevel active tab, inset bevel inactive
 -->
-<div class="ds-tabs">
-	<button class="ds-tab ds-tab--active" role="tab" aria-selected="true">Overview</button>
-	<button class="ds-tab" role="tab" aria-selected="false">Nodes</button>
-	<button class="ds-tab" role="tab" aria-selected="false">Workloads</button>
-	<button class="ds-tab" role="tab" aria-selected="false">Networking</button>
-	<button class="ds-tab ds-tab--disabled" role="tab" aria-selected="false" disabled>Metrics</button>
+<div class="ds-tabs" role="tablist" aria-label="Content tabs">
+	<button class="ds-tab ds-tab--active" role="tab" aria-selected="true" id="tab-overview" aria-controls="panel-overview">Overview</button>
+	<button class="ds-tab" role="tab" aria-selected="false" id="tab-nodes" tabindex="-1">Nodes</button>
+	<button class="ds-tab" role="tab" aria-selected="false" id="tab-workloads" tabindex="-1">Workloads</button>
+	<button class="ds-tab" role="tab" aria-selected="false" id="tab-networking" tabindex="-1">Networking</button>
+	<button class="ds-tab ds-tab--disabled" role="tab" aria-selected="false" id="tab-metrics" disabled>Metrics</button>
 </div>
 
 <style>
 .ds-tabs {
 	display: flex;
-	border-bottom: 1px solid oklch(72% 0.005 85);
+	border-bottom: 1px solid var(--color-rule);
 }
 .dark .ds-tabs {
-	border-bottom: 2px solid oklch(55% 0.006 270);
+	border-bottom: 2px solid var(--color-next-bevel-hi);
 }
 .ds-tab {
 	padding: 0.5rem 1rem;
@@ -27,7 +27,7 @@
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.75rem;
 	font-weight: 700;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	cursor: pointer;
@@ -36,28 +36,28 @@
 	margin-bottom: -1px;
 }
 .ds-tab:hover {
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 }
 .ds-tab--active {
-	color: oklch(14% 0.008 65);
-	border-bottom-color: oklch(14% 0.008 65);
+	color: var(--color-ink);
+	border-bottom-color: var(--color-ink);
 }
 .ds-tab--disabled {
 	opacity: 0.4;
 	cursor: not-allowed;
 }
 .ds-tab--disabled:hover {
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 }
 .dark .ds-tab {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 	margin-bottom: -2px;
 }
 .dark .ds-tab:hover {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .dark .ds-tab--active {
-	color: oklch(60% 0.08 170);
-	border-bottom-color: oklch(60% 0.08 170);
+	color: var(--color-next-teal);
+	border-bottom-color: var(--color-next-teal);
 }
 </style>

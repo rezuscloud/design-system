@@ -25,27 +25,27 @@
 
 <style>
 .ds-dialog-backdrop {
-	background: oklch(14% 0.008 65 / 0.3);
+	background: oklch(from var(--color-ink) l c h / 0.3);
 	padding: 2rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 .dark .ds-dialog-backdrop {
-	background: oklch(6% 0.005 270 / 0.6);
+	background: oklch(from var(--color-next-black) l c h / 0.6);
 }
 .ds-dialog {
-	background: oklch(99.5% 0.004 85);
-	border: 1px solid oklch(14% 0.008 65);
+	background: var(--color-paper);
+	border: 1px solid var(--color-ink);
 	border-radius: 0;
-	box-shadow: 1px 1px 0 oklch(14% 0.008 65);
+	box-shadow: 1px 1px 0 var(--color-ink);
 	max-width: 28rem;
 	width: 100%;
 }
 .dark .ds-dialog {
-	background: oklch(20% 0.006 270);
+	background: var(--color-next-dark);
 	border: 2px solid;
-	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
 	box-shadow: none;
 }
 .ds-dialog-bar {
@@ -53,23 +53,23 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 0.5rem 0.75rem;
-	border-bottom: 1px solid oklch(72% 0.005 85);
-	background: oklch(95.5% 0.004 85);
+	border-bottom: 1px solid var(--color-rule);
+	background: var(--color-surface);
 }
 .dark .ds-dialog-bar {
-	border-bottom: 2px solid oklch(55% 0.006 270);
-	background: oklch(34% 0.006 270);
+	border-bottom: 2px solid var(--color-next-bevel-hi);
+	background: var(--color-next-mid);
 }
 .ds-dialog-title {
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.6875rem;
 	font-weight: 700;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 }
 .dark .ds-dialog-title {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .ds-dialog-close {
 	width: 1.25rem;
@@ -78,25 +78,25 @@
 	align-items: center;
 	justify-content: center;
 	background: none;
-	border: 1px solid oklch(72% 0.005 85);
+	border: 1px solid var(--color-rule);
 	cursor: pointer;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	padding: 0;
 	border-radius: 0;
 	transition: background 0.15s, color 0.15s;
 }
 .ds-dialog-close:hover {
-	background: oklch(14% 0.008 65);
-	color: oklch(99.5% 0.004 85);
+	background: var(--color-ink);
+	color: var(--color-paper);
 }
 .dark .ds-dialog-close {
 	border: 2px solid;
-	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
-	color: oklch(72% 0.012 85);
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+	color: var(--color-next-subtle);
 }
 .dark .ds-dialog-close:hover {
-	background: oklch(60% 0.08 170);
-	color: oklch(6% 0.005 270);
+	background: var(--color-next-teal);
+	color: var(--color-next-black);
 }
 .ds-dialog-close svg {
 	width: 0.625rem;
@@ -108,12 +108,12 @@
 .ds-dialog-text {
 	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 	font-size: 0.875rem;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	line-height: 1.6;
 	margin: 0;
 }
 .dark .ds-dialog-text {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .ds-dialog-text strong {
 	font-weight: 600;
@@ -123,10 +123,10 @@
 	justify-content: flex-end;
 	gap: 0.5rem;
 	padding: 0.75rem;
-	border-top: 1px solid oklch(72% 0.005 85);
+	border-top: 1px solid var(--color-rule);
 }
 .dark .ds-dialog-actions {
-	border-top: 2px solid oklch(55% 0.006 270);
+	border-top: 2px solid var(--color-next-bevel-hi);
 }
 .ds-dialog-btn {
 	padding: 0.5rem 1rem;
@@ -136,32 +136,32 @@
 	border-radius: 0;
 	cursor: pointer;
 	transition: background 0.15s, color 0.15s;
-	border: 1px solid oklch(72% 0.005 85);
-	background: oklch(95.5% 0.004 85);
-	color: oklch(14% 0.008 65);
+	border: 1px solid var(--color-rule);
+	background: var(--color-surface);
+	color: var(--color-ink);
 }
 .ds-dialog-btn--primary {
-	background: oklch(14% 0.008 65);
-	color: oklch(99.5% 0.004 85);
-	border-color: oklch(14% 0.008 65);
+	background: var(--color-ink);
+	color: var(--color-paper);
+	border-color: var(--color-ink);
 }
 .ds-dialog-btn--primary:hover {
-	background: oklch(78% 0.16 75);
-	color: oklch(14% 0.008 65);
+	background: var(--color-accent-gold);
+	color: var(--color-ink);
 }
 .dark .ds-dialog-btn {
 	border: 2px solid;
-	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
-	background: oklch(34% 0.006 270);
-	color: oklch(88% 0.004 270);
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+	background: var(--color-next-mid);
+	color: var(--color-next-white);
 }
 .dark .ds-dialog-btn--primary {
-	background: oklch(70% 0.07 170);
-	color: oklch(6% 0.005 270);
-	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	background: var(--color-next-teal-hi);
+	color: var(--color-next-black);
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
 }
 .dark .ds-dialog-btn--primary:hover {
-	background: oklch(34% 0.006 270);
-	color: oklch(88% 0.004 270);
+	background: var(--color-next-mid);
+	color: var(--color-next-white);
 }
 </style>

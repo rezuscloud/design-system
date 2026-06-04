@@ -6,8 +6,8 @@
     "padding-y": { "$value": "0.5rem", "$type": "dimension", "role": "vertical-padding" },
     "border-mac": { "$value": "1px solid", "$type": "border", "role": "mac-mode-input-border" },
     "border-next": { "$value": "2px solid", "$type": "border", "role": "next-mode-input-bevel" },
-    "focus-ring-mac": { "$value": "oklch(14% 0.008 65)", "$type": "color", "role": "focus-border-color" },
-    "focus-ring-next": { "$value": "oklch(60% 0.08 170)", "$type": "color", "role": "focus-bezel-color" },
+    "focus-ring-mac": { "$value": "var(--color-ink)", "$type": "color", "role": "focus-border-color" },
+    "focus-ring-next": { "$value": "var(--color-next-teal)", "$type": "color", "role": "focus-bezel-color" },
     "font-size": { "$value": "0.875rem", "$type": "dimension", "role": "input-text-size" },
     "label-size": { "$value": "0.75rem", "$type": "dimension", "role": "label-text-size" },
     "help-size": { "$value": "0.75rem", "$type": "dimension", "role": "help-text-size" }

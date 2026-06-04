@@ -33,23 +33,23 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: oklch(88.5% 0.006 85);
-	border: 1px solid oklch(72% 0.005 85);
+	background: var(--color-surface-strong);
+	border: 1px solid var(--color-rule);
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.6875rem;
 	font-weight: 700;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	cursor: pointer;
 	border-radius: 0;
 	transition: background 0.15s, border-color 0.15s;
 }
 .ds-pagination-btn:hover:not(:disabled):not(.ds-pagination-btn--active) {
-	border-color: oklch(78% 0.16 75);
+	border-color: var(--color-accent-gold);
 }
 .ds-pagination-btn--active {
-	background: oklch(14% 0.008 65);
-	color: oklch(99.5% 0.004 85);
-	border-color: oklch(14% 0.008 65);
+	background: var(--color-ink);
+	color: var(--color-paper);
+	border-color: var(--color-ink);
 }
 .ds-pagination-btn--disabled {
 	opacity: 0.4;
@@ -60,25 +60,25 @@
 	height: 0.625rem;
 }
 .dark .ds-pagination-btn {
-	background: oklch(20% 0.006 270);
+	background: var(--color-next-dark);
 	border: 2px solid;
-	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
-	color: oklch(88% 0.004 270);
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+	color: var(--color-next-white);
 }
 .dark .ds-pagination-btn:hover:not(:disabled):not(.ds-pagination-btn--active) {
-	border-color: oklch(72% 0.012 85) oklch(6% 0.005 270) oklch(6% 0.005 270) oklch(72% 0.012 85);
+	border-color: var(--color-next-subtle) var(--color-next-black) var(--color-next-black) var(--color-next-subtle);
 }
 .dark .ds-pagination-btn--active {
-	background: oklch(70% 0.07 170);
-	color: oklch(6% 0.005 270);
+	background: var(--color-next-teal-hi);
+	color: var(--color-next-black);
 }
 .ds-pagination-ellipsis {
 	font-family: "VT323", "Courier New", monospace;
 	font-size: 0.875rem;
-	color: oklch(72% 0.005 85);
+	color: var(--color-rule);
 	padding: 0 0.25rem;
 }
 .dark .ds-pagination-ellipsis {
-	color: oklch(58% 0.006 270);
+	color: var(--color-next-light);
 }
 </style>

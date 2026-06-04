@@ -5,16 +5,16 @@
 -->
 <div class="ds-input-group">
 	<label class="ds-input-label" for="ds-textarea-demo">Configuration YAML</label>
-	<textarea id="ds-textarea-demo" class="ds-textarea" rows="5" placeholder="apiVersion: v1&#10;kind: ConfigMap&#10;metadata:&#10;  name: my-config"></textarea>
-	<span class="ds-input-help">Paste your configuration or edit inline.</span>
+	<textarea id="ds-textarea-demo" class="ds-textarea" rows="5" placeholder="apiVersion: v1&#10;kind: ConfigMap&#10;metadata:&#10;  name: my-config" aria-describedby="ds-textarea-help"></textarea>
+	<span class="ds-input-help" id="ds-textarea-help">Paste your configuration or edit inline.</span>
 </div>
 
 <style>
 .ds-textarea {
 	padding: 0.5rem 0.75rem;
-	background: oklch(99.5% 0.004 85);
-	border: 1px solid oklch(72% 0.005 85);
-	color: oklch(14% 0.008 65);
+	background: var(--color-paper);
+	border: 1px solid var(--color-rule);
+	color: var(--color-ink);
 	font-family: "VT323", "Courier New", monospace;
 	font-size: 0.875rem;
 	line-height: 1.5;
@@ -25,22 +25,22 @@
 	width: 100%;
 }
 .ds-textarea::placeholder {
-	color: oklch(72% 0.005 85);
+	color: var(--color-rule);
 }
 .ds-textarea:focus {
-	border-color: oklch(14% 0.008 65);
+	border-color: var(--color-ink);
 }
 .dark .ds-textarea {
-	background: oklch(6% 0.005 270);
+	background: var(--color-next-black);
 	border: 2px solid;
-	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
-	color: oklch(88% 0.004 270);
+	border-color: var(--color-next-bevel-lo) var(--color-next-bevel-hi) var(--color-next-bevel-hi) var(--color-next-bevel-lo);
+	color: var(--color-next-white);
 }
 .dark .ds-textarea::placeholder {
-	color: oklch(58% 0.006 270);
+	color: var(--color-next-light);
 }
 .dark .ds-textarea:focus {
-	border-color: oklch(60% 0.08 170) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(60% 0.08 170);
+	border-color: var(--color-next-teal) var(--color-next-bevel-hi) var(--color-next-bevel-hi) var(--color-next-teal);
 }
 .ds-textarea:disabled {
 	opacity: 0.5;

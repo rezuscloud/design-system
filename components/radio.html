@@ -3,24 +3,24 @@
   Mac: 1px ink border, filled dot when selected
   NeXT: 2px raised bevel, teal dot when selected
 -->
-<fieldset class="ds-radio-group">
-	<legend class="ds-radio-legend">Node Type</legend>
+<fieldset class="ds-radio-group" role="radiogroup" aria-labelledby="ds-radio-group-label">
+	<legend class="ds-radio-legend" id="ds-radio-group-label">Node Type</legend>
 	<label class="ds-radio">
-		<input type="radio" name="ds-radio-demo" class="ds-radio-input" checked />
+		<input type="radio" name="ds-radio-demo" class="ds-radio-input" checked aria-checked="true" />
 		<span class="ds-radio-box">
 			<span class="ds-radio-dot"></span>
 		</span>
 		<span class="ds-radio-label">Control Plane</span>
 	</label>
 	<label class="ds-radio">
-		<input type="radio" name="ds-radio-demo" class="ds-radio-input" />
+		<input type="radio" name="ds-radio-demo" class="ds-radio-input" aria-checked="false" />
 		<span class="ds-radio-box">
 			<span class="ds-radio-dot"></span>
 		</span>
 		<span class="ds-radio-label">Worker</span>
 	</label>
 	<label class="ds-radio">
-		<input type="radio" name="ds-radio-demo" class="ds-radio-input" />
+		<input type="radio" name="ds-radio-demo" class="ds-radio-input" aria-checked="false" />
 		<span class="ds-radio-box">
 			<span class="ds-radio-dot"></span>
 		</span>
@@ -41,13 +41,13 @@
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.75rem;
 	font-weight: 700;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	margin-bottom: 0.25rem;
 }
 .dark .ds-radio-legend {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .ds-radio {
 	display: inline-flex;
@@ -69,51 +69,56 @@
 	align-items: center;
 	justify-content: center;
 	flex-shrink: 0;
-	background: oklch(99.5% 0.004 85);
-	border: 1px solid oklch(72% 0.005 85);
+	background: var(--color-paper);
+	border: 1px solid var(--color-rule);
 	border-radius: 0;
 	transition: border-color 0.15s;
 }
 .ds-radio-dot {
 	width: 0.5rem;
 	height: 0.5rem;
-	background: oklch(14% 0.008 65);
+	background: var(--color-ink);
 	border-radius: 0;
 	opacity: 0;
 	transform: scale(0);
 	transition: opacity 0.15s, transform 0.15s;
 }
 .ds-radio-input:checked + .ds-radio-box {
-	border-color: oklch(14% 0.008 65);
+	border-color: var(--color-ink);
 }
 .ds-radio-input:checked + .ds-radio-box .ds-radio-dot {
 	opacity: 1;
 	transform: scale(1);
 }
 .ds-radio-input:focus-visible + .ds-radio-box {
-	outline: 2px solid oklch(78% 0.16 75);
+	outline: 2px solid var(--color-accent-gold);
 	outline-offset: 2px;
 }
 .dark .ds-radio-box {
-	background: oklch(6% 0.005 270);
+	background: var(--color-next-black);
 	border: 2px solid;
-	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
 }
 .dark .ds-radio-dot {
-	background: oklch(70% 0.07 170);
+	background: var(--color-next-teal-hi);
 }
 .dark .ds-radio-input:checked + .ds-radio-box {
-	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
 }
 .dark .ds-radio-input:focus-visible + .ds-radio-box {
-	outline-color: oklch(58% 0.006 270);
+	outline-color: var(--color-next-light);
 }
 .ds-radio-label {
 	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 	font-size: 0.875rem;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 }
 .dark .ds-radio-label {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
+}
+@media (prefers-reduced-motion: reduce) {
+	.ds-radio-dot {
+		transition: none;
+	}
 }
 </style>

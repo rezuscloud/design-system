@@ -5,7 +5,7 @@
   NeXT: next-dark bg, 2px raised bevel
 -->
 <div class="ds-toast-wrapper">
-	<div class="ds-toast ds-toast--positive">
+	<div class="ds-toast ds-toast--positive" role="status" aria-live="polite">
 		<span class="ds-toast-icon">
 			<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm3.03 5.53l-3.75 3.75a.75.75 0 01-1.06 0l-1.5-1.5 1.06-1.06.97.97 3.22-3.22 1.06 1.06z"></path></svg>
 		</span>
@@ -33,7 +33,9 @@
 				<path d="M2 2l8 8M10 2l-8 8" stroke-linecap="round"></path>
 			</svg>
 		</button>
-	<div class="ds-toast ds-toast--warning">
+	</div>
+
+	<div class="ds-toast ds-toast--warning" role="status" aria-live="polite">
 		<span class="ds-toast-icon">
 			<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.5a1 1 0 011 1v4a1 1 0 11-2 0v-4a1 1 0 011-1zM8 9.5a1.25 1.25 0 100 2.5A1.25 1.25 0 008 9.5z"></path></svg>
 		</span>
@@ -60,16 +62,16 @@
 	align-items: flex-start;
 	gap: 0.5rem;
 	padding: 0.75rem;
-	background: oklch(88.5% 0.006 85);
-	border: 1px solid oklch(14% 0.008 65);
+	background: var(--color-surface-strong);
+	border: 1px solid var(--color-ink);
 	border-radius: 0;
-	box-shadow: 1px 1px 0 oklch(14% 0.008 65);
+	box-shadow: 1px 1px 0 var(--color-ink);
 	max-width: 22rem;
 }
 .dark .ds-toast {
-	background: oklch(20% 0.006 270);
+	background: var(--color-next-dark);
 	border: 2px solid;
-	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
 	box-shadow: none;
 }
 .ds-toast-icon {
@@ -78,12 +80,12 @@
 	flex-shrink: 0;
 	margin-top: 0.0625rem;
 }
-.ds-toast--positive .ds-toast-icon { color: oklch(55% 0.12 150); }
-.ds-toast--negative .ds-toast-icon { color: oklch(50% 0.12 25); }
-.ds-toast--warning .ds-toast-icon { color: oklch(68% 0.14 80); }
-.dark .ds-toast--positive .ds-toast-icon { color: oklch(75% 0.14 150); }
-.dark .ds-toast--negative .ds-toast-icon { color: oklch(65% 0.14 25); }
-.dark .ds-toast--warning .ds-toast-icon { color: oklch(75% 0.12 80); }
+.ds-toast--positive .ds-toast-icon { color: var(--color-positive); }
+.ds-toast--negative .ds-toast-icon { color: var(--color-negative); }
+.ds-toast--warning .ds-toast-icon { color: var(--color-warning); }
+.dark .ds-toast--positive .ds-toast-icon { color: var(--color-positive-next); }
+.dark .ds-toast--negative .ds-toast-icon { color: var(--color-negative-next); }
+.dark .ds-toast--warning .ds-toast-icon { color: var(--color-warning-next); }
 .ds-toast-content {
 	display: flex;
 	flex-direction: column;
@@ -95,20 +97,20 @@
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.75rem;
 	font-weight: 700;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 }
 .dark .ds-toast-label {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .ds-toast-detail {
 	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 	font-size: 0.75rem;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 }
 .dark .ds-toast-detail {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 .ds-toast-close {
 	width: 1.25rem;
@@ -119,19 +121,19 @@
 	background: none;
 	border: none;
 	cursor: pointer;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	padding: 0;
 	flex-shrink: 0;
 	transition: color 0.15s;
 }
 .ds-toast-close:hover {
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 }
 .dark .ds-toast-close {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 .dark .ds-toast-close:hover {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .ds-toast-close svg {
 	width: 0.75rem;

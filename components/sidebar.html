@@ -43,19 +43,19 @@
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	background: oklch(88.5% 0.006 85);
-	border-right: 1px solid oklch(72% 0.005 85);
+	background: var(--color-surface-strong);
+	border-right: 1px solid var(--color-rule);
 }
 .dark .ds-sidebar {
-	background: oklch(20% 0.006 270);
-	border-right: 2px solid oklch(55% 0.006 270);
+	background: var(--color-next-dark);
+	border-right: 2px solid var(--color-next-bevel-hi);
 }
 .ds-sidebar-header {
 	padding: 1rem;
-	border-bottom: 1px solid oklch(72% 0.005 85);
+	border-bottom: 1px solid var(--color-rule);
 }
 .dark .ds-sidebar-header {
-	border-bottom: 2px solid oklch(55% 0.006 270);
+	border-bottom: 2px solid var(--color-next-bevel-hi);
 }
 .ds-sidebar-logo {
 	font-family: "Silkscreen", system-ui, sans-serif;
@@ -63,16 +63,16 @@
 	font-weight: 700;
 }
 .ds-sidebar-logo-rezus {
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 }
 .dark .ds-sidebar-logo-rezus {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .ds-sidebar-logo-cloud {
-	color: oklch(78% 0.16 75);
+	color: var(--color-accent-gold);
 }
 .dark .ds-sidebar-logo-cloud {
-	color: oklch(60% 0.08 170);
+	color: var(--color-next-teal);
 }
 .ds-sidebar-nav {
 	flex: 1;
@@ -89,7 +89,7 @@
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.6875rem;
 	font-weight: 700;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	text-decoration: none;
@@ -97,21 +97,21 @@
 	transition: background 0.15s, color 0.15s;
 }
 .ds-sidebar-link:hover {
-	background: oklch(95.5% 0.004 85);
+	background: var(--color-surface);
 }
 .ds-sidebar-link--active {
-	background: oklch(99.5% 0.004 85);
-	color: oklch(14% 0.008 65);
+	background: var(--color-paper);
+	color: var(--color-ink);
 }
 .dark .ds-sidebar-link {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 .dark .ds-sidebar-link:hover {
-	background: oklch(34% 0.006 270);
+	background: var(--color-next-mid);
 }
 .dark .ds-sidebar-link--active {
-	background: oklch(34% 0.006 270);
-	color: oklch(88% 0.004 270);
+	background: var(--color-next-light);
+	color: var(--color-next-black);
 }
 .ds-sidebar-icon {
 	width: 0.875rem;
@@ -120,17 +120,17 @@
 }
 .ds-sidebar-footer {
 	padding: 0.75rem 1rem;
-	border-top: 1px solid oklch(72% 0.005 85);
+	border-top: 1px solid var(--color-rule);
 }
 .dark .ds-sidebar-footer {
-	border-top: 2px solid oklch(55% 0.006 270);
+	border-top: 2px solid var(--color-next-bevel-hi);
 }
 .ds-sidebar-version {
 	font-family: "VT323", "Courier New", monospace;
 	font-size: 0.75rem;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 }
 .dark .ds-sidebar-version {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 </style>

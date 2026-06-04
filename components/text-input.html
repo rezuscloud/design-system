@@ -5,14 +5,14 @@
 -->
 <div class="ds-input-group">
 	<label class="ds-input-label" for="ds-input-demo">Cluster Name</label>
-	<input type="text" id="ds-input-demo" class="ds-input" placeholder="my-cluster" />
-	<span class="ds-input-help">Lowercase, hyphens allowed. 3 to 32 characters.</span>
+	<input type="text" id="ds-input-demo" class="ds-input" placeholder="my-cluster" aria-describedby="ds-input-help" />
+	<span class="ds-input-help" id="ds-input-help">Lowercase, hyphens allowed. 3 to 32 characters.</span>
 </div>
 
 <div class="ds-input-group">
 	<label class="ds-input-label" for="ds-input-error">API Endpoint</label>
-	<input type="text" id="ds-input-error" class="ds-input ds-input--error" value="htp://wrong" />
-	<span class="ds-input-error">Must start with https://</span>
+	<input type="text" id="ds-input-error" class="ds-input ds-input--error" value="htp://wrong" aria-describedby="ds-input-error-msg" aria-invalid="true" />
+	<span class="ds-input-error" id="ds-input-error-msg" role="alert">Must start with https://</span>
 </div>
 
 <div class="ds-input-group">
@@ -30,18 +30,18 @@
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.75rem;
 	font-weight: 700;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 }
 .dark .ds-input-label {
-	color: oklch(88% 0.004 270);
+	color: var(--color-next-white);
 }
 .ds-input {
 	padding: 0.5rem 0.75rem;
-	background: oklch(99.5% 0.004 85);
-	border: 1px solid oklch(72% 0.005 85);
-	color: oklch(14% 0.008 65);
+	background: var(--color-paper);
+	border: 1px solid var(--color-rule);
+	color: var(--color-ink);
 	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 	font-size: 0.875rem;
 	line-height: 1.5;
@@ -51,31 +51,31 @@
 	width: 100%;
 }
 .ds-input::placeholder {
-	color: oklch(72% 0.005 85);
+	color: var(--color-rule);
 }
 .ds-input:focus {
-	border-color: oklch(14% 0.008 65);
+	border-color: var(--color-ink);
 }
 .dark .ds-input {
-	background: oklch(6% 0.005 270);
+	background: var(--color-next-black);
 	border: 2px solid;
-	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
-	color: oklch(88% 0.004 270);
+	border-color: var(--color-next-bevel-lo) var(--color-next-bevel-hi) var(--color-next-bevel-hi) var(--color-next-bevel-lo);
+	color: var(--color-next-white);
 }
 .dark .ds-input::placeholder {
-	color: oklch(58% 0.006 270);
+	color: var(--color-next-light);
 }
 .dark .ds-input:focus {
-	border-color: oklch(60% 0.08 170) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(60% 0.08 170);
+	border-color: var(--color-next-teal) var(--color-next-bevel-hi) var(--color-next-bevel-hi) var(--color-next-teal);
 }
 .ds-input--error {
-	border-color: oklch(50% 0.12 25);
+	border-color: var(--color-negative);
 }
 .ds-input--error:focus {
-	border-color: oklch(50% 0.12 25);
+	border-color: var(--color-negative);
 }
 .dark .ds-input--error {
-	border-color: oklch(65% 0.14 25) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(65% 0.14 25);
+	border-color: var(--color-negative-next) var(--color-next-bevel-hi) var(--color-next-bevel-hi) var(--color-negative-next);
 }
 .ds-input--disabled {
 	opacity: 0.5;
@@ -83,16 +83,16 @@
 }
 .ds-input-help {
 	font-size: 0.75rem;
-	color: oklch(30% 0.008 65);
+	color: var(--color-ink-muted);
 }
 .dark .ds-input-help {
-	color: oklch(72% 0.012 85);
+	color: var(--color-next-subtle);
 }
 .ds-input-error {
 	font-size: 0.75rem;
-	color: oklch(50% 0.12 25);
+	color: var(--color-negative);
 }
 .dark .ds-input-error {
-	color: oklch(65% 0.14 25);
+	color: var(--color-negative-next);
 }
 </style>

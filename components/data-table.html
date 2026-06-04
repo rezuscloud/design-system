@@ -3,15 +3,15 @@
   Mac: 1px rule borders, alternating paper/surface rows
   NeXT: minimal borders, alternating next-black/next-dark rows
 -->
-<div class="ds-table-wrapper">
-	<table class="ds-table">
+<div class="ds-table-wrapper" role="region" aria-label="Cluster nodes">
+	<table class="ds-table" role="grid">
 		<thead>
 			<tr>
-				<th class="ds-table-th">Node</th>
-				<th class="ds-table-th">Status</th>
-				<th class="ds-table-th">CPU</th>
-				<th class="ds-table-th">Memory</th>
-				<th class="ds-table-th">Region</th>
+				<th class="ds-table-th" scope="col">Node</th>
+				<th class="ds-table-th" scope="col">Status</th>
+				<th class="ds-table-th" scope="col">CPU</th>
+				<th class="ds-table-th" scope="col">Memory</th>
+				<th class="ds-table-th" scope="col">Region</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -57,11 +57,11 @@
 <style>
 .ds-table-wrapper {
 	overflow-x: auto;
-	border: 1px solid oklch(72% 0.005 85);
+	border: 1px solid var(--color-rule);
 }
 .dark .ds-table-wrapper {
 	border: 2px solid;
-	border-color: oklch(55% 0.006 270) oklch(2% 0.004 270) oklch(2% 0.004 270) oklch(55% 0.006 270);
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
 }
 .ds-table {
 	width: 100%;
@@ -69,43 +69,43 @@
 }
 .ds-table-th {
 	padding: 0.5rem 0.75rem;
-	background: oklch(88.5% 0.006 85);
-	border-bottom: 1px solid oklch(72% 0.005 85);
+	background: var(--color-surface-strong);
+	border-bottom: 1px solid var(--color-rule);
 	font-family: "Silkscreen", system-ui, sans-serif;
 	font-size: 0.625rem;
 	font-weight: 700;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	text-align: left;
 }
 .dark .ds-table-th {
-	background: oklch(34% 0.006 270);
-	border-bottom: 2px solid oklch(55% 0.006 270);
-	color: oklch(60% 0.08 170);
+	background: var(--color-next-mid);
+	border-bottom: 2px solid var(--color-next-bevel-hi);
+	color: var(--color-next-teal);
 }
 .ds-table-row:nth-child(even) {
-	background: oklch(95.5% 0.004 85);
+	background: var(--color-surface);
 }
 .dark .ds-table-row:nth-child(even) {
-	background: oklch(20% 0.006 270);
+	background: var(--color-next-dark);
 }
 .ds-table-row:hover {
-	background: oklch(95.5% 0.004 85);
+	background: var(--color-surface);
 }
 .dark .ds-table-row:hover {
-	background: oklch(34% 0.006 270);
+	background: var(--color-next-mid);
 }
 .ds-table-td {
 	padding: 0.5rem 0.75rem;
-	border-bottom: 1px solid oklch(72% 0.005 85);
+	border-bottom: 1px solid var(--color-rule);
 	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 	font-size: 0.8125rem;
-	color: oklch(14% 0.008 65);
+	color: var(--color-ink);
 }
 .dark .ds-table-td {
-	border-bottom: 1px solid oklch(55% 0.006 270);
-	color: oklch(88% 0.004 270);
+	border-bottom: 1px solid var(--color-next-bevel-hi);
+	color: var(--color-next-white);
 }
 .ds-table-mono {
 	font-family: "VT323", "Courier New", monospace;
@@ -119,21 +119,21 @@
 	letter-spacing: 0.05em;
 }
 .ds-table-status--positive {
-	color: oklch(55% 0.12 150);
+	color: var(--color-positive);
 }
 .ds-table-status--negative {
-	color: oklch(50% 0.12 25);
+	color: var(--color-negative);
 }
 .ds-table-status--warning {
-	color: oklch(68% 0.14 80);
+	color: var(--color-warning);
 }
 .dark .ds-table-status--positive {
-	color: oklch(75% 0.14 150);
+	color: var(--color-positive-next);
 }
 .dark .ds-table-status--negative {
-	color: oklch(65% 0.14 25);
+	color: var(--color-negative-next);
 }
 .dark .ds-table-status--warning {
-	color: oklch(75% 0.12 80);
+	color: var(--color-warning-next);
 }
 </style>
