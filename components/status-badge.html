@@ -1,0 +1,55 @@
+<!--
+  Status Badge — RezusCloud Design System
+  Inline text badge for resource phase/stage labels.
+  Three variants: positive (active, ready), negative (removing, error), neutral (forming, pending).
+  Mac: surface bg, 1px rule border, semantic text color
+  NeXT: next-dark bg, 1px next-mid border, semantic text color
+-->
+<div style="display: flex; gap: 0.5rem; align-items: center;">
+	<span class="ds-status-badge ds-status-badge--positive">Active</span>
+	<span class="ds-status-badge ds-status-badge--negative">Removing</span>
+	<span class="ds-status-badge ds-status-badge--neutral">Forming</span>
+</div>
+
+<style>
+.ds-status-badge {
+	display: inline-block;
+	padding: 0.0625rem 0.375rem;
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	line-height: 1.5;
+	border: 1px solid oklch(72% 0.005 85);
+	background: oklch(95.5% 0.004 85);
+}
+.dark .ds-status-badge {
+	border: 1px solid oklch(34% 0.006 270);
+	background: oklch(20% 0.006 270);
+}
+.ds-status-badge--positive {
+	color: oklch(55% 0.12 150);
+	border-color: oklch(55% 0.12 150);
+}
+.dark .ds-status-badge--positive {
+	color: oklch(75% 0.14 150);
+	border-color: oklch(75% 0.14 150);
+}
+.ds-status-badge--negative {
+	color: oklch(50% 0.12 25);
+	border-color: oklch(50% 0.12 25);
+}
+.dark .ds-status-badge--negative {
+	color: oklch(65% 0.14 25);
+	border-color: oklch(65% 0.14 25);
+}
+.ds-status-badge--neutral {
+	color: oklch(30% 0.008 65);
+	border-color: oklch(72% 0.005 85);
+}
+.dark .ds-status-badge--neutral {
+	color: oklch(72% 0.012 85);
+	border-color: oklch(34% 0.006 270);
+}
+</style>

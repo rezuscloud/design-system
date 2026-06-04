@@ -1,0 +1,45 @@
+<!--
+  Stat Block — RezusCloud Design System
+  Compact KPI display for dashboards: label + value.
+  Mac: surface bg, 1px rule border, ink value, ink-muted label
+  NeXT: next-black bg, sunken bevel, next-white value, next-subtle label
+-->
+<div class="ds-stat-block">
+	<div class="ds-stat-label">Tenants</div>
+	<div class="ds-stat-value">4</div>
+</div>
+
+<style>
+.ds-stat-block {
+	padding: 0.75rem 1rem;
+	background: oklch(99.5% 0.004 85);
+	border: 1px solid oklch(72% 0.005 85);
+}
+.dark .ds-stat-block {
+	background: oklch(6% 0.005 270);
+	border: 2px solid;
+	border-color: oklch(2% 0.004 270) oklch(55% 0.006 270) oklch(55% 0.006 270) oklch(2% 0.004 270);
+}
+.ds-stat-label {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: oklch(30% 0.008 65);
+	margin-bottom: 0.25rem;
+}
+.dark .ds-stat-label {
+	color: oklch(72% 0.012 85);
+}
+.ds-stat-value {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 1.75rem;
+	font-weight: 700;
+	color: oklch(14% 0.008 65);
+	line-height: 1;
+}
+.dark .ds-stat-value {
+	color: oklch(88% 0.004 270);
+}
+</style>

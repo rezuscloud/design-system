@@ -77,6 +77,8 @@ Self-contained HTML + CSS in `components/`. Each file is standalone: copy the HT
 | Empty State | `empty-state.html` | Centered placeholder with icon and CTA |
 | Skeleton | `skeleton.html` | Loading placeholder with pulse animation |
 | Status Dot | `status-dot.html` | Colored square for resource health (positive/negative/neutral) |
+| Status Badge | `status-badge.html` | Inline text badge for phase/stage labels (positive/negative/neutral) |
+| Stat Block | `stat-block.html` | Compact KPI display: label + value for dashboards |
 
 #### Shared Components (both registers)
 
