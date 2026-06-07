@@ -68,6 +68,7 @@ Self-contained HTML + CSS in `components/`. Each file is standalone: copy the HT
 | Checkbox | `checkbox.html` | Checked, unchecked, disabled states |
 | Radio | `radio.html` | Single-selection radio group |
 | Toggle | `toggle.html` | On/off switch (NeXTSTEP-style) |
+| Theme Toggle | `theme-toggle.html` | Sun/moon icon button that flips Mac↔NeXT palette (requires Alpine.js + `dark` class on `<html>`) |
 | Search | `search.html` | Resource search with keyboard hint |
 | Tabs | `tabs.html` | Content tab navigation |
 | Alert Banner | `alert-banner.html` | Info, positive, negative system alerts |
