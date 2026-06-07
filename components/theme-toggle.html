@@ -1,0 +1,114 @@
+<!--
+  Theme Toggle — RezusCloud Design System
+  Two-button icon swap: sun (light mode active → click for dark),
+  moon (dark mode active → click for light). Square bordered button
+  in both Mac and NeXT palettes.
+
+  Behaviour:
+    - On mount, hides whichever icon matches the current theme.
+    - Click toggles `dark` class on <html> and persists to localStorage.
+
+  Required: this component assumes the pre-paint theme script in <head>
+  has already applied `dark` to <html> if needed (to avoid FOUC).
+
+  Source: https://github.com/rezuscloud/design-system/blob/main/components/theme-toggle.html
+-->
+<button
+	type="button"
+	class="ds-theme-toggle"
+	aria-label="Toggle theme"
+	x-data="{ dark: document.documentElement.classList.contains('dark') }"
+	x-init="$watch('dark', (v) => { document.documentElement.classList.toggle('dark', v); try { localStorage.setItem('theme', v ? 'dark' : 'light'); } catch (e) {} })"
+	@click="dark = !dark"
+>
+	<!-- Sun: shown when dark mode is active (clicking switches to light) -->
+	<svg
+		class="ds-theme-toggle-icon ds-theme-toggle-icon--sun"
+		x-show="dark"
+		x-cloak
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="2"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		aria-hidden="true"
+	>
+		<circle cx="12" cy="12" r="4"></circle>
+		<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+	</svg>
+	<!-- Moon: shown when light mode is active (clicking switches to dark) -->
+	<svg
+		class="ds-theme-toggle-icon ds-theme-toggle-icon--moon"
+		x-show="!dark"
+		viewBox="0 0 24 24"
+		fill="none"
+		stroke="currentColor"
+		stroke-width="2"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+		aria-hidden="true"
+	>
+		<path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+	</svg>
+</button>
+
+<style>
+	/*
+	 * Button: 2.5rem (40px) square, bordered, no border-radius (square design system).
+	 * Mac: paper background, ink border, ink-muted icon.
+	 * NeXT: next-dark background, next-raised bevel border, next-white icon.
+	 */
+	.ds-theme-toggle {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		padding: 0;
+		background: var(--color-paper, oklch(99.5% 0.004 85));
+		border: 1px solid var(--color-ink, oklch(14% 0.008 65));
+		color: var(--color-ink-muted, oklch(30% 0.008 65));
+		cursor: pointer;
+		transition:
+			background 0.15s,
+			border-color 0.15s,
+			color 0.15s;
+	}
+	.ds-theme-toggle:hover {
+		background: var(--color-surface, oklch(95.5% 0.004 85));
+		color: var(--color-ink, oklch(14% 0.008 65));
+	}
+	.ds-theme-toggle:focus-visible {
+		outline: 2px solid var(--color-accent-gold, oklch(78% 0.16 75));
+		outline-offset: 2px;
+	}
+
+	.ds-theme-toggle-icon {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+
+	/* x-cloak: hide elements until Alpine has initialized to prevent flash */
+	[x-cloak] {
+		display: none !important;
+	}
+
+	/* Dark mode (NeXT): swap palette + bevel border */
+	.dark .ds-theme-toggle {
+		background: var(--color-next-dark, oklch(20% 0.006 270));
+		border: 2px solid;
+		border-color: var(--color-next-bevel-hi, oklch(55% 0.006 270))
+			var(--color-next-bevel-lo, oklch(2% 0.004 270))
+			var(--color-next-bevel-lo, oklch(2% 0.004 270))
+			var(--color-next-bevel-hi, oklch(55% 0.006 270));
+		color: var(--color-next-white, oklch(88% 0.004 270));
+	}
+	.dark .ds-theme-toggle:hover {
+		background: var(--color-next-mid, oklch(34% 0.006 270));
+		color: var(--color-next-teal-hi, oklch(70% 0.07 170));
+	}
+	.dark .ds-theme-toggle:focus-visible {
+		outline-color: var(--color-next-teal, oklch(60% 0.08 170));
+	}
+</style>
