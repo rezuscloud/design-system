@@ -1,0 +1,279 @@
+<!--
+  Bar Chart — RezusCloud Design System
+  Vertical bars with axis labels; for histograms, latency buckets, top-N lists.
+  Mac: paper background, ink axis, accent-gold-dark bars
+  NeXT: next-black background, next-teal bars
+-->
+<div class="ds-bar-chart" role="img" aria-label="Request latency histogram, p50 84ms, p95 320ms, p99 612ms">
+	<div class="ds-bar-chart-header">
+		<div class="ds-bar-chart-legend" aria-hidden="true">
+			<span class="ds-bar-chart-legend-item">
+				<span class="ds-bar-chart-legend-swatch" data-series="count"></span>
+				<span class="ds-bar-chart-legend-label">count</span>
+			</span>
+			<span class="ds-bar-chart-legend-item">
+				<span class="ds-bar-chart-legend-swatch" data-series="error"></span>
+				<span class="ds-bar-chart-legend-label">errors</span>
+			</span>
+		</div>
+		<div class="ds-bar-chart-summary">
+			<span class="ds-bar-chart-summary-item"><span class="ds-bar-chart-summary-k">p50</span><span class="ds-bar-chart-summary-v">84ms</span></span>
+			<span class="ds-bar-chart-summary-item"><span class="ds-bar-chart-summary-k">p95</span><span class="ds-bar-chart-summary-v">320ms</span></span>
+			<span class="ds-bar-chart-summary-item"><span class="ds-bar-chart-summary-k">p99</span><span class="ds-bar-chart-summary-v">612ms</span></span>
+		</div>
+	</div>
+
+	<div class="ds-bar-chart-canvas">
+		<div class="ds-bar-chart-yaxis" aria-hidden="true">
+			<span>1k</span>
+			<span>750</span>
+			<span>500</span>
+			<span>250</span>
+			<span>0</span>
+		</div>
+
+		<div class="ds-bar-chart-plot">
+			<div class="ds-bar-chart-grid" aria-hidden="true">
+				<span></span><span></span><span></span><span></span><span></span>
+			</div>
+
+			<div class="ds-bar-chart-bars" role="list">
+				<div class="ds-bar-chart-bar" role="listitem" aria-label="0–50ms: 820 requests, 2 errors">
+					<span class="ds-bar-chart-bar-stack">
+						<span class="ds-bar-chart-bar-segment" data-series="count" style="--bar-h: 82%;"></span>
+						<span class="ds-bar-chart-bar-segment" data-series="error" style="--bar-h: 0.2%;"></span>
+					</span>
+				</div>
+				<div class="ds-bar-chart-bar" role="listitem" aria-label="50–100ms: 610 requests">
+					<span class="ds-bar-chart-bar-stack">
+						<span class="ds-bar-chart-bar-segment" data-series="count" style="--bar-h: 61%;"></span>
+					</span>
+				</div>
+				<div class="ds-bar-chart-bar" role="listitem" aria-label="100–200ms: 420 requests, 8 errors">
+					<span class="ds-bar-chart-bar-stack">
+						<span class="ds-bar-chart-bar-segment" data-series="count" style="--bar-h: 42%;"></span>
+						<span class="ds-bar-chart-bar-segment" data-series="error" style="--bar-h: 0.8%;"></span>
+					</span>
+				</div>
+				<div class="ds-bar-chart-bar" role="listitem" aria-label="200–400ms: 280 requests">
+					<span class="ds-bar-chart-bar-stack">
+						<span class="ds-bar-chart-bar-segment" data-series="count" style="--bar-h: 28%;"></span>
+					</span>
+				</div>
+				<div class="ds-bar-chart-bar is-active" role="listitem" aria-label="400–800ms: 145 requests, 14 errors">
+					<span class="ds-bar-chart-bar-stack">
+						<span class="ds-bar-chart-bar-segment" data-series="count" style="--bar-h: 14.5%;"></span>
+						<span class="ds-bar-chart-bar-segment" data-series="error" style="--bar-h: 1.4%;"></span>
+					</span>
+				</div>
+				<div class="ds-bar-chart-bar" role="listitem" aria-label="800ms–1.6s: 64 requests, 22 errors">
+					<span class="ds-bar-chart-bar-stack">
+						<span class="ds-bar-chart-bar-segment" data-series="count" style="--bar-h: 6.4%;"></span>
+						<span class="ds-bar-chart-bar-segment" data-series="error" style="--bar-h: 2.2%;"></span>
+					</span>
+				</div>
+				<div class="ds-bar-chart-bar" role="listitem" aria-label="1.6–3.2s: 18 requests, 12 errors">
+					<span class="ds-bar-chart-bar-stack">
+						<span class="ds-bar-chart-bar-segment" data-series="count" style="--bar-h: 1.8%;"></span>
+						<span class="ds-bar-chart-bar-segment" data-series="error" style="--bar-h: 1.2%;"></span>
+					</span>
+				</div>
+			</div>
+
+			<div class="ds-bar-chart-xaxis" aria-hidden="true">
+				<span>0–50</span>
+				<span>50–100</span>
+				<span>100–200</span>
+				<span>200–400</span>
+				<span>400–800</span>
+				<span>800–1.6k</span>
+				<span>1.6–3.2k</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>
+.ds-bar-chart {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 0.75rem 1rem 1rem;
+	background: var(--color-paper);
+	border: 1px solid var(--color-rule);
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.dark .ds-bar-chart {
+	background: var(--color-next-black);
+	border: 2px solid;
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+}
+
+.ds-bar-chart-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+}
+.ds-bar-chart-legend {
+	display: flex;
+	gap: 0.875rem;
+}
+.ds-bar-chart-legend-item {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.375rem;
+}
+.ds-bar-chart-legend-swatch {
+	width: 0.625rem;
+	height: 0.625rem;
+	display: inline-block;
+}
+.ds-bar-chart-legend-swatch[data-series="count"] { background: var(--color-accent-gold-dark); }
+.ds-bar-chart-legend-swatch[data-series="error"] { background: var(--color-negative); }
+.dark .ds-bar-chart-legend-swatch[data-series="count"] { background: var(--color-next-teal); }
+.dark .ds-bar-chart-legend-swatch[data-series="error"] { background: var(--color-negative-next); }
+.ds-bar-chart-legend-label {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-bar-chart-legend-label { color: var(--color-next-subtle); }
+
+.ds-bar-chart-summary {
+	display: inline-flex;
+	gap: 0.75rem;
+}
+.ds-bar-chart-summary-item {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-end;
+	line-height: 1.1;
+}
+.ds-bar-chart-summary-k {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-bar-chart-summary-k { color: var(--color-next-subtle); }
+.ds-bar-chart-summary-v {
+	font-family: "VT323", monospace;
+	font-size: 0.875rem;
+	color: var(--color-ink);
+}
+.dark .ds-bar-chart-summary-v { color: var(--color-next-white); }
+
+.ds-bar-chart-canvas {
+	display: flex;
+	gap: 0.5rem;
+	height: 10rem;
+}
+.ds-bar-chart-yaxis {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-end;
+	width: 2rem;
+	height: 8.5rem;
+	font-family: "VT323", monospace;
+	font-size: 0.6875rem;
+	color: var(--color-ink-muted);
+	padding-top: 0.125rem;
+}
+.dark .ds-bar-chart-yaxis { color: var(--color-next-subtle); }
+
+.ds-bar-chart-plot {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+.ds-bar-chart-grid {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 8.5rem;
+	pointer-events: none;
+}
+.ds-bar-chart-grid span {
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: var(--color-rule);
+}
+.dark .ds-bar-chart-grid span { background: var(--color-next-bevel-hi); }
+.ds-bar-chart-plot { position: relative; }
+
+.ds-bar-chart-bars {
+	display: flex;
+	align-items: flex-end;
+	gap: 0.25rem;
+	height: 8.5rem;
+	position: relative;
+}
+.ds-bar-chart-bar {
+	flex: 1;
+	height: 100%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	cursor: pointer;
+}
+.ds-bar-chart-bar-stack {
+	width: 100%;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: stretch;
+}
+.ds-bar-chart-bar-segment {
+	display: block;
+	width: 100%;
+	height: var(--bar-h, 0%);
+	min-height: 1px;
+}
+.ds-bar-chart-bar-segment[data-series="count"] {
+	background: var(--color-accent-gold-dark);
+}
+.ds-bar-chart-bar-segment[data-series="error"] {
+	background: var(--color-negative);
+}
+.dark .ds-bar-chart-bar-segment[data-series="count"] { background: var(--color-next-teal); }
+.dark .ds-bar-chart-bar-segment[data-series="error"] { background: var(--color-negative-next); }
+.ds-bar-chart-bar:hover .ds-bar-chart-bar-segment[data-series="count"] {
+	background: color-mix(in oklch, var(--color-accent-gold-dark) 80%, var(--color-ink) 20%);
+}
+.dark .ds-bar-chart-bar:hover .ds-bar-chart-bar-segment[data-series="count"] {
+	background: color-mix(in oklch, var(--color-next-teal) 80%, var(--color-next-white) 20%);
+}
+.ds-bar-chart-bar.is-active {
+	outline: 2px solid var(--color-ink);
+	outline-offset: 1px;
+}
+.dark .ds-bar-chart-bar.is-active {
+	outline: 2px solid var(--color-next-teal);
+}
+
+.ds-bar-chart-xaxis {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 0.375rem;
+	font-family: "VT323", monospace;
+	font-size: 0.6875rem;
+	color: var(--color-ink-muted);
+	gap: 0.25rem;
+}
+.ds-bar-chart-xaxis span {
+	flex: 1;
+	text-align: center;
+}
+.dark .ds-bar-chart-xaxis { color: var(--color-next-subtle); }
+
+@media (prefers-reduced-motion: reduce) {
+	.ds-bar-chart-bar { transition: none !important; }
+}
+</style>

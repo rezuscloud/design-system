@@ -1,0 +1,136 @@
+<!--
+  KPI Tile — RezusCloud Design System
+  Compact stat tile: label + big VT323 value + sparkline + delta indicator.
+  Mac: 1px rule border, paper surface
+  NeXT: raised 2px bevel, next-dark surface
+-->
+<div class="ds-kpi" role="group" aria-label="CPU utilization, last 6 hours">
+	<div class="ds-kpi-header">
+		<span class="ds-kpi-label">CPU utilization</span>
+		<span class="ds-kpi-period">last 6h</span>
+	</div>
+
+	<div class="ds-kpi-body">
+		<span class="ds-kpi-value" aria-live="polite">67.4<span class="ds-kpi-unit">%</span></span>
+		<div class="ds-kpi-spark" aria-hidden="true">
+			<svg viewBox="0 0 100 24" preserveAspectRatio="none" role="img">
+				<polyline class="ds-kpi-spark-line" points="0,18 8,16 16,14 24,15 32,12 40,11 48,9 56,10 64,7 72,8 80,5 88,6 96,4" fill="none" stroke="currentColor" stroke-width="1.5" />
+				<circle class="ds-kpi-spark-end" cx="96" cy="4" r="1.6" fill="currentColor" />
+			</svg>
+		</div>
+	</div>
+
+	<div class="ds-kpi-footer">
+		<span class="ds-kpi-delta ds-kpi-delta--up" aria-label="trending up">
+			<span class="ds-kpi-delta-arrow" aria-hidden="true">▲</span>
+			<span class="ds-kpi-delta-value">+8.2%</span>
+		</span>
+		<span class="ds-kpi-meta">vs previous 6h</span>
+	</div>
+</div>
+
+<style>
+.ds-kpi {
+	display: flex;
+	flex-direction: column;
+	gap: 0.625rem;
+	padding: 0.875rem 1rem;
+	background: var(--color-paper);
+	border: 1px solid var(--color-rule);
+	min-width: 14rem;
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.dark .ds-kpi {
+	background: var(--color-next-dark);
+	border: 2px solid;
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+}
+.ds-kpi-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+.ds-kpi-label {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.625rem;
+	font-weight: 700;
+	color: var(--color-ink);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+.dark .ds-kpi-label { color: var(--color-next-teal); }
+.ds-kpi-period {
+	font-family: "VT323", monospace;
+	font-size: 0.75rem;
+	color: var(--color-ink-muted);
+}
+.dark .ds-kpi-period { color: var(--color-next-subtle); }
+
+.ds-kpi-body {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 0.75rem;
+}
+.ds-kpi-value {
+	font-family: "VT323", monospace;
+	font-size: 2.5rem;
+	line-height: 0.9;
+	color: var(--color-ink);
+}
+.dark .ds-kpi-value { color: var(--color-next-white); }
+.ds-kpi-unit {
+	font-size: 1.25rem;
+	color: var(--color-ink-muted);
+	margin-left: 0.125rem;
+}
+.dark .ds-kpi-unit { color: var(--color-next-subtle); }
+
+.ds-kpi-spark {
+	width: 5rem;
+	height: 1.5rem;
+	color: var(--color-accent-gold-dark);
+	flex-shrink: 0;
+}
+.dark .ds-kpi-spark { color: var(--color-next-teal); }
+.ds-kpi-spark svg {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.ds-kpi-footer {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+.ds-kpi-delta {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.625rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.ds-kpi-delta-arrow {
+	font-size: 0.5625rem;
+}
+.ds-kpi-delta--up { color: var(--color-negative); }
+.ds-kpi-delta--down { color: var(--color-positive); }
+.ds-kpi-delta--flat { color: var(--color-ink-muted); }
+.dark .ds-kpi-delta--up { color: var(--color-negative-next); }
+.dark .ds-kpi-delta--down { color: var(--color-positive-next); }
+.dark .ds-kpi-delta--flat { color: var(--color-next-subtle); }
+.ds-kpi-meta {
+	font-family: "VT323", monospace;
+	font-size: 0.75rem;
+	color: var(--color-ink-muted);
+}
+.dark .ds-kpi-meta { color: var(--color-next-subtle); }
+
+@media (prefers-reduced-motion: reduce) {
+	.ds-kpi-spark-end { animation: none !important; }
+}
+</style>

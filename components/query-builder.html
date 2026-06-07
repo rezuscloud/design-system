@@ -1,0 +1,331 @@
+<!--
+  Query Builder — RezusCloud Design System
+  Compose metrics/logs query: source + function + filters + group-by + range.
+  Mac: 1px rule borders, paper surface
+  NeXT: raised bevel, next-dark surface
+-->
+<div class="ds-query" role="group" aria-label="Query builder">
+	<div class="ds-query-toolbar">
+		<span class="ds-query-mode">
+			<button class="ds-query-mode-btn is-active" type="button" aria-pressed="true">promql</button>
+			<button class="ds-query-mode-btn" type="button" aria-pressed="false">logql</button>
+			<button class="ds-query-mode-btn" type="button" aria-pressed="false">builder</button>
+		</span>
+		<span class="ds-query-actions">
+			<button class="ds-query-action" type="button" aria-label="Run query">
+				<span aria-hidden="true">▶</span> run
+			</button>
+			<button class="ds-query-action" type="button" aria-label="Save query">
+				<span aria-hidden="true">⤓</span> save
+			</button>
+			<button class="ds-query-action" type="button" aria-label="Share query">
+				<span aria-hidden="true">↗</span> share
+			</button>
+		</span>
+	</div>
+
+	<div class="ds-query-editor" role="region" aria-label="Query expression">
+		<div class="ds-query-line">
+			<span class="ds-query-token" data-kind="fn">histogram_quantile</span>
+			<span class="ds-query-token" data-kind="punct">(</span>
+			<span class="ds-query-token" data-kind="num">0.95</span>
+			<span class="ds-query-token" data-kind="punct">,</span>
+			<span class="ds-query-token" data-kind="fn">sum by</span>
+			<span class="ds-query-token" data-kind="punct">(</span>
+			<span class="ds-query-token" data-kind="label">le</span>
+			<span class="ds-query-token" data-kind="punct">,</span>
+			<span class="ds-query-token" data-kind="label">route</span>
+			<span class="ds-query-token" data-kind="punct">)</span>
+			<span class="ds-query-token" data-kind="punct">(</span>
+			<span class="ds-query-token" data-kind="fn">rate</span>
+			<span class="ds-query-token" data-kind="punct">(</span>
+			<span class="ds-query-token" data-kind="metric">http_request_duration_seconds_bucket</span>
+			<span class="ds-query-token" data-kind="punct">{</span>
+			<span class="ds-query-token" data-kind="label">cluster</span>
+			<span class="ds-query-token" data-kind="op">=~</span>
+			<span class="ds-query-token" data-kind="str">"prod-.*"</span>
+			<span class="ds-query-token" data-kind="punct">,</span>
+			<span class="ds-query-token" data-kind="label">namespace</span>
+			<span class="ds-query-token" data-kind="op">=</span>
+			<span class="ds-query-token" data-kind="str">"apps"</span>
+			<span class="ds-query-token" data-kind="punct">}</span>
+			<span class="ds-query-token" data-kind="punct">[</span>
+			<span class="ds-query-token" data-kind="num">5m</span>
+			<span class="ds-query-token" data-kind="punct">]</span>
+			<span class="ds-query-token" data-kind="punct">)</span>
+			<span class="ds-query-token" data-kind="punct">)</span>
+			<span class="ds-query-token" data-kind="punct">)</span>
+		</div>
+	</div>
+
+	<div class="ds-query-facets">
+		<div class="ds-query-facet">
+			<span class="ds-query-facet-label">source</span>
+			<span class="ds-query-facet-value">
+				http_request_duration_seconds_bucket
+				<button class="ds-query-facet-clear" type="button" aria-label="Clear source">×</button>
+			</span>
+		</div>
+		<div class="ds-query-facet">
+			<span class="ds-query-facet-label">function</span>
+			<span class="ds-query-facet-value">histogram_quantile(0.95, ·)</span>
+		</div>
+		<div class="ds-query-facet">
+			<span class="ds-query-facet-label">filters</span>
+			<span class="ds-query-facet-pills">
+				<span class="ds-query-facet-pill">cluster=~"prod-.*"</span>
+				<span class="ds-query-facet-pill">namespace="apps"</span>
+				<button class="ds-query-facet-add" type="button" aria-label="Add filter">+ filter</button>
+			</span>
+		</div>
+		<div class="ds-query-facet">
+			<span class="ds-query-facet-label">group by</span>
+			<span class="ds-query-facet-pills">
+				<span class="ds-query-facet-pill">le</span>
+				<span class="ds-query-facet-pill">route</span>
+				<button class="ds-query-facet-add" type="button" aria-label="Add grouping">+ group</button>
+			</span>
+		</div>
+		<div class="ds-query-facet">
+			<span class="ds-query-facet-label">range</span>
+			<span class="ds-query-facet-value">[5m]</span>
+		</div>
+	</div>
+
+	<div class="ds-query-status" role="status" aria-live="polite">
+		<span class="ds-query-status-dot" data-state="positive"></span>
+		<span class="ds-query-status-text">executed in 142ms · 12 series returned</span>
+	</div>
+</div>
+
+<style>
+.ds-query {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 0.75rem;
+	background: var(--color-paper);
+	border: 1px solid var(--color-rule);
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.dark .ds-query {
+	background: var(--color-next-dark);
+	border: 2px solid;
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+}
+
+.ds-query-toolbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+.ds-query-mode {
+	display: inline-flex;
+	border: 1px solid var(--color-rule);
+	overflow: hidden;
+}
+.dark .ds-query-mode { border: 1px solid var(--color-next-bevel-hi); }
+.ds-query-mode-btn {
+	padding: 0.25rem 0.625rem;
+	background: transparent;
+	border: 0;
+	border-right: 1px solid var(--color-rule);
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	cursor: pointer;
+}
+.ds-query-mode-btn:last-child { border-right: 0; }
+.ds-query-mode-btn.is-active {
+	background: var(--color-ink);
+	color: var(--color-accent-gold);
+}
+.dark .ds-query-mode-btn {
+	border-right: 1px solid var(--color-next-bevel-hi);
+	color: var(--color-next-subtle);
+}
+.dark .ds-query-mode-btn.is-active {
+	background: var(--color-next-teal);
+	color: var(--color-next-black);
+}
+
+.ds-query-actions {
+	display: inline-flex;
+	gap: 0.25rem;
+}
+.ds-query-action {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	padding: 0.25rem 0.625rem;
+	background: transparent;
+	border: 1px solid var(--color-ink);
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	cursor: pointer;
+	transition: background 100ms ease;
+}
+.ds-query-action:hover {
+	background: var(--color-ink);
+	color: var(--color-paper);
+}
+.dark .ds-query-action {
+	border: 2px solid;
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+	color: var(--color-next-white);
+}
+.dark .ds-query-action:hover {
+	background: var(--color-next-mid);
+}
+
+.ds-query-editor {
+	background: var(--color-surface);
+	border: 1px solid var(--color-rule);
+	padding: 0.625rem 0.75rem;
+	overflow-x: auto;
+}
+.dark .ds-query-editor {
+	background: var(--color-next-black);
+	border: 1px solid var(--color-next-bevel-hi);
+}
+.ds-query-line {
+	font-family: "VT323", "Courier New", monospace;
+	font-size: 1rem;
+	line-height: 1.5;
+	white-space: nowrap;
+	color: var(--color-ink);
+}
+.dark .ds-query-line { color: var(--color-next-white); }
+.ds-query-token { display: inline; }
+.ds-query-token[data-kind="fn"]      { color: var(--color-accent-gold-dark); }
+.ds-query-token[data-kind="metric"]  { color: var(--color-ink); text-decoration: underline; text-underline-offset: 2px; text-decoration-color: var(--color-rule); }
+.ds-query-token[data-kind="label"]   { color: var(--color-info); }
+.ds-query-token[data-kind="str"]     { color: var(--color-positive); }
+.ds-query-token[data-kind="num"]     { color: var(--color-warning); }
+.ds-query-token[data-kind="op"]      { color: var(--color-negative); }
+.ds-query-token[data-kind="punct"]   { color: var(--color-ink-muted); }
+.dark .ds-query-token[data-kind="fn"]      { color: var(--color-next-teal); }
+.dark .ds-query-token[data-kind="metric"]  { color: var(--color-next-white); text-decoration-color: var(--color-next-bevel-hi); }
+.dark .ds-query-token[data-kind="label"]   { color: var(--color-info-next); }
+.dark .ds-query-token[data-kind="str"]     { color: var(--color-positive-next); }
+.dark .ds-query-token[data-kind="num"]     { color: var(--color-warning-next); }
+.dark .ds-query-token[data-kind="op"]      { color: var(--color-negative-next); }
+.dark .ds-query-token[data-kind="punct"]   { color: var(--color-next-subtle); }
+
+.ds-query-facets {
+	display: flex;
+	flex-direction: column;
+	gap: 0.375rem;
+	padding-top: 0.5rem;
+	border-top: 1px dashed var(--color-rule);
+}
+.dark .ds-query-facets { border-top: 1px dashed var(--color-next-bevel-hi); }
+.ds-query-facet {
+	display: grid;
+	grid-template-columns: 5rem 1fr;
+	gap: 0.625rem;
+	align-items: center;
+}
+.ds-query-facet-label {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-query-facet-label { color: var(--color-next-subtle); }
+.ds-query-facet-value {
+	font-family: "VT323", monospace;
+	font-size: 0.875rem;
+	color: var(--color-ink);
+	display: inline-flex;
+	align-items: center;
+	gap: 0.375rem;
+}
+.dark .ds-query-facet-value { color: var(--color-next-white); }
+.ds-query-facet-clear {
+	background: transparent;
+	border: 0;
+	color: var(--color-ink-muted);
+	font-family: monospace;
+	font-size: 0.875rem;
+	cursor: pointer;
+	padding: 0 0.25rem;
+}
+.dark .ds-query-facet-clear { color: var(--color-next-subtle); }
+
+.ds-query-facet-pills {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 0.25rem;
+}
+.ds-query-facet-pill {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.0625rem 0.4375rem;
+	background: var(--color-surface);
+	border: 1px solid var(--color-rule);
+	font-family: "VT323", monospace;
+	font-size: 0.8125rem;
+	color: var(--color-ink);
+}
+.dark .ds-query-facet-pill {
+	background: var(--color-next-black);
+	border: 1px solid var(--color-next-bevel-hi);
+	color: var(--color-next-white);
+}
+.ds-query-facet-add {
+	background: transparent;
+	border: 1px dashed var(--color-rule);
+	padding: 0.0625rem 0.4375rem;
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	cursor: pointer;
+}
+.dark .ds-query-facet-add {
+	border: 1px dashed var(--color-next-bevel-hi);
+	color: var(--color-next-subtle);
+}
+
+.ds-query-status {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.375rem;
+	padding: 0.25rem 0.5rem;
+	border-top: 1px solid var(--color-rule);
+	font-family: "VT323", monospace;
+	font-size: 0.75rem;
+	color: var(--color-ink-muted);
+}
+.dark .ds-query-status {
+	border-top: 1px solid var(--color-next-bevel-hi);
+	color: var(--color-next-subtle);
+}
+.ds-query-status-dot {
+	width: 0.5rem;
+	height: 0.5rem;
+	display: inline-block;
+	border: 1px solid var(--color-ink);
+}
+.dark .ds-query-status-dot { border-color: var(--color-next-bevel-lo); }
+.ds-query-status-dot[data-state="positive"] { background: var(--color-positive); }
+.ds-query-status-dot[data-state="warning"] { background: var(--color-warning); }
+.ds-query-status-dot[data-state="negative"] { background: var(--color-negative); }
+.dark .ds-query-status-dot[data-state="positive"] { background: var(--color-positive-next); }
+.dark .ds-query-status-dot[data-state="warning"] { background: var(--color-warning-next); }
+.dark .ds-query-status-dot[data-state="negative"] { background: var(--color-negative-next); }
+
+@media (prefers-reduced-motion: reduce) {
+	.ds-query-action { transition: none !important; }
+}
+</style>

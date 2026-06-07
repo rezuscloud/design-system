@@ -1,0 +1,327 @@
+<!--
+  Node Card — RezusCloud Design System
+  Compact resource card with name, status, region, capacity bars.
+  Mac: 1px rule border, paper surface
+  NeXT: raised 2px bevel, next-dark surface
+-->
+<article class="ds-node-card" aria-label="Node worker-01, healthy, eu-west region">
+	<header class="ds-node-card-header">
+		<div class="ds-node-card-id">
+			<span class="ds-node-card-status" data-state="positive" aria-label="status: healthy"></span>
+			<h3 class="ds-node-card-name">worker-01</h3>
+		</div>
+		<span class="ds-node-card-region">eu-west-1</span>
+	</header>
+
+	<dl class="ds-node-card-meta">
+		<div class="ds-node-card-meta-row">
+			<dt>role</dt><dd>worker</dd>
+		</div>
+		<div class="ds-node-card-meta-row">
+			<dt>kubelet</dt><dd>v1.29.4</dd>
+		</div>
+		<div class="ds-node-card-meta-row">
+			<dt>uptime</dt><dd>32d 4h</dd>
+		</div>
+		<div class="ds-node-card-meta-row">
+			<dt>age</dt><dd>184d</dd>
+		</div>
+	</dl>
+
+	<div class="ds-node-card-capacity">
+		<div class="ds-node-card-capacity-row">
+			<div class="ds-node-card-capacity-head">
+				<span class="ds-node-card-capacity-label">CPU</span>
+				<span class="ds-node-card-capacity-value"><b>12.4</b> / 16 cores</span>
+			</div>
+			<div class="ds-node-card-bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="CPU usage 78 percent">
+				<span class="ds-node-card-bar-fill" style="--fill: 78%;" data-state="warning"></span>
+			</div>
+		</div>
+		<div class="ds-node-card-capacity-row">
+			<div class="ds-node-card-capacity-head">
+				<span class="ds-node-card-capacity-label">Memory</span>
+				<span class="ds-node-card-capacity-value"><b>28.7</b> / 32 GiB</span>
+			</div>
+			<div class="ds-node-card-bar" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" aria-label="Memory usage 89 percent">
+				<span class="ds-node-card-bar-fill" style="--fill: 89%;" data-state="warning"></span>
+			</div>
+		</div>
+		<div class="ds-node-card-capacity-row">
+			<div class="ds-node-card-capacity-head">
+				<span class="ds-node-card-capacity-label">Disk</span>
+				<span class="ds-node-card-capacity-value"><b>412</b> / 1.2 TiB</span>
+			</div>
+			<div class="ds-node-card-bar" role="progressbar" aria-valuenow="34" aria-valuemin="0" aria-valuemax="100" aria-label="Disk usage 34 percent">
+				<span class="ds-node-card-bar-fill" style="--fill: 34%;" data-state="positive"></span>
+			</div>
+		</div>
+		<div class="ds-node-card-capacity-row">
+			<div class="ds-node-card-capacity-head">
+				<span class="ds-node-card-capacity-label">Pods</span>
+				<span class="ds-node-card-capacity-value"><b>78</b> / 110</span>
+			</div>
+			<div class="ds-node-card-bar" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" aria-label="Pods 71 of 110">
+				<span class="ds-node-card-bar-fill" style="--fill: 71%;" data-state="positive"></span>
+			</div>
+		</div>
+	</div>
+
+	<footer class="ds-node-card-footer">
+		<span class="ds-node-card-pods" aria-label="78 pods running">
+			<span class="ds-node-card-pods-num">78</span>
+			<span class="ds-node-card-pods-label">pods</span>
+		</span>
+		<span class="ds-node-card-actions">
+			<button class="ds-node-card-action" type="button">drain</button>
+			<button class="ds-node-card-action" type="button">cordon</button>
+			<button class="ds-node-card-action is-primary" type="button">inspect</button>
+		</span>
+	</footer>
+</article>
+
+<style>
+.ds-node-card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	padding: 0.875rem 1rem;
+	background: var(--color-paper);
+	border: 1px solid var(--color-rule);
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	min-width: 18rem;
+}
+.dark .ds-node-card {
+	background: var(--color-next-dark);
+	border: 2px solid;
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+}
+
+.ds-node-card-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.ds-node-card-id {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+.ds-node-card-status {
+	width: 0.75rem;
+	height: 0.75rem;
+	border: 1px solid var(--color-ink);
+	display: inline-block;
+}
+.ds-node-card-status[data-state="positive"] { background: var(--color-positive); }
+.ds-node-card-status[data-state="warning"] { background: var(--color-warning); }
+.ds-node-card-status[data-state="negative"] { background: var(--color-negative); }
+.dark .ds-node-card-status { border-color: var(--color-next-bevel-lo); }
+.dark .ds-node-card-status[data-state="positive"] { background: var(--color-positive-next); }
+.dark .ds-node-card-status[data-state="warning"] { background: var(--color-warning-next); }
+.dark .ds-node-card-status[data-state="negative"] { background: var(--color-negative-next); }
+.ds-node-card-name {
+	margin: 0;
+	font-family: "VT323", monospace;
+	font-size: 1.125rem;
+	line-height: 1;
+	color: var(--color-ink);
+	font-weight: 400;
+}
+.dark .ds-node-card-name { color: var(--color-next-white); }
+.ds-node-card-region {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	padding: 0.125rem 0.375rem;
+	border: 1px solid var(--color-rule);
+}
+.dark .ds-node-card-region {
+	color: var(--color-next-subtle);
+	border: 1px solid var(--color-next-bevel-hi);
+}
+
+.ds-node-card-meta {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.25rem 1rem;
+	margin: 0;
+	padding: 0.5rem 0;
+	border-top: 1px solid var(--color-rule);
+	border-bottom: 1px solid var(--color-rule);
+}
+.dark .ds-node-card-meta {
+	border-top: 1px solid var(--color-next-bevel-hi);
+	border-bottom: 1px solid var(--color-next-bevel-hi);
+}
+.ds-node-card-meta-row {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.5rem;
+}
+.ds-node-card-meta-row dt {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin: 0;
+}
+.dark .ds-node-card-meta-row dt { color: var(--color-next-subtle); }
+.ds-node-card-meta-row dd {
+	margin: 0;
+	font-family: "VT323", monospace;
+	font-size: 0.8125rem;
+	color: var(--color-ink);
+}
+.dark .ds-node-card-meta-row dd { color: var(--color-next-white); }
+
+.ds-node-card-capacity {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+.ds-node-card-capacity-row {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+.ds-node-card-capacity-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+.ds-node-card-capacity-label {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	font-weight: 700;
+	color: var(--color-ink);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+.dark .ds-node-card-capacity-label { color: var(--color-next-teal); }
+.ds-node-card-capacity-value {
+	font-family: "VT323", monospace;
+	font-size: 0.8125rem;
+	color: var(--color-ink-muted);
+}
+.dark .ds-node-card-capacity-value { color: var(--color-next-subtle); }
+.ds-node-card-capacity-value b {
+	color: var(--color-ink);
+	font-weight: 400;
+}
+.dark .ds-node-card-capacity-value b { color: var(--color-next-white); }
+
+.ds-node-card-bar {
+	height: 0.5rem;
+	background: var(--color-surface);
+	border: 1px solid var(--color-rule);
+	overflow: hidden;
+}
+.dark .ds-node-card-bar {
+	background: var(--color-next-black);
+	border: 1px solid var(--color-next-bevel-hi);
+}
+.ds-node-card-bar-fill {
+	display: block;
+	height: 100%;
+	width: var(--fill, 0%);
+	transition: width 200ms ease;
+}
+.ds-node-card-bar-fill[data-state="positive"] { background: var(--color-positive); }
+.ds-node-card-bar-fill[data-state="warning"] { background: var(--color-warning); }
+.ds-node-card-bar-fill[data-state="negative"] { background: var(--color-negative); }
+.dark .ds-node-card-bar-fill[data-state="positive"] { background: var(--color-positive-next); }
+.dark .ds-node-card-bar-fill[data-state="warning"] { background: var(--color-warning-next); }
+.dark .ds-node-card-bar-fill[data-state="negative"] { background: var(--color-negative-next); }
+
+.ds-node-card-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 0.5rem;
+	border-top: 1px solid var(--color-rule);
+}
+.dark .ds-node-card-footer { border-top: 1px solid var(--color-next-bevel-hi); }
+.ds-node-card-pods {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.25rem;
+}
+.ds-node-card-pods-num {
+	font-family: "VT323", monospace;
+	font-size: 1rem;
+	color: var(--color-ink);
+}
+.dark .ds-node-card-pods-num { color: var(--color-next-white); }
+.ds-node-card-pods-label {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-node-card-pods-label { color: var(--color-next-subtle); }
+.ds-node-card-actions {
+	display: inline-flex;
+	gap: 0.25rem;
+}
+.ds-node-card-action {
+	padding: 0.25rem 0.625rem;
+	background: var(--color-paper);
+	border: 1px solid var(--color-ink);
+	color: var(--color-ink);
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	cursor: pointer;
+	transition: background 100ms ease;
+}
+.ds-node-card-action:hover {
+	background: var(--color-ink);
+	color: var(--color-paper);
+}
+.ds-node-card-action:focus-visible {
+	outline: 2px solid var(--color-accent-gold);
+	outline-offset: 1px;
+}
+.ds-node-card-action.is-primary {
+	background: var(--color-ink);
+	color: var(--color-paper);
+}
+.ds-node-card-action.is-primary:hover {
+	background: var(--color-accent-gold-dark);
+	color: var(--color-paper);
+}
+.dark .ds-node-card-action {
+	background: var(--color-next-dark);
+	border: 2px solid;
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+	color: var(--color-next-white);
+}
+.dark .ds-node-card-action:hover {
+	background: var(--color-next-mid);
+	color: var(--color-next-white);
+}
+.dark .ds-node-card-action:focus-visible {
+	outline: 2px solid var(--color-next-teal);
+	outline-offset: 1px;
+}
+.dark .ds-node-card-action.is-primary {
+	background: var(--color-next-teal);
+	color: var(--color-next-black);
+}
+.dark .ds-node-card-action.is-primary:hover {
+	background: var(--color-next-teal-hi);
+	color: var(--color-next-black);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ds-node-card-bar-fill, .ds-node-card-action {
+		transition: none !important;
+	}
+}
+</style>

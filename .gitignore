@@ -1,2 +1,5 @@
 # Open Design artifact metadata (per-file sidecars)
 *.artifact.json
+
+# Open Design environment skills (not part of this repo)
+.github/skills/

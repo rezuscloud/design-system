@@ -1,6 +1,10 @@
 # RezusCloud Design System
 
-Dual-era retro computing visual system. Mac System 1 (1984) for light mode, NeXTSTEP (1988) with teal accent for dark mode. Extracted from [platform-website](https://github.com/rezuscloud/platform-website).
+Dual-era retro computing visual system for the entire Rezus Cloud personal cloud platform — marketing, console, dashboards, observability, and operations. Mac System 1 (1984) for light mode, NeXTSTEP (1988) with teal accent for dark mode.
+
+This is the canonical design system for every Rezus surface: the platform website, the cloud console, multi-cluster and observability dashboards, operations tooling, and email templates. Components are organised into three registers: **brand** (marketing, landing, editorial), **product** (console, forms, dashboards), and **operations** (observability, telemetry, infrastructure monitoring, alert management). Use the register that matches your page; do not mix vocabularies unless one is a deliberate accent inside the other.
+
+Originally extracted from [platform-website](https://github.com/rezuscloud/platform-website).
 
 ## Quick Start
 
@@ -81,6 +85,24 @@ Self-contained HTML + CSS in `components/`. Each file is standalone: copy the HT
 | Status Dot | `status-dot.html` | Colored square for resource health (positive/negative/neutral) |
 | Status Badge | `status-badge.html` | Inline text badge for phase/stage labels (positive/negative/neutral) |
 | Stat Block | `stat-block.html` | Compact KPI display: label + value for dashboards |
+
+#### Operations Components (observability, telemetry, infrastructure)
+
+| Component | File | Description |
+|-----------|------|-------------|
+| Cluster Selector | `cluster-selector.html` | Multi-cluster dropdown with per-cluster health |
+| Scope Filter | `scope-filter.html` | Multi-select pill bar (namespace, label, project) |
+| Time Range Picker | `time-range-picker.html` | Range presets + custom + refresh interval |
+| KPI Tile | `kpi-tile.html` | Stat tile with sparkline + delta indicator |
+| Time-Series Chart | `time-series-chart.html` | SVG line chart with crosshair tooltip |
+| Gauge Chart | `gauge-chart.html` | Half-circle utilization dial with thresholds |
+| Bar Chart | `bar-chart.html` | Vertical histogram with stacked error series |
+| Node Card | `node-card.html` | Resource card with capacity bars |
+| Pod Row | `pod-row.html` | Workload unit row (pod, container, service) |
+| Alert Rule Row | `alert-rule-row.html` | Alert definition with state, severity, labels |
+| Log Line | `log-line.html` | Structured log entry with severity + fields |
+| Trace Waterfall | `trace-waterfall.html` | Gantt-style trace span visualization |
+| Query Builder | `query-builder.html` | PromQL/LogQL query composer with tokenized editor |
 
 #### Shared Components (both registers)
 

@@ -1,7 +1,7 @@
 {
   "name": "@rezuscloud/design-system",
   "version": "1.0.0",
-  "description": "RezusCloud Design System — Mac/NeXT dual-theme tokens and utilities",
+  "description": "RezusCloud Design System — canonical tokens, components, and references for the entire Rezus Cloud personal cloud platform (marketing, console, dashboards, observability, operations). Mac/NeXT dual-theme.",
   "files": [
     "css/",
     "fonts/",
@@ -18,6 +18,11 @@
   "keywords": [
     "design-system",
     "tailwind",
-    "tokens"
+    "tokens",
+    "rezuscloud",
+    "personal-cloud",
+    "observability",
+    "kubernetes",
+    "infrastructure"
   ]
 }

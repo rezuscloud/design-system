@@ -1,0 +1,147 @@
+<!--
+  Scope Filter — RezusCloud Design System
+  Multi-select pill bar for filtering by scope (namespaces, labels, projects).
+  Mac: paper background with 1px ink-bordered selected pills
+  NeXT: next-dark with raised-bevel selected pills
+-->
+<div class="ds-scope-filter" role="group" aria-label="Filter by namespace">
+	<span class="ds-scope-filter-label" id="scope-filter-label">Namespace</span>
+
+	<div class="ds-scope-filter-list">
+		<button class="ds-scope-pill is-selected" type="button" aria-pressed="true" aria-labelledby="scope-filter-label">
+			<span class="ds-scope-pill-name">default</span>
+		</button>
+		<button class="ds-scope-pill is-selected" type="button" aria-pressed="true">
+			<span class="ds-scope-pill-name">kube-system</span>
+		</button>
+		<button class="ds-scope-pill" type="button" aria-pressed="false">
+			<span class="ds-scope-pill-name">monitoring</span>
+		</button>
+		<button class="ds-scope-pill" type="button" aria-pressed="false">
+			<span class="ds-scope-pill-name">ingress</span>
+		</button>
+		<button class="ds-scope-pill" type="button" aria-pressed="false">
+			<span class="ds-scope-pill-name">apps</span>
+		</button>
+		<button class="ds-scope-pill" type="button" aria-pressed="false">
+			<span class="ds-scope-pill-name">data</span>
+		</button>
+		<button class="ds-scope-pill" type="button" aria-pressed="false">
+			<span class="ds-scope-pill-name">infra</span>
+		</button>
+	</div>
+
+	<button class="ds-scope-filter-more" type="button" aria-label="Show 4 more namespaces">
+		+4
+	</button>
+</div>
+
+<style>
+.ds-scope-filter {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+	padding: 0.375rem 0.5rem;
+	background: var(--color-paper);
+	border: 1px solid var(--color-rule);
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.dark .ds-scope-filter {
+	background: var(--color-next-dark);
+	border: 2px solid;
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+}
+.ds-scope-filter-label {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.625rem;
+	font-weight: 700;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding-right: 0.5rem;
+	border-right: 1px solid var(--color-rule);
+}
+.dark .ds-scope-filter-label {
+	color: var(--color-next-subtle);
+	border-right: 2px solid var(--color-next-bevel-hi);
+}
+.ds-scope-filter-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem;
+}
+.ds-scope-pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	padding: 0.125rem 0.5rem;
+	background: transparent;
+	border: 1px solid var(--color-rule);
+	color: var(--color-ink-muted);
+	font-family: "VT323", monospace;
+	font-size: 0.875rem;
+	line-height: 1.2;
+	cursor: pointer;
+	transition: background 100ms ease, color 100ms ease, border-color 100ms ease;
+}
+.ds-scope-pill:hover {
+	border-color: var(--color-ink-muted);
+	color: var(--color-ink);
+}
+.ds-scope-pill:focus-visible {
+	outline: 2px solid var(--color-accent-gold);
+	outline-offset: 1px;
+}
+.dark .ds-scope-pill {
+	background: transparent;
+	border: 1px solid var(--color-next-bevel-hi);
+	color: var(--color-next-subtle);
+}
+.dark .ds-scope-pill:hover {
+	border-color: var(--color-next-subtle);
+	color: var(--color-next-white);
+}
+.dark .ds-scope-pill:focus-visible {
+	outline: 2px solid var(--color-next-teal);
+	outline-offset: 1px;
+}
+.ds-scope-pill.is-selected {
+	background: var(--color-ink);
+	border-color: var(--color-ink);
+	color: var(--color-paper);
+}
+.dark .ds-scope-pill.is-selected {
+	background: var(--color-next-teal);
+	border: 2px solid;
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+	color: var(--color-next-black);
+}
+.ds-scope-pill-name { letter-spacing: 0; }
+
+.ds-scope-filter-more {
+	padding: 0.125rem 0.5rem;
+	background: transparent;
+	border: 1px dashed var(--color-rule);
+	color: var(--color-ink-muted);
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.625rem;
+	cursor: pointer;
+}
+.ds-scope-filter-more:hover {
+	border-color: var(--color-ink-muted);
+	color: var(--color-ink);
+}
+.dark .ds-scope-filter-more {
+	border: 1px dashed var(--color-next-bevel-hi);
+	color: var(--color-next-subtle);
+}
+.dark .ds-scope-filter-more:hover {
+	border-color: var(--color-next-subtle);
+	color: var(--color-next-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ds-scope-pill { transition: none !important; }
+}
+</style>

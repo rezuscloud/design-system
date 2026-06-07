@@ -1,0 +1,223 @@
+<!--
+  Gauge Chart — RezusCloud Design System
+  Half-circle dial for utilization (CPU, memory, disk, etc).
+  Arc fills proportional to value; needle + numeric readout.
+  Mac: paper background, ink outline, accent-gold-dark arc
+  NeXT: next-black background, bevel frame, next-teal arc
+-->
+<div class="ds-gauge" role="img" aria-label="Memory utilization gauge, 72 percent of 32 gigabytes">
+	<div class="ds-gauge-header">
+		<span class="ds-gauge-label">Memory</span>
+		<span class="ds-gauge-meta">node worker-02</span>
+	</div>
+
+	<div class="ds-gauge-dial">
+		<svg viewBox="0 0 120 70" class="ds-gauge-svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+			<!-- background arc -->
+			<path class="ds-gauge-track"
+				d="M 12,60 A 48,48 0 0 1 108,60"
+				fill="none"
+				stroke-width="8"
+				stroke-linecap="butt" />
+			<!-- value arc (72% of 180deg = 129.6deg sweep) -->
+			<path class="ds-gauge-fill"
+				d="M 12,60 A 48,48 0 0 1 92,16"
+				fill="none"
+				stroke-width="8"
+				stroke-linecap="butt" />
+			<!-- tick marks -->
+			<g class="ds-gauge-ticks" stroke="currentColor" stroke-width="0.75">
+				<line x1="12"  y1="60" x2="14"  y2="56" />
+				<line x1="30"  y1="30" x2="33"  y2="32" />
+				<line x1="60"  y1="12" x2="60"  y2="16" />
+				<line x1="90"  y1="30" x2="87"  y2="32" />
+				<line x1="108" y1="60" x2="106" y2="56" />
+			</g>
+			<!-- needle -->
+			<line class="ds-gauge-needle"
+				x1="60" y1="60" x2="92" y2="16"
+				stroke-width="2" />
+			<!-- pivot -->
+			<rect class="ds-gauge-pivot" x="57" y="57" width="6" height="6" />
+		</svg>
+
+		<div class="ds-gauge-readout">
+			<span class="ds-gauge-value">72<span class="ds-gauge-unit">%</span></span>
+			<span class="ds-gauge-range">23.0 / 32.0 GB</span>
+		</div>
+	</div>
+
+	<div class="ds-gauge-ticklabels" aria-hidden="true">
+		<span>0</span>
+		<span>25</span>
+		<span>50</span>
+		<span>75</span>
+		<span>100</span>
+	</div>
+
+	<div class="ds-gauge-thresholds" aria-label="Thresholds">
+		<span class="ds-gauge-threshold">
+			<span class="ds-gauge-threshold-dot" data-state="positive"></span>
+			<span class="ds-gauge-threshold-label">ok</span>
+			<span class="ds-gauge-threshold-value">&lt; 70%</span>
+		</span>
+		<span class="ds-gauge-threshold">
+			<span class="ds-gauge-threshold-dot" data-state="warning"></span>
+			<span class="ds-gauge-threshold-label">warn</span>
+			<span class="ds-gauge-threshold-value">70–90%</span>
+		</span>
+		<span class="ds-gauge-threshold">
+			<span class="ds-gauge-threshold-dot" data-state="negative"></span>
+			<span class="ds-gauge-threshold-label">crit</span>
+			<span class="ds-gauge-threshold-value">&gt; 90%</span>
+		</span>
+	</div>
+</div>
+
+<style>
+.ds-gauge {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 0.875rem 1rem;
+	background: var(--color-paper);
+	border: 1px solid var(--color-rule);
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	min-width: 14rem;
+}
+.dark .ds-gauge {
+	background: var(--color-next-black);
+	border: 2px solid;
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+}
+.ds-gauge-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+.ds-gauge-label {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.625rem;
+	font-weight: 700;
+	color: var(--color-ink);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+.dark .ds-gauge-label { color: var(--color-next-teal); }
+.ds-gauge-meta {
+	font-family: "VT323", monospace;
+	font-size: 0.75rem;
+	color: var(--color-ink-muted);
+}
+.dark .ds-gauge-meta { color: var(--color-next-subtle); }
+
+.ds-gauge-dial {
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+.ds-gauge-svg {
+	width: 12rem;
+	height: 7rem;
+	color: var(--color-ink-muted);
+}
+.dark .ds-gauge-svg { color: var(--color-next-subtle); }
+.ds-gauge-track {
+	stroke: var(--color-surface-strong);
+}
+.dark .ds-gauge-track { stroke: var(--color-next-mid); }
+.ds-gauge-fill {
+	stroke: var(--color-accent-gold-dark);
+}
+.dark .ds-gauge-fill { stroke: var(--color-next-teal); }
+.ds-gauge-needle {
+	stroke: var(--color-ink);
+}
+.dark .ds-gauge-needle { stroke: var(--color-next-white); }
+.ds-gauge-pivot {
+	fill: var(--color-ink);
+	stroke: var(--color-paper);
+	stroke-width: 1;
+}
+.dark .ds-gauge-pivot { fill: var(--color-next-white); stroke: var(--color-next-black); }
+
+.ds-gauge-readout {
+	position: absolute;
+	bottom: 0.25rem;
+	left: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.125rem;
+}
+.ds-gauge-value {
+	font-family: "VT323", monospace;
+	font-size: 1.75rem;
+	line-height: 1;
+	color: var(--color-ink);
+}
+.dark .ds-gauge-value { color: var(--color-next-white); }
+.ds-gauge-unit {
+	font-size: 1rem;
+	color: var(--color-ink-muted);
+	margin-left: 0.125rem;
+}
+.dark .ds-gauge-unit { color: var(--color-next-subtle); }
+.ds-gauge-range {
+	font-family: "VT323", monospace;
+	font-size: 0.75rem;
+	color: var(--color-ink-muted);
+}
+.dark .ds-gauge-range { color: var(--color-next-subtle); }
+
+.ds-gauge-ticklabels {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 0.75rem;
+	margin-top: -0.5rem;
+	font-family: "VT323", monospace;
+	font-size: 0.625rem;
+	color: var(--color-ink-muted);
+}
+.dark .ds-gauge-ticklabels { color: var(--color-next-subtle); }
+
+.ds-gauge-thresholds {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.5rem;
+	padding-top: 0.5rem;
+	border-top: 1px solid var(--color-rule);
+}
+.dark .ds-gauge-thresholds { border-top: 1px solid var(--color-next-bevel-hi); }
+.ds-gauge-threshold {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-gauge-threshold { color: var(--color-next-subtle); }
+.ds-gauge-threshold-dot {
+	width: 0.4rem;
+	height: 0.4rem;
+	display: inline-block;
+}
+.ds-gauge-threshold-dot[data-state="positive"] { background: var(--color-positive); }
+.ds-gauge-threshold-dot[data-state="warning"] { background: var(--color-warning); }
+.ds-gauge-threshold-dot[data-state="negative"] { background: var(--color-negative); }
+.dark .ds-gauge-threshold-dot[data-state="positive"] { background: var(--color-positive-next); }
+.dark .ds-gauge-threshold-dot[data-state="warning"] { background: var(--color-warning-next); }
+.dark .ds-gauge-threshold-dot[data-state="negative"] { background: var(--color-negative-next); }
+.ds-gauge-threshold-value {
+	color: var(--color-ink);
+}
+.dark .ds-gauge-threshold-value { color: var(--color-next-white); }
+
+@media (prefers-reduced-motion: reduce) {
+	.ds-gauge-svg { transition: none !important; }
+}
+</style>

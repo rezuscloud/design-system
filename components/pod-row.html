@@ -1,0 +1,247 @@
+<!--
+  Pod Row — RezusCloud Design System
+  Compact horizontal row describing a workload unit (pod, container, service).
+  Mac: 1px rule separators, ink labels
+  NeXT: bevel separators, next-white text
+-->
+<div class="ds-pod-row" role="listitem" aria-label="Pod api-7d6f-load-gen-84f, running, 1/1 ready, 0 restarts, 4h12m old">
+	<div class="ds-pod-row-status">
+		<span class="ds-pod-row-dot" data-state="positive" aria-label="status: running"></span>
+	</div>
+
+	<div class="ds-pod-row-name">
+		<span class="ds-pod-row-name-text">api-7d6f-load-gen-84f</span>
+		<span class="ds-pod-row-name-sub">Deployment · api</span>
+	</div>
+
+	<div class="ds-pod-row-ready" aria-label="1 of 1 containers ready">
+		<span class="ds-pod-row-ready-value">1/1</span>
+		<span class="ds-pod-row-ready-label">ready</span>
+	</div>
+
+	<div class="ds-pod-row-restarts" aria-label="0 restarts">
+		<span class="ds-pod-row-restarts-value">0</span>
+		<span class="ds-pod-row-restarts-label">restarts</span>
+	</div>
+
+	<div class="ds-pod-row-cpu">
+		<span class="ds-pod-row-cpu-value">128m</span>
+		<span class="ds-pod-row-cpu-label">cpu</span>
+	</div>
+
+	<div class="ds-pod-row-mem">
+		<span class="ds-pod-row-mem-value">186Mi</span>
+		<span class="ds-pod-row-mem-label">mem</span>
+	</div>
+
+	<div class="ds-pod-row-ip" aria-label="IP address 10.244.1.42">
+		<span class="ds-pod-row-ip-value">10.244.1.42</span>
+	</div>
+
+	<div class="ds-pod-row-node" aria-label="on node worker-01">
+		<span class="ds-pod-row-node-value">worker-01</span>
+	</div>
+
+	<div class="ds-pod-row-age" aria-label="4 hours 12 minutes old">
+		<span class="ds-pod-row-age-value">4h12m</span>
+	</div>
+
+	<div class="ds-pod-row-actions">
+		<button class="ds-pod-row-action" type="button" aria-label="Pod actions">
+			⋯
+		</button>
+	</div>
+</div>
+
+<style>
+.ds-pod-row {
+	display: grid;
+	grid-template-columns: 2rem minmax(12rem, 1.5fr) 4rem 4.5rem 4rem 5rem 7rem 7rem 5rem 2rem;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 0.75rem;
+	background: var(--color-paper);
+	border-bottom: 1px solid var(--color-rule);
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	font-size: 0.8125rem;
+	color: var(--color-ink);
+}
+.ds-pod-row:hover { background: var(--color-surface); }
+.ds-pod-row.is-selected {
+	background: var(--color-surface);
+	box-shadow: inset 2px 0 0 var(--color-accent-gold-dark);
+}
+.dark .ds-pod-row {
+	background: var(--color-next-black);
+	border-bottom: 1px solid var(--color-next-bevel-hi);
+	color: var(--color-next-white);
+}
+.dark .ds-pod-row:hover { background: var(--color-next-dark); }
+.dark .ds-pod-row.is-selected {
+	background: var(--color-next-dark);
+	box-shadow: inset 2px 0 0 var(--color-next-teal);
+}
+
+.ds-pod-row-status {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.ds-pod-row-dot {
+	width: 0.625rem;
+	height: 0.625rem;
+	display: inline-block;
+	border: 1px solid var(--color-ink);
+}
+.ds-pod-row-dot[data-state="positive"] { background: var(--color-positive); }
+.ds-pod-row-dot[data-state="warning"] { background: var(--color-warning); }
+.ds-pod-row-dot[data-state="negative"] { background: var(--color-negative); }
+.ds-pod-row-dot[data-state="neutral"] { background: var(--color-rule); }
+.dark .ds-pod-row-dot { border-color: var(--color-next-bevel-lo); }
+.dark .ds-pod-row-dot[data-state="positive"] { background: var(--color-positive-next); }
+.dark .ds-pod-row-dot[data-state="warning"] { background: var(--color-warning-next); }
+.dark .ds-pod-row-dot[data-state="negative"] { background: var(--color-negative-next); }
+.dark .ds-pod-row-dot[data-state="neutral"] { background: var(--color-next-mid); }
+
+.ds-pod-row-name {
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+	min-width: 0;
+}
+.ds-pod-row-name-text {
+	font-family: "VT323", monospace;
+	font-size: 0.9375rem;
+	color: var(--color-ink);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.dark .ds-pod-row-name-text { color: var(--color-next-white); }
+.ds-pod-row-name-sub {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-pod-row-name-sub { color: var(--color-next-subtle); }
+
+.ds-pod-row-ready,
+.ds-pod-row-restarts,
+.ds-pod-row-cpu,
+.ds-pod-row-mem,
+.ds-pod-row-age {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.0625rem;
+	min-width: 0;
+}
+.ds-pod-row-ready-value,
+.ds-pod-row-restarts-value,
+.ds-pod-row-cpu-value,
+.ds-pod-row-mem-value,
+.ds-pod-row-age-value {
+	font-family: "VT323", monospace;
+	font-size: 0.9375rem;
+	color: var(--color-ink);
+	line-height: 1;
+}
+.dark .ds-pod-row-ready-value,
+.dark .ds-pod-row-restarts-value,
+.dark .ds-pod-row-cpu-value,
+.dark .ds-pod-row-mem-value,
+.dark .ds-pod-row-age-value { color: var(--color-next-white); }
+.ds-pod-row-ready-value.is-warning { color: var(--color-warning); }
+.ds-pod-row-ready-value.is-negative { color: var(--color-negative); }
+.dark .ds-pod-row-ready-value.is-warning { color: var(--color-warning-next); }
+.dark .ds-pod-row-ready-value.is-negative { color: var(--color-negative-next); }
+.ds-pod-row-restarts-value.is-warning { color: var(--color-warning); }
+.dark .ds-pod-row-restarts-value.is-warning { color: var(--color-warning-next); }
+
+.ds-pod-row-ready-label,
+.ds-pod-row-restarts-label,
+.ds-pod-row-cpu-label,
+.ds-pod-row-mem-label {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-pod-row-ready-label,
+.dark .ds-pod-row-restarts-label,
+.dark .ds-pod-row-cpu-label,
+.dark .ds-pod-row-mem-label { color: var(--color-next-subtle); }
+
+.ds-pod-row-ip,
+.ds-pod-row-node {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+}
+.ds-pod-row-ip-value,
+.ds-pod-row-node-value {
+	font-family: "VT323", monospace;
+	font-size: 0.875rem;
+	color: var(--color-ink-muted);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.dark .ds-pod-row-ip-value,
+.dark .ds-pod-row-node-value { color: var(--color-next-subtle); }
+
+.ds-pod-row-actions {
+	display: flex;
+	justify-content: flex-end;
+}
+.ds-pod-row-action {
+	width: 1.5rem;
+	height: 1.5rem;
+	background: transparent;
+	border: 1px solid var(--color-rule);
+	color: var(--color-ink-muted);
+	font-family: monospace;
+	font-size: 1rem;
+	line-height: 1;
+	cursor: pointer;
+	padding: 0;
+	transition: background 100ms ease;
+}
+.ds-pod-row-action:hover {
+	background: var(--color-surface);
+	border-color: var(--color-ink);
+	color: var(--color-ink);
+}
+.ds-pod-row-action:focus-visible {
+	outline: 2px solid var(--color-accent-gold);
+	outline-offset: 1px;
+}
+.dark .ds-pod-row-action {
+	border-color: var(--color-next-bevel-hi);
+	color: var(--color-next-subtle);
+}
+.dark .ds-pod-row-action:hover {
+	background: var(--color-next-mid);
+	border-color: var(--color-next-subtle);
+	color: var(--color-next-white);
+}
+.dark .ds-pod-row-action:focus-visible {
+	outline: 2px solid var(--color-next-teal);
+	outline-offset: 1px;
+}
+
+@media (max-width: 64rem) {
+	.ds-pod-row {
+		grid-template-columns: 2rem minmax(10rem, 1.5fr) 4rem 5rem 5rem 2rem;
+	}
+	.ds-pod-row-ip, .ds-pod-row-node, .ds-pod-row-age,
+	.ds-pod-row-restarts, .ds-pod-row-cpu, .ds-pod-row-mem { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ds-pod-row-action { transition: none !important; }
+}
+</style>

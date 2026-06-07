@@ -322,9 +322,110 @@
       "register": "product",
       "refersTo": "command-palette",
       "description": "⌘K keyboard launcher with VT323 search input, grouped results, keyboard navigation. Mac: paper bg, 1px border. NeXT: next-dark bg, raised bevel."
+    },
+    {
+      "name": "Cluster Selector",
+      "kind": "control",
+      "register": "operations",
+      "refersTo": "cluster-selector",
+      "description": "Multi-cluster dropdown trigger with per-cluster health dot. Expanded listbox with status, name, meta, selected check."
+    },
+    {
+      "name": "Scope Filter",
+      "kind": "control",
+      "register": "operations",
+      "refersTo": "scope-filter",
+      "description": "Multi-select pill bar for namespaces, labels, projects. Selected pills invert; supports overflow count."
+    },
+    {
+      "name": "Time Range Picker",
+      "kind": "control",
+      "register": "operations",
+      "refersTo": "time-range-picker",
+      "description": "Segmented preset group (5m to 30d) + custom range trigger + refresh interval indicator."
+    },
+    {
+      "name": "KPI Tile",
+      "kind": "display",
+      "register": "operations",
+      "refersTo": "kpi-tile",
+      "description": "Compact stat tile with VT323 value, inline SVG sparkline, delta indicator, meta caption."
+    },
+    {
+      "name": "Time-Series Chart",
+      "kind": "display",
+      "register": "operations",
+      "refersTo": "time-series-chart",
+      "description": "SVG line chart with grid, axes, two series, hover crosshair, floating tooltip."
+    },
+    {
+      "name": "Gauge Chart",
+      "kind": "display",
+      "register": "operations",
+      "refersTo": "gauge-chart",
+      "description": "Half-circle utilization dial with track, value arc, needle, threshold bands."
+    },
+    {
+      "name": "Bar Chart",
+      "kind": "display",
+      "register": "operations",
+      "refersTo": "bar-chart",
+      "description": "Vertical histogram with stacked segments (count + error), Y/X axes, percentile summary."
+    },
+    {
+      "name": "Node Card",
+      "kind": "display",
+      "register": "operations",
+      "refersTo": "node-card",
+      "description": "Resource card with status, meta grid, capacity bars (CPU/mem/disk/pods), action footer."
+    },
+    {
+      "name": "Pod Row",
+      "kind": "display",
+      "register": "operations",
+      "refersTo": "pod-row",
+      "description": "Horizontal workload-unit row: status, name, ready, restarts, resources, IP, node, age, menu."
+    },
+    {
+      "name": "Alert Rule Row",
+      "kind": "display",
+      "register": "operations",
+      "refersTo": "alert-rule-row",
+      "description": "Alert definition row with state pulse, severity badge, query, labels, and actions."
+    },
+    {
+      "name": "Log Line",
+      "kind": "display",
+      "register": "operations",
+      "refersTo": "log-line",
+      "description": "Structured log entry: timestamp, severity badge, source, message, key-value fields."
+    },
+    {
+      "name": "Trace Waterfall",
+      "kind": "display",
+      "register": "operations",
+      "refersTo": "trace-waterfall",
+      "description": "Gantt-style trace span visualization with indented spans, color-encoded kinds, error markers."
+    },
+    {
+      "name": "Query Builder",
+      "kind": "control",
+      "register": "operations",
+      "refersTo": "query-builder",
+      "description": "Query composer with mode toggle, tokenized editor, facet pills, and execution status."
     }
   ],
   "narrative": {
+    "scope": "platform-wide",
+    "consumers": [
+      "platform-website (marketing / brand surfaces)",
+      "web-ui (cloud console, dashboards)",
+      "observability (multi-cluster, telemetry, alerting)",
+      "operations tooling (admin, infra control planes)",
+      "email templates",
+      "mobile web"
+    ],
+    "registers": ["brand", "product", "operations"],
     "northStar": "The Machine Room",
     "overview": "Two operating systems, one machine. Light mode is a 1984 Macintosh 128K: bitmap fonts, 1px borders, stark contrast, amber highlights on warm white. Dark mode is a 1988 NeXTcube: 3D beveled edges, CRT scanlines, phosphor afterglow, muted teal on deep black. The site is not decorated to look retro. It IS retro, running natively in the browser.\n\nThe system is defiant, precise, and nostalgic. Every element earns its place. No rounded corners, no gradient text, no glassmorphism, no SaaS hero-metric template, no identical card grids. The layout principle is flat: text flows without container boxes, spacing varies for rhythm, and section backgrounds alternate between two surface levels.",
     "keyCharacteristics": [

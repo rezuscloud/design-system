@@ -1,0 +1,179 @@
+<!--
+  Log Line — RezusCloud Design System
+  Structured log/event entry with timestamp, severity, message, and fields.
+  Mac: paper alternating surface, 1px rule separators
+  NeXT: next-black alternating next-dark, bevel separators
+-->
+<div class="ds-log-line" role="row" aria-label="Error log entry, 14:23:08.412, api-server, 500 status">
+	<div class="ds-log-line-meta">
+		<time class="ds-log-line-time" datetime="2026-01-12T14:23:08.412Z">14:23:08.412</time>
+		<span class="ds-log-line-severity" data-severity="error" aria-label="severity: error">
+			<span class="ds-log-line-severity-letter">E</span>
+		</span>
+		<span class="ds-log-line-source">api-server</span>
+	</div>
+
+	<div class="ds-log-line-message">
+		<span class="ds-log-line-text">request failed: upstream timeout connecting to db-write after 5000ms</span>
+	</div>
+
+	<div class="ds-log-line-fields" role="group" aria-label="Structured fields">
+		<span class="ds-log-line-field">
+			<span class="ds-log-line-field-key">trace_id</span>
+			<span class="ds-log-line-field-val">4f7a2e8b</span>
+		</span>
+		<span class="ds-log-line-field">
+			<span class="ds-log-line-field-key">method</span>
+			<span class="ds-log-line-field-val">POST</span>
+		</span>
+		<span class="ds-log-line-field">
+			<span class="ds-log-line-field-key">path</span>
+			<span class="ds-log-line-field-val">/v1/orders</span>
+		</span>
+		<span class="ds-log-line-field">
+			<span class="ds-log-line-field-key">status</span>
+			<span class="ds-log-line-field-val ds-log-line-field-val--negative">500</span>
+		</span>
+		<span class="ds-log-line-field">
+			<span class="ds-log-line-field-key">latency_ms</span>
+			<span class="ds-log-line-field-val">5014</span>
+		</span>
+		<span class="ds-log-line-field">
+			<span class="ds-log-line-field-key">pod</span>
+			<span class="ds-log-line-field-val">api-7d6f-84f</span>
+		</span>
+		<span class="ds-log-line-field">
+			<span class="ds-log-line-field-key">namespace</span>
+			<span class="ds-log-line-field-val">apps</span>
+		</span>
+	</div>
+</div>
+
+<style>
+.ds-log-line {
+	display: grid;
+	grid-template-columns: 14rem minmax(20rem, 1fr) minmax(18rem, auto);
+	gap: 0.625rem;
+	align-items: baseline;
+	padding: 0.375rem 0.75rem;
+	background: var(--color-paper);
+	border-bottom: 1px solid var(--color-rule);
+	font-family: "VT323", "Courier New", monospace;
+	font-size: 0.875rem;
+	color: var(--color-ink);
+	overflow-x: auto;
+}
+.ds-log-line:nth-child(even) { background: var(--color-surface); }
+.ds-log-line:hover {
+	background: var(--color-surface-strong);
+}
+.dark .ds-log-line {
+	background: var(--color-next-black);
+	border-bottom: 1px solid var(--color-next-bevel-hi);
+	color: var(--color-next-white);
+}
+.dark .ds-log-line:nth-child(even) { background: var(--color-next-dark); }
+.dark .ds-log-line:hover { background: var(--color-next-mid); }
+
+.ds-log-line-meta {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+.ds-log-line-time {
+	font-family: "VT323", monospace;
+	font-size: 0.875rem;
+	color: var(--color-ink-muted);
+	white-space: nowrap;
+}
+.dark .ds-log-line-time { color: var(--color-next-subtle); }
+.ds-log-line-severity {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1rem;
+	height: 1rem;
+	border: 1px solid var(--color-ink);
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	font-weight: 700;
+	flex-shrink: 0;
+}
+.ds-log-line-severity[data-severity="debug"]   { background: var(--color-rule); color: var(--color-ink); }
+.ds-log-line-severity[data-severity="info"]    { background: var(--color-info); color: var(--color-paper); }
+.ds-log-line-severity[data-severity="warn"]    { background: var(--color-warning); color: var(--color-ink); }
+.ds-log-line-severity[data-severity="error"]   { background: var(--color-negative); color: var(--color-paper); }
+.ds-log-line-severity[data-severity="fatal"]   { background: var(--color-ink); color: var(--color-negative); }
+.dark .ds-log-line-severity { border-color: transparent; }
+.dark .ds-log-line-severity[data-severity="debug"]   { background: var(--color-next-mid); color: var(--color-next-subtle); }
+.dark .ds-log-line-severity[data-severity="info"]    { background: var(--color-info-next); color: var(--color-next-black); }
+.dark .ds-log-line-severity[data-severity="warn"]    { background: var(--color-warning-next); color: var(--color-next-black); }
+.dark .ds-log-line-severity[data-severity="error"]   { background: var(--color-negative-next); color: var(--color-next-black); }
+.dark .ds-log-line-severity[data-severity="fatal"]   { background: var(--color-next-white); color: var(--color-negative-next); }
+
+.ds-log-line-source {
+	font-family: "VT323", monospace;
+	font-size: 0.875rem;
+	color: var(--color-accent-gold-dark);
+}
+.dark .ds-log-line-source { color: var(--color-next-teal); }
+
+.ds-log-line-text {
+	font-family: "VT323", monospace;
+	font-size: 0.875rem;
+	color: var(--color-ink);
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+.dark .ds-log-line-text { color: var(--color-next-white); }
+.ds-log-line[data-severity="error"] .ds-log-line-text { color: var(--color-negative); }
+.ds-log-line[data-severity="warn"] .ds-log-line-text { color: var(--color-warning); }
+.dark .ds-log-line[data-severity="error"] .ds-log-line-text { color: var(--color-negative-next); }
+.dark .ds-log-line[data-severity="warn"] .ds-log-line-text { color: var(--color-warning-next); }
+
+.ds-log-line-fields {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem 0.625rem;
+}
+.ds-log-line-field {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.25rem;
+}
+.ds-log-line-field-key {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-log-line-field-key { color: var(--color-next-subtle); }
+.ds-log-line-field-val {
+	font-family: "VT323", monospace;
+	font-size: 0.875rem;
+	color: var(--color-ink);
+}
+.dark .ds-log-line-field-val { color: var(--color-next-white); }
+.ds-log-line-field-val--positive { color: var(--color-positive); }
+.ds-log-line-field-val--warning { color: var(--color-warning); }
+.ds-log-line-field-val--negative { color: var(--color-negative); }
+.dark .ds-log-line-field-val--positive { color: var(--color-positive-next); }
+.dark .ds-log-line-field-val--warning { color: var(--color-warning-next); }
+.dark .ds-log-line-field-val--negative { color: var(--color-negative-next); }
+
+@media (max-width: 64rem) {
+	.ds-log-line {
+		grid-template-columns: 1fr;
+	}
+	.ds-log-line-fields {
+		padding-left: 0.5rem;
+		border-left: 1px solid var(--color-rule);
+	}
+	.dark .ds-log-line-fields { border-left: 1px solid var(--color-next-bevel-hi); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ds-log-line-text { transition: none !important; }
+}
+</style>

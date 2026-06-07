@@ -1,6 +1,7 @@
 ---
-name: RezusCloud Platform Website
-description: Dual-era retro computing visual system. Mac System 1 (1984) for light mode, NeXTSTEP (1988) with teal accent for dark mode.
+name: RezusCloud Design System
+description: Dual-era retro computing visual system for the entire Rezus Cloud personal cloud platform — marketing, console, dashboards, observability, and operations surfaces. Mac System 1 (1984) for light mode, NeXTSTEP (1988) with teal accent for dark mode.
+scope: platform-wide (websites, web apps, console, dashboards, observability, operations)
 colors:
   # Mac mode: warm-tinted neutrals + amber gold accent
   paper: "oklch(99.5% 0.004 85)"
@@ -103,6 +104,8 @@ components:
 # Design System: RezusCloud
 
 ## 1. Overview
+
+**Scope:** This is the canonical design system for the entire Rezus Cloud personal cloud platform. It is not a marketing-site skin or a single-product UI kit. It is consumed by every Rezus surface — the platform website (marketing), the cloud console (product UI), multi-cluster and observability dashboards, operations tooling, mobile web, and email templates. Components are organised into three registers: **brand** (marketing, landing pages, editorial), **product** (console, forms, dashboards), and **operations** (observability, telemetry, infrastructure monitoring, alert management). Choose the register that matches the page; do not mix visual vocabularies across registers unless one is a deliberate accent inside the other (see Layout Patterns).
 
 **Creative North Star: "The Machine Room"**
 
@@ -376,6 +379,62 @@ Floating context menu triggered by click. Paper bg with 1px border in Mac mode; 
 ### Command Palette
 
 ⌘K / Ctrl+K keyboard launcher for quick actions. VT323 search input, Silkscreen result labels, grouped results with category headers. Footer shows keyboard shortcuts. Paper bg with 1px border (Mac); next-dark bg with 2px raised bevel (NeXT). Max-width 32rem. Scrollable results body. Backdrop overlay.
+
+### Operations register — observability, infrastructure, alerting
+
+The operations register extends the product register with components for telemetry, monitoring, and infrastructure control planes. They reuse the existing token system, semantic colors, and dual-era posture (1px borders in Mac, 2px bevels in NeXT, Silkscreen for labels, VT323 for numerics). Use these when the page is showing live system state rather than configured data.
+
+### Cluster Selector
+
+Multi-resource dropdown trigger with per-cluster health indicator. Paper/next-dark button surface; expanded listbox shows option rows with status dot, name, meta line, and selected checkmark. Footer links to add/manage. Reuses scope-status colors (positive, warning, negative, neutral) and 2px raised bevel in NeXT mode. Hover and focus states follow the dropdown conventions. `aria-haspopup="listbox"` + `role="option"` per item.
+
+### Scope Filter
+
+Multi-select pill bar for filtering by namespace, label, project, region, or any taxonomy axis. Pill = VT323 text in a bordered box; selected pill inverts (ink fill, paper text in Mac; teal fill, black text in NeXT). Includes a label prefix, a count overflow button, and a dashed-border "add" affordance. `aria-pressed` per pill, `role="group"` on container. Wraps responsively.
+
+### Time Range Picker
+
+Preset-based time picker (5m / 15m / 1h / 6h / 24h / 7d / 30d) + custom range trigger + refresh interval indicator. Single segmented control with button group borders in Mac, raised-bevel container in NeXT. Active preset inverts (ink/gold in Mac; teal/black in NeXT). Refresh button shows the poll interval in Silkscreen.
+
+### KPI Tile
+
+Compact stat tile for dashboard panels. Label + period in header, large VT323 value with unit, inline SVG sparkline (accent-gold/teal), delta indicator (▲ positive / ▼ negative / ▬ flat — direction is semantic: green is good, red is bad, regardless of up/down), meta caption. 1px rule border in Mac, raised bevel in NeXT.
+
+### Time-Series Chart
+
+SVG line chart for metric panels. Grid lines (1px dashed rule), axis ticks (VT323 labels), two series (primary line + secondary error area), crosshair on hover, floating tooltip with timestamp + per-series values. Reuses semantic colors for series differentiation. Paper background in Mac, next-black canvas in NeXT.
+
+### Gauge Chart
+
+Half-circle utilization dial for single-rate readings (CPU, memory, disk, etc.). Track + value arc, tick marks, needle, pivot, big VT323 readout, range caption. Footer shows threshold bands (ok / warn / crit) with semantic color dots. Reuses positive/warning/negative tokens.
+
+### Bar Chart
+
+Vertical bar histogram for distributions (latency buckets, request sizes, top-N counts). Stacked bar segments for primary + error series. Y-axis VT323 labels, X-axis bucket labels, hover highlight, active outline. Header shows legend + percentile summary (p50/p95/p99). Used for any frequency/quantity distribution.
+
+### Node Card
+
+Compact resource card for a single host, instance, or workload unit. Header with status square + name + region. Meta grid (role, version, uptime, age). Capacity bars (CPU, memory, disk, pod count) with semantic colors per threshold. Footer with pod count + action buttons (drain/cordon/inspect). Border + bevel per era; status square uses semantic colors.
+
+### Pod Row
+
+Horizontal row describing a workload unit (pod, container, service). Columns: status dot, name + kind, ready, restarts, CPU, memory, IP, node, age, overflow menu. Hides secondary columns at narrow widths via container query. Selected state uses left accent bar.
+
+### Alert Rule Row
+
+Alert definition row with state indicator (firing / pending / resolved / silenced), severity badge (critical/warning/info), name, query expression in code box, metadata (fired/eval/for/owner), label pills, and action buttons (silence/ack/inspect). Firing state has a pulsing ring (disabled under prefers-reduced-motion). Severity stripe on the left edge.
+
+### Log Line
+
+Structured log/event entry. Columns: timestamp + severity badge + source / message text / structured fields (key-value pairs). Severity badge uses Silkscreen letter (D/I/W/E/F) on semantic-color square. Message color shifts with severity (negative for errors, warning for warns). Fields wrap responsively and collapse to a single-column stacked layout at narrow widths.
+
+### Trace Waterfall
+
+Gantt-style trace span visualization. Header with trace metadata + summary (duration, spans, errors, service). Time ruler with VT323 tick labels. Ordered list of spans; each row has indented name + service tag, and a track bar positioned by `--start` / `--width` custom properties. Bar color encodes span kind (root, server, client, db, error). Error rows carry an explicit `!` marker and negative bar fill.
+
+### Query Builder
+
+Compose metrics or logs queries. Mode toggle (promql / logql / builder) + run/save/share actions. Editor area shows the tokenized query: each token is colored by kind (function, metric, label, string, number, operator, punctuation). Facet rows below: source, function, filters (as removable pills), group-by, range. Status footer shows execution time and result count.
 
 ## 6. Spacing Scale
 

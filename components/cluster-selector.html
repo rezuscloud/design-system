@@ -1,0 +1,281 @@
+<!--
+  Cluster Selector — RezusCloud Design System
+  Multi-cluster dropdown trigger with per-cluster health indicator.
+  Mac: 1px ink border, paper surface
+  NeXT: 2px raised bevel, next-dark surface
+-->
+<div class="ds-cluster-selector">
+	<button class="ds-cluster-trigger" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Select cluster">
+		<span class="ds-cluster-trigger-dot" data-state="positive" aria-hidden="true"></span>
+		<span class="ds-cluster-trigger-label">
+			<span class="ds-cluster-trigger-name">prod-eu-west</span>
+			<span class="ds-cluster-trigger-meta">3 of 3 nodes ready</span>
+		</span>
+		<span class="ds-cluster-trigger-caret" aria-hidden="true">▾</span>
+	</button>
+
+	<div class="ds-cluster-menu" role="listbox" aria-label="Available clusters">
+		<div class="ds-cluster-menu-header">
+			<span class="ds-cluster-menu-title">Clusters</span>
+			<span class="ds-cluster-menu-count">4 total</span>
+		</div>
+
+		<button class="ds-cluster-option is-selected" role="option" aria-selected="true" type="button">
+			<span class="ds-cluster-option-dot" data-state="positive" aria-hidden="true"></span>
+			<span class="ds-cluster-option-body">
+				<span class="ds-cluster-option-name">prod-eu-west</span>
+				<span class="ds-cluster-option-meta">3 nodes · eu-west-1</span>
+			</span>
+			<span class="ds-cluster-option-check" aria-hidden="true">✓</span>
+		</button>
+
+		<button class="ds-cluster-option" role="option" aria-selected="false" type="button">
+			<span class="ds-cluster-option-dot" data-state="positive" aria-hidden="true"></span>
+			<span class="ds-cluster-option-body">
+				<span class="ds-cluster-option-name">prod-us-east</span>
+				<span class="ds-cluster-option-meta">5 nodes · us-east-1</span>
+			</span>
+		</button>
+
+		<button class="ds-cluster-option" role="option" aria-selected="false" type="button">
+			<span class="ds-cluster-option-dot" data-state="warning" aria-hidden="true"></span>
+			<span class="ds-cluster-option-body">
+				<span class="ds-cluster-option-name">staging-eu-central</span>
+				<span class="ds-cluster-option-meta">2 nodes · 1 degraded</span>
+			</span>
+		</button>
+
+		<button class="ds-cluster-option" role="option" aria-selected="false" type="button">
+			<span class="ds-cluster-option-dot" data-state="negative" aria-hidden="true"></span>
+			<span class="ds-cluster-option-body">
+				<span class="ds-cluster-option-name">dev-local</span>
+				<span class="ds-cluster-option-meta">unreachable · 12m ago</span>
+			</span>
+		</button>
+
+		<div class="ds-cluster-menu-footer">
+			<button class="ds-cluster-menu-link" type="button">+ Add cluster</button>
+		</div>
+	</div>
+</div>
+
+<style>
+.ds-cluster-selector {
+	position: relative;
+	display: inline-block;
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.ds-cluster-trigger {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.625rem;
+	padding: 0.5rem 0.75rem;
+	min-width: 16rem;
+	background: var(--color-paper);
+	border: 1px solid var(--color-ink);
+	border-radius: 0;
+	color: var(--color-ink);
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+	transition: background 120ms ease;
+}
+.ds-cluster-trigger:hover { background: var(--color-surface); }
+.ds-cluster-trigger:focus-visible {
+	outline: 2px solid var(--color-accent-gold);
+	outline-offset: 2px;
+}
+.dark .ds-cluster-trigger {
+	background: var(--color-next-dark);
+	border: 2px solid;
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+	color: var(--color-next-white);
+}
+.dark .ds-cluster-trigger:hover { background: var(--color-next-mid); }
+.dark .ds-cluster-trigger:focus-visible {
+	outline: 2px solid var(--color-next-teal);
+	outline-offset: 2px;
+}
+.ds-cluster-trigger-dot {
+	width: 0.625rem;
+	height: 0.625rem;
+	flex-shrink: 0;
+	border: 1px solid var(--color-ink-muted);
+}
+.ds-cluster-trigger-dot[data-state="positive"] { background: var(--color-positive); }
+.ds-cluster-trigger-dot[data-state="warning"] { background: var(--color-warning); }
+.ds-cluster-trigger-dot[data-state="negative"] { background: var(--color-negative); }
+.ds-cluster-trigger-dot[data-state="neutral"] { background: var(--color-rule); }
+.dark .ds-cluster-trigger-dot { border-color: var(--color-next-bevel-lo); }
+.dark .ds-cluster-trigger-dot[data-state="positive"] { background: var(--color-positive-next); }
+.dark .ds-cluster-trigger-dot[data-state="warning"] { background: var(--color-warning-next); }
+.dark .ds-cluster-trigger-dot[data-state="negative"] { background: var(--color-negative-next); }
+.ds-cluster-trigger-label {
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+	flex: 1;
+	min-width: 0;
+}
+.ds-cluster-trigger-name {
+	font-family: "VT323", monospace;
+	font-size: 1rem;
+	line-height: 1;
+	color: var(--color-ink);
+}
+.dark .ds-cluster-trigger-name { color: var(--color-next-white); }
+.ds-cluster-trigger-meta {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-cluster-trigger-meta { color: var(--color-next-subtle); }
+.ds-cluster-trigger-caret {
+	font-family: monospace;
+	font-size: 0.625rem;
+	color: var(--color-ink-muted);
+}
+.dark .ds-cluster-trigger-caret { color: var(--color-next-subtle); }
+
+.ds-cluster-menu {
+	position: absolute;
+	top: calc(100% + 4px);
+	left: 0;
+	min-width: 20rem;
+	background: var(--color-paper);
+	border: 1px solid var(--color-ink);
+	box-shadow: 2px 2px 0 var(--color-ink);
+	z-index: 10;
+}
+.dark .ds-cluster-menu {
+	background: var(--color-next-dark);
+	border: 2px solid;
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+	box-shadow: 4px 4px 0 oklch(from var(--color-next-black) l c h / 0.5);
+}
+.ds-cluster-menu-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	padding: 0.5rem 0.75rem;
+	border-bottom: 1px solid var(--color-rule);
+}
+.dark .ds-cluster-menu-header {
+	border-bottom: 2px solid var(--color-next-bevel-hi);
+}
+.ds-cluster-menu-title {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.625rem;
+	font-weight: 700;
+	color: var(--color-ink);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+.dark .ds-cluster-menu-title { color: var(--color-next-teal); }
+.ds-cluster-menu-count {
+	font-family: "VT323", monospace;
+	font-size: 0.875rem;
+	color: var(--color-ink-muted);
+}
+.dark .ds-cluster-menu-count { color: var(--color-next-subtle); }
+
+.ds-cluster-option {
+	display: flex;
+	align-items: center;
+	gap: 0.625rem;
+	width: 100%;
+	padding: 0.5rem 0.75rem;
+	background: transparent;
+	border: 0;
+	border-bottom: 1px solid var(--color-rule);
+	color: var(--color-ink);
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+	transition: background 100ms ease;
+}
+.ds-cluster-option:last-of-type { border-bottom: 0; }
+.ds-cluster-option:hover { background: var(--color-surface); }
+.ds-cluster-option:focus-visible {
+	outline: 2px solid var(--color-accent-gold);
+	outline-offset: -2px;
+}
+.dark .ds-cluster-option {
+	border-bottom: 1px solid var(--color-next-bevel-hi);
+	color: var(--color-next-white);
+}
+.dark .ds-cluster-option:hover { background: var(--color-next-mid); }
+.dark .ds-cluster-option:focus-visible {
+	outline: 2px solid var(--color-next-teal);
+	outline-offset: -2px;
+}
+.ds-cluster-option.is-selected { background: var(--color-surface); }
+.dark .ds-cluster-option.is-selected { background: var(--color-next-mid); }
+.ds-cluster-option-dot {
+	width: 0.5rem;
+	height: 0.5rem;
+	flex-shrink: 0;
+	border: 1px solid var(--color-ink-muted);
+}
+.ds-cluster-option-dot[data-state="positive"] { background: var(--color-positive); }
+.ds-cluster-option-dot[data-state="warning"] { background: var(--color-warning); }
+.ds-cluster-option-dot[data-state="negative"] { background: var(--color-negative); }
+.ds-cluster-option-dot[data-state="neutral"] { background: var(--color-rule); }
+.dark .ds-cluster-option-dot { border-color: var(--color-next-bevel-lo); }
+.dark .ds-cluster-option-dot[data-state="positive"] { background: var(--color-positive-next); }
+.dark .ds-cluster-option-dot[data-state="warning"] { background: var(--color-warning-next); }
+.dark .ds-cluster-option-dot[data-state="negative"] { background: var(--color-negative-next); }
+.ds-cluster-option-body {
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+	flex: 1;
+	min-width: 0;
+}
+.ds-cluster-option-name {
+	font-family: "VT323", monospace;
+	font-size: 0.9375rem;
+	line-height: 1;
+}
+.ds-cluster-option-meta {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-cluster-option-meta { color: var(--color-next-subtle); }
+.ds-cluster-option-check {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.75rem;
+	color: var(--color-accent-gold-dark);
+}
+.dark .ds-cluster-option-check { color: var(--color-next-teal); }
+
+.ds-cluster-menu-footer {
+	padding: 0.5rem 0.75rem;
+	border-top: 1px solid var(--color-rule);
+}
+.dark .ds-cluster-menu-footer { border-top: 2px solid var(--color-next-bevel-hi); }
+.ds-cluster-menu-link {
+	background: transparent;
+	border: 0;
+	padding: 0;
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.625rem;
+	color: var(--color-accent-gold-dark);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	cursor: pointer;
+}
+.ds-cluster-menu-link:hover { text-decoration: underline; }
+.dark .ds-cluster-menu-link { color: var(--color-next-teal); }
+
+@media (prefers-reduced-motion: reduce) {
+	.ds-cluster-trigger, .ds-cluster-option {
+		transition: none !important;
+	}
+}
+</style>

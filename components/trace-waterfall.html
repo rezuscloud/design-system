@@ -1,0 +1,337 @@
+<!--
+  Trace Waterfall — RezusCloud Design System
+  Gantt-style trace span visualization. Each row is a span with duration bar.
+  Mac: 1px rule separators, accent-gold-dark bars
+  NeXT: bevel separators, next-teal bars
+-->
+<div class="ds-trace" role="img" aria-label="Trace waterfall for request GET /v1/orders, total duration 1.42 seconds">
+	<header class="ds-trace-header">
+		<div class="ds-trace-id">
+			<h4 class="ds-trace-title">GET /v1/orders</h4>
+			<span class="ds-trace-traceid">trace · 4f7a2e8b</span>
+		</div>
+		<div class="ds-trace-summary">
+			<span class="ds-trace-summary-item"><span class="ds-trace-summary-k">duration</span><span class="ds-trace-summary-v">1.42s</span></span>
+			<span class="ds-trace-summary-item"><span class="ds-trace-summary-k">spans</span><span class="ds-trace-summary-v">7</span></span>
+			<span class="ds-trace-summary-item"><span class="ds-trace-summary-k">errors</span><span class="ds-trace-summary-v ds-trace-summary-v--negative">1</span></span>
+			<span class="ds-trace-summary-item"><span class="ds-trace-summary-k">service</span><span class="ds-trace-summary-v">api</span></span>
+		</div>
+	</header>
+
+	<div class="ds-trace-ruler" aria-hidden="true">
+		<div class="ds-trace-ruler-label">0ms</div>
+		<div class="ds-trace-ruler-ticks">
+			<span style="left: 0%;">0</span>
+			<span style="left: 25%;">355ms</span>
+			<span style="left: 50%;">710ms</span>
+			<span style="left: 75%;">1065ms</span>
+			<span style="left: 100%;">1.42s</span>
+		</div>
+	</div>
+
+	<ol class="ds-trace-spans" role="list">
+		<li class="ds-trace-span" role="listitem">
+			<div class="ds-trace-span-meta">
+				<span class="ds-trace-span-name">GET /v1/orders</span>
+				<span class="ds-trace-span-service">api</span>
+			</div>
+			<div class="ds-trace-span-track">
+				<span class="ds-trace-span-bar"
+					style="--start: 0%; --width: 100%;"
+					data-kind="root">1.42s</span>
+			</div>
+		</li>
+		<li class="ds-trace-span ds-trace-span--indent-1" role="listitem">
+			<div class="ds-trace-span-meta">
+				<span class="ds-trace-span-name">auth.verify</span>
+				<span class="ds-trace-span-service">auth</span>
+			</div>
+			<div class="ds-trace-span-track">
+				<span class="ds-trace-span-bar"
+					style="--start: 1%; --width: 8%;"
+					data-kind="client">112ms</span>
+			</div>
+		</li>
+		<li class="ds-trace-span ds-trace-span--indent-1" role="listitem">
+			<div class="ds-trace-span-meta">
+				<span class="ds-trace-span-name">db.query orders</span>
+				<span class="ds-trace-span-service">postgres</span>
+			</div>
+			<div class="ds-trace-span-track">
+				<span class="ds-trace-span-bar"
+					style="--start: 10%; --width: 22%;"
+					data-kind="db">312ms</span>
+			</div>
+		</li>
+		<li class="ds-trace-span ds-trace-span--indent-2" role="listitem">
+			<div class="ds-trace-span-meta">
+				<span class="ds-trace-span-name">db.query items</span>
+				<span class="ds-trace-span-service">postgres</span>
+			</div>
+			<div class="ds-trace-span-track">
+				<span class="ds-trace-span-bar"
+					style="--start: 34%; --width: 18%;"
+					data-kind="db">256ms</span>
+			</div>
+		</li>
+		<li class="ds-trace-span ds-trace-span--indent-1" role="listitem">
+			<div class="ds-trace-span-meta">
+				<span class="ds-trace-span-name">payment.authorize</span>
+				<span class="ds-trace-span-service">payments</span>
+			</div>
+			<div class="ds-trace-span-track">
+				<span class="ds-trace-span-bar"
+					style="--start: 54%; --width: 28%;"
+					data-kind="client">397ms</span>
+			</div>
+		</li>
+		<li class="ds-trace-span ds-trace-span--indent-2 is-error" role="listitem" aria-label="span failed">
+			<div class="ds-trace-span-meta">
+				<span class="ds-trace-span-name">stripe.charge</span>
+				<span class="ds-trace-span-service">stripe</span>
+				<span class="ds-trace-span-err" aria-label="error">!</span>
+			</div>
+			<div class="ds-trace-span-track">
+				<span class="ds-trace-span-bar"
+					style="--start: 56%; --width: 24%;"
+					data-kind="error">340ms</span>
+			</div>
+		</li>
+		<li class="ds-trace-span ds-trace-span--indent-1" role="listitem">
+			<div class="ds-trace-span-meta">
+				<span class="ds-trace-span-name">response.render</span>
+				<span class="ds-trace-span-service">api</span>
+			</div>
+			<div class="ds-trace-span-track">
+				<span class="ds-trace-span-bar"
+					style="--start: 84%; --width: 14%;"
+					data-kind="server">198ms</span>
+			</div>
+		</li>
+	</ol>
+</div>
+
+<style>
+.ds-trace {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 0.75rem 1rem 1rem;
+	background: var(--color-paper);
+	border: 1px solid var(--color-rule);
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.dark .ds-trace {
+	background: var(--color-next-black);
+	border: 2px solid;
+	border-color: var(--color-next-bevel-hi) var(--color-next-bevel-lo) var(--color-next-bevel-lo) var(--color-next-bevel-hi);
+}
+
+.ds-trace-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+.ds-trace-id {
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+}
+.ds-trace-title {
+	margin: 0;
+	font-family: "VT323", monospace;
+	font-size: 1.0625rem;
+	color: var(--color-ink);
+	line-height: 1;
+	font-weight: 400;
+}
+.dark .ds-trace-title { color: var(--color-next-white); }
+.ds-trace-traceid {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5625rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-trace-traceid { color: var(--color-next-subtle); }
+
+.ds-trace-summary {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+.ds-trace-summary-item {
+	display: inline-flex;
+	flex-direction: column;
+	gap: 0.0625rem;
+}
+.ds-trace-summary-k {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+.dark .ds-trace-summary-k { color: var(--color-next-subtle); }
+.ds-trace-summary-v {
+	font-family: "VT323", monospace;
+	font-size: 0.9375rem;
+	color: var(--color-ink);
+}
+.dark .ds-trace-summary-v { color: var(--color-next-white); }
+.ds-trace-summary-v--negative { color: var(--color-negative); }
+.dark .ds-trace-summary-v--negative { color: var(--color-negative-next); }
+
+.ds-trace-ruler {
+	display: grid;
+	grid-template-columns: 14rem 1fr;
+	gap: 0.625rem;
+	align-items: center;
+	padding: 0 0 0.25rem;
+	border-bottom: 1px dashed var(--color-rule);
+}
+.dark .ds-trace-ruler { border-bottom: 1px dashed var(--color-next-bevel-hi); }
+.ds-trace-ruler-label {
+	font-family: "VT323", monospace;
+	font-size: 0.75rem;
+	color: var(--color-ink-muted);
+}
+.dark .ds-trace-ruler-label { color: var(--color-next-subtle); }
+.ds-trace-ruler-ticks {
+	position: relative;
+	height: 1rem;
+}
+.ds-trace-ruler-ticks span {
+	position: absolute;
+	top: 0;
+	transform: translateX(-50%);
+	font-family: "VT323", monospace;
+	font-size: 0.625rem;
+	color: var(--color-ink-muted);
+}
+.dark .ds-trace-ruler-ticks span { color: var(--color-next-subtle); }
+
+.ds-trace-spans {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.ds-trace-span {
+	display: grid;
+	grid-template-columns: 14rem 1fr;
+	gap: 0.625rem;
+	align-items: center;
+	padding: 0.375rem 0;
+	border-bottom: 1px solid var(--color-rule);
+}
+.dark .ds-trace-span { border-bottom: 1px solid var(--color-next-bevel-hi); }
+.ds-trace-span:last-child { border-bottom: 0; }
+.ds-trace-span--indent-1 .ds-trace-span-meta { padding-left: 1rem; }
+.ds-trace-span--indent-2 .ds-trace-span-meta { padding-left: 2rem; }
+
+.ds-trace-span-meta {
+	display: flex;
+	align-items: baseline;
+	gap: 0.5rem;
+	min-width: 0;
+}
+.ds-trace-span-name {
+	font-family: "VT323", monospace;
+	font-size: 0.875rem;
+	color: var(--color-ink);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.dark .ds-trace-span-name { color: var(--color-next-white); }
+.ds-trace-span-service {
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.5rem;
+	color: var(--color-ink-muted);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	padding: 0.0625rem 0.3125rem;
+	border: 1px solid var(--color-rule);
+}
+.dark .ds-trace-span-service {
+	color: var(--color-next-subtle);
+	border: 1px solid var(--color-next-bevel-hi);
+}
+.ds-trace-span-err {
+	margin-left: auto;
+	font-family: "Silkscreen", system-ui, sans-serif;
+	font-size: 0.625rem;
+	font-weight: 700;
+	color: var(--color-paper);
+	background: var(--color-negative);
+	padding: 0.0625rem 0.3125rem;
+}
+.dark .ds-trace-span-err {
+	color: var(--color-next-black);
+	background: var(--color-negative-next);
+}
+
+.ds-trace-span-track {
+	position: relative;
+	height: 1.25rem;
+	background: var(--color-surface);
+	border: 1px solid var(--color-rule);
+}
+.dark .ds-trace-span-track {
+	background: var(--color-next-dark);
+	border: 1px solid var(--color-next-bevel-hi);
+}
+.ds-trace-span-bar {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: var(--start, 0%);
+	width: var(--width, 0%);
+	display: flex;
+	align-items: center;
+	padding: 0 0.375rem;
+	font-family: "VT323", monospace;
+	font-size: 0.75rem;
+	color: var(--color-paper);
+	white-space: nowrap;
+	overflow: hidden;
+}
+.ds-trace-span-bar[data-kind="root"] {
+	background: var(--color-ink);
+	color: var(--color-paper);
+}
+.ds-trace-span-bar[data-kind="server"] { background: var(--color-accent-gold-dark); }
+.ds-trace-span-bar[data-kind="client"] { background: var(--color-info); }
+.ds-trace-span-bar[data-kind="db"] { background: var(--color-positive); }
+.ds-trace-span-bar[data-kind="error"] { background: var(--color-negative); }
+.dark .ds-trace-span-bar[data-kind="root"] {
+	background: var(--color-next-white);
+	color: var(--color-next-black);
+}
+.dark .ds-trace-span-bar[data-kind="server"] { background: var(--color-next-teal); color: var(--color-next-black); }
+.dark .ds-trace-span-bar[data-kind="client"] { background: var(--color-info-next); color: var(--color-next-black); }
+.dark .ds-trace-span-bar[data-kind="db"] { background: var(--color-positive-next); color: var(--color-next-black); }
+.dark .ds-trace-span-bar[data-kind="error"] { background: var(--color-negative-next); color: var(--color-next-black); }
+
+.ds-trace-span:hover .ds-trace-span-track {
+	outline: 1px solid var(--color-ink);
+	outline-offset: -1px;
+}
+.dark .ds-trace-span:hover .ds-trace-span-track { outline-color: var(--color-next-teal); }
+
+@media (max-width: 48rem) {
+	.ds-trace-span, .ds-trace-ruler {
+		grid-template-columns: 10rem 1fr;
+	}
+	.ds-trace-span--indent-1 .ds-trace-span-meta { padding-left: 0.5rem; }
+	.ds-trace-span--indent-2 .ds-trace-span-meta { padding-left: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ds-trace-span-bar { transition: none !important; }
+}
+</style>
